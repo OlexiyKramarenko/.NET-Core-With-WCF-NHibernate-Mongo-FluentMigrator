@@ -1,0 +1,170 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>@ViewData["Title"] - MShop.Presentation.MPA.Admin</title>
+	@*<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />*@
+	<link rel="stylesheet" href="~/css/site.css" />
+	<link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+	<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+	<script>
+		$(function () {
+			$(".datepicker").datepicker({
+				dateFormat: 'dd.mm.yy'
+			});
+		});
+	</script>
+
+	<style>
+		table {
+			border-collapse: collapse;
+		}
+
+		nav {
+			border: 1px solid black;
+			border-left: none;
+			border-right: none;
+			margin: 0 -8px 0 -8px;
+		}
+
+		#nav-ul {
+			width: 435px;
+			margin: 0 auto;
+			padding: 10px;
+		}
+
+		.nav-li {
+			display: inline;
+			list-style-type: none;
+			font-size: 14px;
+			font-weight: 600;
+			padding: 10px;
+			margin: 0 auto;
+		}
+
+			.nav-li:hover {
+				background-color: lightgrey;
+				border: 1px solid black;
+				cursor: pointer;
+			}
+
+		@@media(max-width:400px) {
+			nav {
+				border: none;
+			}
+
+			#nav-ul {
+				width: 200px;
+			}
+
+			.nav-li {
+				display: block;
+				text-align: center;
+			}
+		}
+	</style>
+	<style>
+		form {
+			width: 80%;
+			margin: 50px auto;
+		}
+
+		#content {
+			margin: 40px 50px auto 230px;
+		}
+	</style>
+
+	<style>
+		.form-group {
+			margin-bottom: 15px;
+		}
+
+		* {
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+		}
+
+		label {
+			display: inline-block;
+			max-width: 100%;
+			margin-bottom: 5px;
+			font-weight: bold;
+		}
+
+		.form-control {
+			display: block;
+			width: 100%;
+			height: 34px;
+			padding: 6px 12px;
+			font-size: 14px;
+			line-height: 1.42857143;
+			color: #555;
+			background-color: #fff;
+			background-image: none;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+			box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+			-webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+			-o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+			transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+		}
+	</style>
+	<style>
+		.empty-list {
+			display:block;
+			border: 1px solid;
+			padding: 8px;
+			border-radius: 5px;
+			margin-top: 30px;
+			text-align: center;
+		}
+	</style>
+	<style>
+		.list {
+			width: 600px;
+			margin: 30px auto;
+			margin-bottom: 20px;
+			border-collapse: collapse;
+		}
+
+			.list tr td {
+				padding: 10px;
+				vertical-align: top;
+				border: 1px solid black;
+			}
+	</style>
+</head>
+<body>
+	<script>
+		function changePageSize(pageName, pageSize) {
+			location.href = pageName + '?pageIndex=1&pageSize=' + pageSize;
+		}
+		function makeSelectOptionActiveAfterRedirect(pageSize) {
+			document.getElementById("pageSize").value = pageSize;
+		}
+	</script>
+	<nav>
+		<ul id="nav-ul">
+			<li class="nav-li">Articles</li>
+			<li class="nav-li">Forum</li>
+			<li class="nav-li">Store</li>
+			<li class="nav-li">Articles</li>
+			<li class="nav-li">Forum</li>
+			<li class="nav-li">Store</li>
+		</ul>
+	</nav>
+
+
+	@Html.Partial("_AdminSection")
+
+	<div id="content" class="container body-content">
+		@RenderBody()
+	</div>
+
+	@RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,28 @@
+﻿@using MShop.Presentation.MPA.Admin.Controllers;
+@using MShop.Presentation.MPA.Admin.Infrastructure.Extensions;
+@model MShop.Presentation.MPA.Admin.Models.Store.AddShippingMethodViewModel
+
+<div class="row">
+	<div class="col-md-4">
+		<form asp-action="@nameof(ManageStoreController.AddShippingMethod)"
+			  asp-controller="@nameof(ManageStoreController).ShortName()">
+			<div asp-validation-summary="ModelOnly" class="text-danger"></div>		
+			<div class="form-group">
+				<label asp-for="AddedBy" class="control-label">AddedBy</label>
+				<input type="text" asp-for="AddedBy" class="form-control" />
+			</div>
+			<div class="form-group">
+				<label asp-for="Title" class="control-label">Title</label>
+				<input type="text" asp-for="Title" class="form-control" />
+			</div>
+			<div class="form-group">
+				<label asp-for="Price" class="control-label">Price</label>
+				<input type="text" asp-for="Price" class="form-control" />
+			</div>
+			<div class="form-group">
+				<input type="submit" value="Create" class="btn btn-default" />
+			</div>
+		</form>
+	</div>
+</div>
+

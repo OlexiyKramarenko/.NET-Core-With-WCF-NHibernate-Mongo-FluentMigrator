@@ -1,0 +1,90 @@
+﻿@model MShop.Presentation.MPA.Public.Models.Articles.ArticleBoxViewModel
+
+<div class="articlebox">
+
+    <table style="width: 100%;">
+        <tr>
+            <td>
+                <label asp-for="Title"></label>
+
+                Approved: <label asp-for="Approved"></label>
+            </td>
+
+            <td style="text-align: right;">
+                
+                @*<asp:ImageButton
+                    runat="server"
+                    ID="btnApprove"
+                    CausesValidation="false"
+                    AlternateText="Approve article"
+                    ImageUrl="~/Images/Checkmark.gif"
+                    OnClientClick="if (confirm('Are you sure you want to approve this article?') == false) return false;"
+                    OnClick="btnApprove_Click" />*@
+
+                <button>Approve this article</button>
+                
+                @*~/Admin/AddEditArticle.aspx?ID={0}*@
+
+                <a href="@Model.ArticleId">Edit aricle</a>
+
+                @*&nbsp;
+                    <asp:ImageButton
+                        runat="server"
+                        ID="btnDelete"
+                        CausesValidation="false"
+                        AlternateText="Delete article"
+                        ImageUrl="~/Images/Delete.gif"
+                        OnClientClick="if (confirm('Are you sure you want to delete this article?') == false) return false;"
+                        OnClick="btnDelete_Click" />*@
+
+                <a href="@Model.ArticleId">Delete aricle</a>
+
+            </td>
+        </tr>
+    </table>
+
+
+    <b>Rating: </b>
+
+    @*<asp:Literal runat="server"
+        ID="lblRating"
+        Text="{0} user(s) have rated this article " />*@
+
+    @Model.UserCount user(s) have rated this article
+
+    Average rating: @Model.AverageRating
+
+    <br />
+
+    <b>Posted by: </b>
+
+    @Model.AddedBy,
+
+    on
+    @Model.ReleaseDate,
+
+    in category "
+    @Model.Category"
+
+    <br />
+
+    <b>Views: </b>
+
+    this article has been read @Model.Views times
+
+    <br /><b>Location: </b>@Model.Location
+
+    <br />
+
+    <div class="articleabstract">
+        <b>Abstract: </b>
+
+        @Model.Abstract
+
+    </div>
+
+    Текст сообщения:
+
+    @Model.Body
+</div>
+

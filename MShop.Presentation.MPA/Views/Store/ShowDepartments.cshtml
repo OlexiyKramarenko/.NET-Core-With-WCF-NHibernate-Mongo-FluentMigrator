@@ -1,0 +1,34 @@
+﻿@using MShop.Presentation.MPA.Public.Infrastructure.Extensions;
+@using MShop.Presentation.MPA.Public.Controllers;
+@model IEnumerable<MShop.Presentation.MPA.Public.Models.Store.DepartmentItemViewModel>
+
+<div>Store departments</div>
+
+Click on the title of the department for which you want to browse the products:
+
+
+@if (Model.Any())
+{
+	<table>
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td>@item.Title</td>
+				<td>
+					<a asp-controller="@nameof(StoreController).ShortName()"
+					   asp-action="@nameof(StoreController.BrowseProducts)"
+					   asp-route-departmentId="@item.Id">
+						Browse products
+					</a>
+				</td>
+				<td>
+					@item.Description
+				</td>
+			</tr>
+		}
+	</table>
+}
+else
+{
+	<b>No products to show</b>
+}

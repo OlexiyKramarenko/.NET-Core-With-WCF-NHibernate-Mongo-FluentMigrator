@@ -1,0 +1,35 @@
+﻿@model MShop.ViewComponents.Models.PagerViewModel
+
+<style>
+	.pager {
+		width: 100px;
+		margin: 30px auto;
+	}
+
+	.pager-link {
+		border: 1px solid;
+		padding: 3px 6px 3px 6px;
+		border-radius: 10px;
+	}
+
+	.pager-link-active {
+		color: red;
+	}
+</style>
+
+<div class="pager">
+	@for (int i = 1; i <= Model.PageCount; i++)
+	{
+		string active = string.Empty;
+		if (Model.PageIndex == i)
+		{
+			active = "pager-link-active";
+		}
+		
+		<a class="pager-link @active"
+		   asp-controller="@Model.Controller"
+		   asp-action="@Model.Action"
+		   asp-route-pageIndex="@i"
+		   asp-route-pageSize="@Model.PageSize">@i</a>
+	}
+</div>

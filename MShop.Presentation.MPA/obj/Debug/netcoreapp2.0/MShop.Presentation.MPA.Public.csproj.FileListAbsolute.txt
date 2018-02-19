@@ -1,0 +1,17 @@
+F:\MShop\MShop.Presentation.MPA\obj\Debug\netcoreapp2.0\MShop.Presentation.MPA.Public.csprojResolveAssemblyReference.cache
+F:\MShop\MShop.Presentation.MPA\obj\Debug\netcoreapp2.0\MShop.Presentation.MPA.Public.csproj.CoreCompileInputs.cache
+F:\MShop\MShop.Presentation.MPA\obj\Debug\netcoreapp2.0\MShop.Presentation.MPA.Public.AssemblyInfoInputs.cache
+F:\MShop\MShop.Presentation.MPA\obj\Debug\netcoreapp2.0\MShop.Presentation.MPA.Public.AssemblyInfo.cs
+F:\MShop\MShop.Presentation.MPA\bin\Debug\netcoreapp2.0\MShop.Presentation.MPA.Public.deps.json
+F:\MShop\MShop.Presentation.MPA\bin\Debug\netcoreapp2.0\MShop.Presentation.MPA.Public.runtimeconfig.json
+F:\MShop\MShop.Presentation.MPA\bin\Debug\netcoreapp2.0\MShop.Presentation.MPA.Public.runtimeconfig.dev.json
+F:\MShop\MShop.Presentation.MPA\bin\Debug\netcoreapp2.0\MShop.Presentation.MPA.Public.dll
+F:\MShop\MShop.Presentation.MPA\bin\Debug\netcoreapp2.0\MShop.Presentation.MPA.Public.pdb
+F:\MShop\MShop.Presentation.MPA\bin\Debug\netcoreapp2.0\MShop.DataLayer.dll
+F:\MShop\MShop.Presentation.MPA\bin\Debug\netcoreapp2.0\MShop.DataLayer.EF.dll
+F:\MShop\MShop.Presentation.MPA\bin\Debug\netcoreapp2.0\MShop.ViewComponents.dll
+F:\MShop\MShop.Presentation.MPA\bin\Debug\netcoreapp2.0\MShop.DataLayer.EF.pdb
+F:\MShop\MShop.Presentation.MPA\bin\Debug\netcoreapp2.0\MShop.DataLayer.pdb
+F:\MShop\MShop.Presentation.MPA\bin\Debug\netcoreapp2.0\MShop.ViewComponents.pdb
+F:\MShop\MShop.Presentation.MPA\obj\Debug\netcoreapp2.0\MShop.Presentation.MPA.Public.dll
+F:\MShop\MShop.Presentation.MPA\obj\Debug\netcoreapp2.0\MShop.Presentation.MPA.Public.pdb

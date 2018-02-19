@@ -1,0 +1,35 @@
+﻿@using MShop.Presentation.MPA.Admin.Controllers;
+@using MShop.Presentation.MPA.Admin.Infrastructure.Extensions;
+@model IEnumerable<MShop.Presentation.MPA.Admin.Models.Store.OrderStatusItemViewModel>
+
+
+@if (Model.Any())
+{
+	<table class="list">
+		<tr>
+			<td>Title</td>
+			<td></td>
+			<td></td>
+		</tr>
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td>@item.Title</td>
+				<td>
+					<a asp-controller="@nameof(ManageStoreController).ShortName()"
+					   asp-action="@nameof(ManageStoreController.EditOrderStatus)"
+					   asp-route-id="@item.Id">Edit</a>
+				</td>
+				<td>
+					<a asp-controller="@nameof(ManageStoreController).ShortName()"
+					   asp-action="@nameof(ManageStoreController.DeleteOrderStatus)"
+					   asp-route-id="@item.Id">Delete</a>
+				</td>
+			</tr>
+		}
+	</table>
+}
+else
+{
+	<span class="empty-list">No order statuses to show</span>
+}

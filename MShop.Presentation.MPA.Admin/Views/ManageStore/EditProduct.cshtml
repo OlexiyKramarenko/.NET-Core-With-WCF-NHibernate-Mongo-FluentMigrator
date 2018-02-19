@@ -1,0 +1,51 @@
+﻿@using MShop.Presentation.MPA.Admin.Controllers;
+@using MShop.Presentation.MPA.Admin.Infrastructure.Extensions;
+@model MShop.Presentation.MPA.Admin.Models.Store.EditProductViewModel
+
+<form asp-action="@nameof(ManageStoreController.EditProduct)" 
+	  asp-controller="@nameof(ManageStoreController).ShortName()">
+	<div asp-validation-summary="All" class="text-danger"></div>
+	<div class="form-group">
+		<input type="hidden" asp-for="Id" />
+	</div>
+	<div class="form-group">
+		<label asp-for="DepartmentId" class="control-label">DepartmentId</label>
+		<input type="text" asp-for="DepartmentId" class="form-control" />
+	</div>
+	<div class="form-group">
+		<label asp-for="Title" class="control-label">Title</label>
+		<input type="text" asp-for="Title" class="form-control" />
+	</div>
+	<div class="form-group">
+		<label asp-for="Description" class="control-label">Description</label>
+		<input type="text" asp-for="Description" class="form-control" />
+	</div>
+	<div class="form-group">
+		<label asp-for="SKU" class="control-label">SKU</label>
+		<input type="text" asp-for="SKU" class="form-control" />
+	</div>
+	<div class="form-group">
+		<label asp-for="UnitPrice" class="control-label">UnitPrice</label>
+		<input type="text" asp-for="UnitPrice" class="form-control" />
+	</div>
+	<div class="form-group">
+		<label asp-for="DiscountPercentage" class="control-label">DiscountPercentage</label>
+		<input type="text" asp-for="DiscountPercentage" class="form-control" />
+	</div>
+	<div class="form-group">
+		<label asp-for="UnitsInStock" class="control-label">UnitsInStock</label>
+		<input type="text" asp-for="UnitsInStock" class="form-control" />
+	</div>
+	<div class="form-group">
+		<label asp-for="SmallImageUrl" class="control-label">SmallImageUrl</label>
+		<input type="text" asp-for="SmallImageUrl" class="form-control" />
+	</div>
+	<div class="form-group">
+		<label asp-for="FullImageUrl" class="control-label">FullImageUrl</label>
+		<input type="text" asp-for="FullImageUrl" class="form-control" />
+	</div>
+	<div class="form-group">
+		<input type="submit" value="Update" class="btn btn-default" />
+	</div>
+</form>
+

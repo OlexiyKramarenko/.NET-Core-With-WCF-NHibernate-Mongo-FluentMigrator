@@ -1,0 +1,49 @@
+﻿@model MShop.Presentation.MPA.Public.Models.Store.OrderViewModel
+
+<div>Order Summary</div>
+
+Please carefully review the order information below. If you want to change something click the link below to
+go back to the previous pages and make the corrections. If everything is ok go ahead and submit your order.
+
+<b>Order Details</b>
+
+@foreach (var item in Model.OrderItems)
+{
+	<img src="Images/ArrowR3.gif" border="0" alt="" />
+	@Html.Raw(item.Title + "-" + item.UnitPrice + "  <small>(Quantity = " + item.Quantity + ")</small>")
+	<br />
+}
+
+
+Subtotal = @Model.Subtotal
+@*ShippingMethod = @Model.ShippingMethod*@
+<u>Total</u> = @Model.Total
+
+<b>Shipping Details</b>
+
+<table>
+	<tr>
+		<td>FirstName</td>
+		<td>@Model.FirstName</td>
+	</tr>
+	<tr>
+		<td>LastName</td>
+		<td>@Model.LastName</td>
+	</tr>
+	<tr>
+		<td>Street</td>
+		<td>@Model.Street</td>
+	</tr>
+	<tr>
+		<td>City</td>
+		<td>@Model.City</td>
+	</tr>
+	<tr>
+		<td>PostalCode</td>
+		<td>@Model.PostalCode</td>
+	</tr>
+	<tr>
+		<td>Country</td>
+		<td>@Model.Country</td>
+	</tr>
+</table>

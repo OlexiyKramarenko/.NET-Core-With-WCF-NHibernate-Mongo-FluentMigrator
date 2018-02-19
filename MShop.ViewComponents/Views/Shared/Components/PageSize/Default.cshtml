@@ -1,0 +1,20 @@
+﻿@model MShop.ViewComponents.Models.PageSizeViewModel
+
+@Model.TextAbove
+
+<select id="@Model.SelectTagId"
+		onchange="changePageSize('@Model.Action', this.value)">	
+	<option value="5">5</option>
+	<option value="15">15</option>
+	<option value="25">25</option>
+	<option value="50">50</option>
+</select>
+
+<script>
+	function changePageSize(pageName, pageSize) {
+		location.href = pageName + '?pageIndex=1&pageSize=' + pageSize;
+	}
+	var restoreOptionValueAfterRedirect = (function () {
+		document.getElementById('@Model.SelectTagId').value = @Model.PageSize;
+	})()
+</script>

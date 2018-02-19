@@ -1,0 +1,21 @@
+﻿@model List<MShop.Presentation.MPA.Public.Models.Store.ShippingMethodItemViewModel>
+
+<table>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @item.Title
+            </td>
+            <td>
+                @item.Price
+            </td>
+            <td>
+                @item.ShippingMethodId
+            </td>
+            <td>
+                @item.ShippingMethodId
+            </td>
+        </tr>
+    }
+</table>

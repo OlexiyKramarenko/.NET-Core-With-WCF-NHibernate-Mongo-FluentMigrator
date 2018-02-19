@@ -1,0 +1,68 @@
+﻿@using MShop.ViewComponents.Helpers;
+@model IEnumerable<MShop.ViewComponents.Models.ProductItemViewModel>
+
+Products per page:
+<select >
+	<option>5</option>
+	<option>10</option>
+	<option>25</option>
+	<option>50</option>
+	<option>100</option>
+</select>
+
+<br />
+<style>
+	.listing-link {
+		text-decoration: none;
+	} 
+	.edit_delete_links {
+		position: absolute;
+		top: 5px;
+		right: 5px;
+	}
+	.listing-item {
+		padding: 0px 10px 10px 10px;
+		border: 1px solid black;
+		margin: 10px 0 0 0;
+		position: relative;
+	}
+	.listing-item:hover {
+		border: 2px solid black;
+	}
+</style>
+@if (Model.Any())
+{
+	@foreach (var item in Model)
+	{
+		<div class="listing-item">
+			@if (ViewBag.IsAdmin)
+			{
+				<div class="edit_delete_links">
+					<a asp-controller="ManageStore"
+					   asp-action="EditProduct"
+					   asp-route-id="@item.Id">edit</a>&nbsp;&nbsp;
+
+					<a asp-controller="ManageStore"
+					   asp-action="DeleteProduct"
+					   asp-route-id="@item.Id">delete</a>
+				</div>
+			}
+			<a asp-controller="Store"
+			   asp-action="ShowProduct"
+			   asp-route-id="@item.Id"
+			   class="listing-link">
+				<h3>@item.Title</h3>
+			</a>
+			<b>AverageRating:</b>@item.AverageRating<br />
+			<b>Votes:</b> @item.Votes<br />
+			<b>UnitsInStock:</b>@item.UnitsInStock<br />
+			<b>DiscountPercentage:</b>@item.DiscountPercentage<br />
+			<b>UnitPrice:</b>@item.UnitPrice<br />
+			<b>FinalUnitPrice:</b>@item.FinalUnitPrice<br />
+		</div>
+	}
+}
+else
+{
+	<span class="empty-list">No products to show</span>
+}

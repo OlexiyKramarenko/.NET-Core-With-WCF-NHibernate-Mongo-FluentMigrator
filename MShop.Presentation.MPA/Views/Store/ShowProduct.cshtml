@@ -1,0 +1,21 @@
+﻿@model MShop.Presentation.MPA.Public.Models.Store.ShowProductViewModel
+@using MShop.ViewComponents.Components.Store;
+
+@Model.Title
+
+<b>Price: </b>
+@Model.Price
+
+<b>Availability: </b>
+
+@(await Component.InvokeAsync<AvailabilityDisplayViewComponent>())
+
+<br />
+
+<b>Rating: </b>
+
+@Model.UserCount user(s) have rated this product
+@Model.Description
+
+<button>Add to Shopping Cart</button>
+

@@ -1,0 +1,70 @@
+﻿@using MShop.Presentation.MPA.Admin.Controllers;
+@using MShop.Presentation.MPA.Admin.Infrastructure.Extensions;
+@model IEnumerable<MShop.Presentation.MPA.Admin.Models.Polls.PollItemViewModel>
+@*<style>
+		#article_categories {
+			width: 600px;
+			margin: 30px auto;
+			border-collapse: collapse;
+			margin-bottom: 20px;
+		}
+
+			#article_categories table {
+				margin-bottom: 20px;
+			}
+
+			#article_categories tr td {
+				padding: 10px;
+				vertical-align: top;
+				border: 1px solid black;
+			}
+	</style>
+
+	<div id="article_categories">*@
+
+@if (Model.Any())
+{
+	<table class="list">
+		<tr>
+			<td>Question Text</td>
+			<td>Votes</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td>@item.QuestionText</td>
+				<td>@item.Votes</td>
+				<td>
+					@if (item.IsCurrent)
+					{
+						<span>Is current</span>
+					}
+				</td>
+				<td>
+					<a asp-controller="@nameof(ManagePollsController).ShortName()"
+					   asp-action="@nameof(ManagePollsController.ManageOptions)"
+					   asp-route-id="@item.Id">Edit Options</a>
+				</td>
+				<td>
+					<a asp-controller="@nameof(ManagePollsController).ShortName()"
+					   asp-action="@nameof(ManagePollsController.EditPoll)"
+					   asp-route-id="@item.Id">Edit Poll</a>
+				</td>
+				<td>
+					<a asp-controller="@nameof(ManagePollsController).ShortName()"
+					   asp-action="@nameof(ManagePollsController.DeletePoll)"
+					   asp-route-id="@item.Id">Delete</a>
+				</td>
+			</tr>
+		}
+	</table>
+}
+else
+{
+	<span class="empty-list">No polls to show</span>
+}
+

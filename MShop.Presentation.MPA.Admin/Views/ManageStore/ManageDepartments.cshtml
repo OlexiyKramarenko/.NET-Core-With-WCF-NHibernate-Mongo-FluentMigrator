@@ -1,0 +1,32 @@
+﻿@using MShop.Presentation.MPA.Admin.Controllers;
+@using MShop.Presentation.MPA.Admin.Infrastructure.Extensions;
+@model IEnumerable<MShop.Presentation.MPA.Admin.Models.Store.DepartmentItemViewModel>
+
+
+@if (Model.Any())
+{
+	<table class="list">
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td>@item.ImageUrl</td>
+				<td>@item.Title @item.Description</td>
+				<td>
+					<a asp-controller="@nameof(ManageStoreController).ShortName()"
+					   asp-action="@nameof(ManageStoreController.EditDepartment)"
+					   asp-route-id="@item.Id">Edit</a>
+				</td>
+				<td>
+					<a asp-controller="@nameof(ManageStoreController).ShortName()"
+					   asp-action="@nameof(ManageStoreController.DeleteDepartment)"
+					   asp-route-id="@item.Id">Delete</a>
+				</td>
+			</tr>
+		}
+	</table>
+}
+else
+{
+	<span class="empty-list">No departmants to show</span>
+}
+

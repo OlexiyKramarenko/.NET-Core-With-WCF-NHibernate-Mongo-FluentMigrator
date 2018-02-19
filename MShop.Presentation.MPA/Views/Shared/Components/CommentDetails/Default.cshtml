@@ -1,0 +1,25 @@
+﻿@model MShop.Presentation.MPA.Public.Models.Articles.CommentDetailsViewModel
+
+Post your comment:
+<form asp-action="LeaveComment" asp-controller="Articles">
+	<div asp-validation-summary="All" class="text-danger"></div>
+	<div class="form-group">
+		<label asp-for="AddedBy" class="control-label">AddedBy</label>
+		<input type="text" asp-for="AddedBy" class="form-control" />
+	</div>
+	<div class="form-group">
+		<label asp-for="AddedByEmail" class="control-label">AddedByEmail</label>
+		<input type="text" asp-for="AddedByEmail" class="form-control" />
+	</div>
+	<div class="form-group">
+		<label asp-for="Body" class="control-label">Body</label>
+		<input type="number" asp-for="Body" class="form-control" />
+	</div>
+	<div class="form-group">
+		<label asp-for="Body" class="control-label">Body</label>
+		<input type="text" asp-for="Body" class="form-control" />
+	</div>
+	<div class="form-group">
+		<input type="submit" value="Create" class="btn btn-default" />
+	</div>
+</form>

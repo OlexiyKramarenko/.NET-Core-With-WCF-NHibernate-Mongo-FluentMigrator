@@ -1,0 +1,7 @@
+﻿@using MShop.ViewComponents.Components;
+
+<div>Article List</div>
+
+
+
+@(await Component.InvokeAsync<ArticleListingViewComponent>(new { publishedOnly = true }))

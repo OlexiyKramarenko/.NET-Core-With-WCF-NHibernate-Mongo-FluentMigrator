@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title></title>
+</head>
+<body>
+	<script src="Scripts/jquery-3.3.1.js"></script>
+	<script type="text/javascript">
+		$("#search").live("click", function () {
+			$.ajax({
+				type: "POST",
+				contentType: "application/json; charset=utf-8",
+				url: 'Service1.svc/GetCustomers',
+				data: '{"prefix": "' + $("#prefix").val() + '"}',
+				processData: false,
+				dataType: "json",
+				success: function (response) {
+					var customers = eval(response.d);
+					var html = "";
+					$.each(customers, function () {
+						html += "<span>Name: " + this.Name + " Id: " + this.Id + "</span><br />";
+					});
+					$("#results").html(html == "" ? "No results" : html);
+				},
+				error: function (a, b, c) {
+					alert(a.responseText);
+				}
+			});
+		});
+	</script>
+	
+		<form id="form1" >
+			<input type="text" id="prefix" />
+			<input id="search" type="button" value="Search" />
+			<div id="results"></div>
+		</form>
+	</body>
+</html>

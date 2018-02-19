@@ -1,0 +1,126 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Views\Home\Components\**" />
+    <Content Remove="Views\Home\Components\**" />
+    <EmbeddedResource Remove="Views\Home\Components\**" />
+    <None Remove="Views\Home\Components\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Components\ProductsViewComponent.cs" />
+    <Compile Remove="Components\ShippingDetailsViewComponent.cs" />
+    <Compile Remove="Components\ShippingMethodsViewComponent.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Views\Articles\_ArticleBox.cshtml" />
+    <Content Remove="Views\Articles\_CommentDetails.cshtml" />
+    <Content Remove="Views\Articles\_Comments.cshtml" />
+    <Content Remove="Views\Articles\_RateArticle.cshtml" />
+    <Content Remove="Views\Shared\Components\NewFolder\Products\Default.cshtml" />
+    <Content Remove="Views\Shared\Components\NewFolder\ShippingDetails\Default.cshtml" />
+    <Content Remove="Views\Shared\Components\NewFolder\ShippingMethods\Default.cshtml" />
+    <Content Remove="Views\Store\_Products.cshtml" />
+    <Content Remove="Views\Store\_ShippingDetails.cshtml" />
+    <Content Remove="Views\Store\_ShippingMethods.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="6.2.2" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="3.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.0.1" />
+    <PackageReference Include="Microsoft.NETCore.Portable.Compatibility" Version="1.0.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Views\Shared\Components\NewFolder\Products\Default.cshtml" />
+    <None Include="Views\Shared\Components\NewFolder\ShippingDetails\Default.cshtml" />
+    <None Include="Views\Shared\Components\NewFolder\ShippingMethods\Default.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MShop.DataLayer.EF\MShop.DataLayer.EF.csproj" />
+    <ProjectReference Include="..\MShop.DataLayer\MShop.DataLayer.csproj" />
+    <ProjectReference Include="..\MShop.ViewComponents\MShop.ViewComponents.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Views\Articles\BrowseArticles.cshtml">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Articles\ShowArticle.cshtml">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Articles\ShowCategories.cshtml">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Forums\BrowseThreads.cshtml">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Forums\ShowForums.cshtml">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Forums\ShowThread.cshtml">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Home\About.cshtml">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Home\Contact.cshtml">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Newsletters\ArchivedNewsletters.cshtml">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Newsletters\ShowNewsletter.cshtml">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Polls\ArchivedPolls.cshtml">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Shared\Error.cshtml">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Shared\_Layout.cshtml">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Store\BrowseProducts.cshtml">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Store\OrderHistory.cshtml">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Store\ShoppingCart.cshtml">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Store\ShowDepartments.cshtml">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Store\ShowProduct.cshtml">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\_ViewImports.cshtml">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\_ViewStart.cshtml">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Models\Users\" />
+  </ItemGroup>
+
+</Project>

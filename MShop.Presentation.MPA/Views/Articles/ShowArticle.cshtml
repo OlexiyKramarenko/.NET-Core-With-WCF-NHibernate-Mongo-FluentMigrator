@@ -1,0 +1,8 @@
+﻿
+ @*@(await Component.InvokeAsync<ArticleBoxViewComponent>(new { articleId = 1}))
+
+@await Component.InvokeAsync("RateArticle")
+
+@await Component.InvokeAsync("Comments")
+
+@await Component.InvokeAsync("CommentDetails")*@ 

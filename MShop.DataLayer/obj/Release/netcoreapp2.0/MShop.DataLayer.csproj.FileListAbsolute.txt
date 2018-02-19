@@ -1,0 +1,9 @@
+F:\MShop\MShop.DataLayer\bin\Release\netcoreapp2.0\MShop.DataLayer.deps.json
+F:\MShop\MShop.DataLayer\bin\Release\netcoreapp2.0\MShop.DataLayer.dll
+F:\MShop\MShop.DataLayer\bin\Release\netcoreapp2.0\MShop.DataLayer.pdb
+F:\MShop\MShop.DataLayer\obj\Release\netcoreapp2.0\MShop.DataLayer.csprojResolveAssemblyReference.cache
+F:\MShop\MShop.DataLayer\obj\Release\netcoreapp2.0\MShop.DataLayer.csproj.CoreCompileInputs.cache
+F:\MShop\MShop.DataLayer\obj\Release\netcoreapp2.0\MShop.DataLayer.AssemblyInfoInputs.cache
+F:\MShop\MShop.DataLayer\obj\Release\netcoreapp2.0\MShop.DataLayer.AssemblyInfo.cs
+F:\MShop\MShop.DataLayer\obj\Release\netcoreapp2.0\MShop.DataLayer.dll
+F:\MShop\MShop.DataLayer\obj\Release\netcoreapp2.0\MShop.DataLayer.pdb

@@ -1,0 +1,206 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Models\Polls\PollDetailsViewModel.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Views\ManageArticles\_Categories.cshtml" />
+    <Content Remove="Views\ManageArticles\_CategoryDetails.cshtml" />
+    <Content Remove="Views\ManageArticles\_CommentDetails.cshtml" />
+    <Content Remove="Views\ManageArticles\_Comments.cshtml" />
+    <Content Remove="Views\ManageForum\_ForumDetails.cshtml" />
+    <Content Remove="Views\ManageForum\_Forums.cshtml" />
+    <Content Remove="Views\ManageForum\_PostDetails.cshtml" />
+    <Content Remove="Views\ManagePolls\_OptionDetails.cshtml" />
+    <Content Remove="Views\ManagePolls\_Options.cshtml" />
+    <Content Remove="Views\ManagePolls\_PollDetails.cshtml" />
+    <Content Remove="Views\ManagePolls\_Polls.cshtml" />
+    <Content Remove="Views\ManageStore\_Departments.cshtml" />
+    <Content Remove="Views\ManageStore\_Orders.cshtml" />
+    <Content Remove="Views\ManageStore\_OrderStatuses.cshtml" />
+    <Content Remove="wwwroot\images\folder.gif" />
+    <Content Remove="wwwroot\images\image.jpg" />
+    <Content Remove="wwwroot\images\text.gif" />
+    <Content Remove="wwwroot\images\textfolder.gif" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Views\ManageArticles\ManageArticles.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\ManageArticles\ManageCategories.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\ManageArticles\ManageComments.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\ManageArticles\_CategoryDetails.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\ManageArticles\_CommentDetails.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\ManageArticles\_Comments.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\ManageForum\ManageForums.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\ManageForum\ManageUnapprovedPosts.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\ManageForum\MoveThread.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\ManageForum\_ForumDetails.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\ManageForum\_Forums.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\ManageForum\_PostDetails.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\images\folder.gif" />
+    <None Include="wwwroot\images\image.jpg" />
+    <None Include="wwwroot\images\text.gif" />
+    <None Include="wwwroot\images\textfolder.gif" />
+    <None Include="wwwroot\js\tree.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker-1.6.4\css\bootstrap-datepicker.css.map" />
+    <None Include="wwwroot\lib\bootstrap-datepicker-1.6.4\css\bootstrap-datepicker.min.css.map" />
+    <None Include="wwwroot\lib\bootstrap-datepicker-1.6.4\css\bootstrap-datepicker.standalone.css.map" />
+    <None Include="wwwroot\lib\bootstrap-datepicker-1.6.4\css\bootstrap-datepicker.standalone.min.css.map" />
+    <None Include="wwwroot\lib\bootstrap-datepicker-1.6.4\css\bootstrap-datepicker3.css.map" />
+    <None Include="wwwroot\lib\bootstrap-datepicker-1.6.4\css\bootstrap-datepicker3.min.css.map" />
+    <None Include="wwwroot\lib\bootstrap-datepicker-1.6.4\css\bootstrap-datepicker3.standalone.css.map" />
+    <None Include="wwwroot\lib\bootstrap-datepicker-1.6.4\css\bootstrap-datepicker3.standalone.min.css.map" />
+    <None Include="wwwroot\lib\bootstrap-datepicker-1.6.4\js\bootstrap-datepicker.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker-1.6.4\js\bootstrap-datepicker.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker-1.6.4\locales\bootstrap-datepicker.ar.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker-1.6.4\locales\bootstrap-datepicker.az.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker-1.6.4\locales\bootstrap-datepicker.bg.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker-1.6.4\locales\bootstrap-datepicker.bs.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker-1.6.4\locales\bootstrap-datepicker.ca.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker-1.6.4\locales\bootstrap-datepicker.cs.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker-1.6.4\locales\bootstrap-datepicker.cy.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker-1.6.4\locales\bootstrap-datepicker.da.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker-1.6.4\locales\bootstrap-datepicker.de.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker-1.6.4\locales\bootstrap-datepicker.el.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker-1.6.4\locales\bootstrap-datepicker.en-AU.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker-1.6.4\locales\bootstrap-datepicker.en-GB.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker-1.6.4\locales\bootstrap-datepicker.eo.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker-1.6.4\locales\bootstrap-datepicker.es.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker-1.6.4\locales\bootstrap-datepicker.et.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker-1.6.4\locales\bootstrap-datepicker.eu.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker-1.6.4\locales\bootstrap-datepicker.fa.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker-1.6.4\locales\bootstrap-datepicker.fi.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker-1.6.4\locales\bootstrap-datepicker.fo.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker-1.6.4\locales\bootstrap-datepicker.fr-CH.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker-1.6.4\locales\bootstrap-datepicker.fr.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker-1.6.4\locales\bootstrap-datepicker.gl.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker-1.6.4\locales\bootstrap-datepicker.he.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker-1.6.4\locales\bootstrap-datepicker.hr.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker-1.6.4\locales\bootstrap-datepicker.hu.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker-1.6.4\locales\bootstrap-datepicker.hy.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker-1.6.4\locales\bootstrap-datepicker.id.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker-1.6.4\locales\bootstrap-datepicker.is.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker-1.6.4\locales\bootstrap-datepicker.it-CH.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker-1.6.4\locales\bootstrap-datepicker.it.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker-1.6.4\locales\bootstrap-datepicker.ja.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker-1.6.4\locales\bootstrap-datepicker.ka.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker-1.6.4\locales\bootstrap-datepicker.kh.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker-1.6.4\locales\bootstrap-datepicker.kk.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker-1.6.4\locales\bootstrap-datepicker.ko.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker-1.6.4\locales\bootstrap-datepicker.kr.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker-1.6.4\locales\bootstrap-datepicker.lt.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker-1.6.4\locales\bootstrap-datepicker.lv.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker-1.6.4\locales\bootstrap-datepicker.me.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker-1.6.4\locales\bootstrap-datepicker.mk.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker-1.6.4\locales\bootstrap-datepicker.mn.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker-1.6.4\locales\bootstrap-datepicker.ms.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker-1.6.4\locales\bootstrap-datepicker.nb.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker-1.6.4\locales\bootstrap-datepicker.nl-BE.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker-1.6.4\locales\bootstrap-datepicker.nl.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker-1.6.4\locales\bootstrap-datepicker.no.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker-1.6.4\locales\bootstrap-datepicker.pl.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker-1.6.4\locales\bootstrap-datepicker.pt-BR.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker-1.6.4\locales\bootstrap-datepicker.pt.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker-1.6.4\locales\bootstrap-datepicker.ro.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker-1.6.4\locales\bootstrap-datepicker.rs-latin.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker-1.6.4\locales\bootstrap-datepicker.rs.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker-1.6.4\locales\bootstrap-datepicker.ru.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker-1.6.4\locales\bootstrap-datepicker.sk.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker-1.6.4\locales\bootstrap-datepicker.sl.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker-1.6.4\locales\bootstrap-datepicker.sq.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker-1.6.4\locales\bootstrap-datepicker.sr-latin.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker-1.6.4\locales\bootstrap-datepicker.sr.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker-1.6.4\locales\bootstrap-datepicker.sv.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker-1.6.4\locales\bootstrap-datepicker.sw.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker-1.6.4\locales\bootstrap-datepicker.th.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker-1.6.4\locales\bootstrap-datepicker.tr.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker-1.6.4\locales\bootstrap-datepicker.uk.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker-1.6.4\locales\bootstrap-datepicker.vi.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker-1.6.4\locales\bootstrap-datepicker.zh-CN.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker-1.6.4\locales\bootstrap-datepicker.zh-TW.min.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="3.2.0" />
+    <PackageReference Include="jQuery.UI.Widgets.Datepicker" Version="1.8.9" />
+    <PackageReference Include="Microsoft.AspNetCore" Version="2.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="2.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.ViewFeatures" Version="2.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.0.1" />
+    <PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="2.0.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="2.0.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MShop.DataLayer.EF\MShop.DataLayer.EF.csproj" />
+    <ProjectReference Include="..\MShop.DataLayer\MShop.DataLayer.csproj" />
+    <ProjectReference Include="..\MShop.ViewComponents\MShop.ViewComponents.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Views\ManageNewsletters\SendNewsletter.cshtml">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\ManageNewsletters\SendingNewsletter.cshtml">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\ManagePolls\ManagePolls.cshtml">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Shared\Error.cshtml">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Shared\_Layout.cshtml">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\ManageStore\AddProduct.cshtml">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\ManageStore\OrderDetails.cshtml">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\ManageStore\ManageDepartments.cshtml">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\ManageStore\ManageOrders.cshtml">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\ManageStore\ManageOrderStatuses.cshtml">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\ManageStore\ManageProducts.cshtml">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\ManageStore\ManageShippingMethods.cshtml">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\ManageUsers\ManageUsers.cshtml">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\_ViewImports.cshtml">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\_ViewStart.cshtml">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+</Project>

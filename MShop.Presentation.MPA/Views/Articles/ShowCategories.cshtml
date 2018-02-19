@@ -1,0 +1,27 @@
+﻿@using MShop.Presentation.MPA.Public.Controllers;
+@using MShop.Presentation.MPA.Public.Infrastructure.Extensions;
+@model IEnumerable<MShop.Presentation.MPA.Public.Models.Articles.CategoryItemViewModel>
+Article categories
+
+Click on the title of the category for which you want to browse the articles:
+
+
+@if (Model.Any())
+{
+	<table>
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td>
+					<a asp-controller="@nameof(ArticlesController).ShortName()"
+					   asp-action="@nameof(ArticlesController.ShowCategories)"
+					   asp-route="@item.Id">@item.Title</a>
+				</td>
+			</tr>
+		}
+	</table>
+}
+else
+{
+	<b>No categories to show</b>
+}

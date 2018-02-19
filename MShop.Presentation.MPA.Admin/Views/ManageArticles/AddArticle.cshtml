@@ -1,0 +1,61 @@
+﻿@using MShop.Presentation.MPA.Admin.Controllers;
+@using MShop.Presentation.MPA.Admin.Infrastructure.Extensions;
+@model MShop.Presentation.MPA.Admin.Models.Articles.AddArticleViewModel
+
+
+<form asp-action="@nameof(ManageArticlesController.AddArticle)"
+	  asp-controller="@nameof(ManageArticlesController).ShortName()">
+	<div asp-validation-summary="All" class="text-danger"></div>
+	<div class="form-group">
+		<label asp-for="Category" class="control-label">Category</label>
+		<input type="text" asp-for="Category" class="form-control" />
+	</div>
+	<div class="form-group">
+		<label asp-for="Title" class="control-label">Title</label>
+		<input type="text" asp-for="Title" class="form-control" />
+	</div>
+	<div class="form-group">
+		<label asp-for="Abstract" class="control-label">Abstract</label>
+		<input type="number" asp-for="Abstract" class="form-control" />
+	</div>
+	<div class="form-group">
+		<label asp-for="Body" class="control-label">Body</label>
+		<input type="text" asp-for="Body" class="form-control" />
+	</div>
+	<div class="form-group">
+		<label asp-for="City" class="control-label">City</label>
+		<input type="number" asp-for="City" class="form-control" />
+	</div>
+	<div class="form-group">
+		<label asp-for="Country" class="control-label">Country</label>
+		<input type="text" asp-for="Country" class="form-control" />
+	</div>
+	
+	<div class="form-group">
+		<label asp-for="ReleaseDate" class="control-label">ReleaseDate</label>
+		<input type="text" asp-for="ReleaseDate" class = "datepicker form-control" />
+	</div>
+	<div class="form-group">
+		<label asp-for="ExpireDate" class="control-label">ExpireDate</label>
+		<input type="number" asp-for="ExpireDate" class="form-control" />
+	</div>
+	<div class="form-group">
+		<label asp-for="Approved" class="control-label">Approved</label>
+		@Html.CheckBoxFor(m => m.Approved, new { @class = "form-control" })
+	</div>
+	<div class="form-group">
+		<label asp-for="Listed" class="control-label">Listed</label>
+		@Html.CheckBoxFor(m => m.Listed, new { @class = "form-control" })
+	</div>
+	<div class="form-group">
+		<label asp-for="CommentsEnabled" class="control-label">CommentsEnabled</label>
+		@Html.CheckBoxFor(m => m.CommentsEnabled, new { @class = "form-control" })
+	</div>
+	<div class="form-group">
+		<label asp-for="OnlyForMembers" class="control-label">OnlyForMembers</label>
+		@Html.CheckBoxFor(m => m.OnlyForMembers, new { @class = "form-control" })
+	</div>
+	<div class="form-group">
+		<input type="submit" value="Create" class="btn btn-default" />
+	</div>
+</form> 

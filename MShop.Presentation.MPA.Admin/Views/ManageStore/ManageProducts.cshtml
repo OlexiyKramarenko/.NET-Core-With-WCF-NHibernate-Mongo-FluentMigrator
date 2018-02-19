@@ -1,0 +1,5 @@
+﻿@using MShop.ViewComponents.Components.Store;
+
+<div>Manage Products</div>
+
+@(await Component.InvokeAsync<ProductListingViewComponent>(new { pageIndex = 1, pageSize = 10 }))

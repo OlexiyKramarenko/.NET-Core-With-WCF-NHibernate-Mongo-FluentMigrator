@@ -1,0 +1,61 @@
+﻿@model MShop.Presentation.MPA.Auth.Models.RegisterViewModel
+
+Create your new account
+
+<form method="post" asp-controller="Account" asp-action="Register">
+	<div asp-validation-summary="ModelOnly"></div>
+	<div>
+		<label asp-for="Email"></label><br />
+		<input asp-for="Email" />
+		<span asp-validation-for="Email"></span>
+	</div>
+	<div>
+		<label asp-for="Year"></label><br />
+		<input asp-for="Year" />
+		<span asp-validation-for="Year"></span>
+	</div>
+	<div>
+		<label asp-for="Password"></label><br />
+		<input asp-for="Password" />
+		<span asp-validation-for="Password"></span>
+	</div>
+	<div>
+		<label asp-for="PasswordConfirm"></label><br />
+		<input asp-for="PasswordConfirm" />
+		<span asp-validation-for="PasswordConfirm"></span>
+	</div>
+	<div>
+		<input type="submit" value="Регистрация" />
+	</div>
+</form>
+
+@*<table>
+	<tr>
+		<td>Username:</td>
+		<td><input type="text" asp-for="UserName" /></td>
+	</tr>
+	<tr>
+		<td>Password:</td>
+		<td><input type="text" asp-for="Password" /></td>
+	</tr>
+	<tr>
+		<td>Confirm password:</td>
+		<td><input type="text" asp-for="ConfirmPassword" /></td>
+	</tr>
+	<tr>
+		<td>E-mail:</td>
+		<td><input type="text" asp-for="Email" /></td>
+	</tr>
+	<tr>
+		<td>Security question:</td>
+		<td><input type="text" asp-for="Question" /></td>
+	</tr>
+	<tr>
+		<td>Security answer:</td>
+		<td><input type="text" asp-for="Answer" /></td>
+	</tr>
+	<tr>
+		<td> </td>
+		<td><button>Создать пользователя</button></td>
+	</tr>
+</table>*@

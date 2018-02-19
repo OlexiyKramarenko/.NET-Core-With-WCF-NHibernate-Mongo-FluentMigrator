@@ -1,0 +1,19 @@
+﻿@using MShop.ViewComponents.Components;
+@using MShop.ViewComponents.Models;
+@using MShop.Presentation.MPA.Admin.Controllers;
+@model PagerViewModel
+<div class="sectiontitle">Manage Articles</div>
+
+
+@(await Component.InvokeAsync<PageSizeViewComponent>(new PageSizeViewModel
+	{
+		TextAbove = "Articles per page:",
+		Action = nameof(ManageArticlesController.ManageArticles),
+		PageSize = Model.PageSize
+	}))
+
+@(await Component.InvokeAsync<PagerViewComponent>(new { Pager = Model }))
+
+@(await Component.InvokeAsync<ArticleListingViewComponent>(new { pageIndex = Model.PageIndex, pageSize = Model.PageSize }))
+
+@(await Component.InvokeAsync<PagerViewComponent>(new { Pager = Model }))

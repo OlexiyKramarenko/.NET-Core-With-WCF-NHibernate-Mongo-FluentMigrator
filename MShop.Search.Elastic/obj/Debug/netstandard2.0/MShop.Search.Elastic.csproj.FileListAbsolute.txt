@@ -1,0 +1,11 @@
+F:\MShop\MShop.Search.Elastic\bin\Debug\netstandard2.0\MShop.Search.Elastic.deps.json
+F:\MShop\MShop.Search.Elastic\bin\Debug\netstandard2.0\MShop.Search.Elastic.dll
+F:\MShop\MShop.Search.Elastic\bin\Debug\netstandard2.0\MShop.Search.Elastic.pdb
+F:\MShop\MShop.Search.Elastic\bin\Debug\netstandard2.0\MShop.Search.dll
+F:\MShop\MShop.Search.Elastic\bin\Debug\netstandard2.0\MShop.Search.pdb
+F:\MShop\MShop.Search.Elastic\obj\Debug\netstandard2.0\MShop.Search.Elastic.csprojResolveAssemblyReference.cache
+F:\MShop\MShop.Search.Elastic\obj\Debug\netstandard2.0\MShop.Search.Elastic.csproj.CoreCompileInputs.cache
+F:\MShop\MShop.Search.Elastic\obj\Debug\netstandard2.0\MShop.Search.Elastic.AssemblyInfoInputs.cache
+F:\MShop\MShop.Search.Elastic\obj\Debug\netstandard2.0\MShop.Search.Elastic.AssemblyInfo.cs
+F:\MShop\MShop.Search.Elastic\obj\Debug\netstandard2.0\MShop.Search.Elastic.dll
+F:\MShop\MShop.Search.Elastic\obj\Debug\netstandard2.0\MShop.Search.Elastic.pdb

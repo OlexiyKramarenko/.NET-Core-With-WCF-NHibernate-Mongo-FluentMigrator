@@ -1,0 +1,18 @@
+F:\MShop\MShop.Presentation.MPA.Auth
+--output-path=obj\Any CPU\Release\netcoreapp2.0\
+--application-name=MShop.Presentation.MPA.Auth
+--content-root=F:\MShop\MShop.Presentation.MPA.Auth
+--file=F:\MShop\MShop.Presentation.MPA.Auth\Views\Home\About.cshtml
+--file=F:\MShop\MShop.Presentation.MPA.Auth\Views\Home\Contact.cshtml
+--file=F:\MShop\MShop.Presentation.MPA.Auth\Views\Home\Index.cshtml
+--file=F:\MShop\MShop.Presentation.MPA.Auth\Views\Shared\Error.cshtml
+--file=F:\MShop\MShop.Presentation.MPA.Auth\Views\Shared\_Layout.cshtml
+--file=F:\MShop\MShop.Presentation.MPA.Auth\Views\Shared\_ValidationScriptsPartial.cshtml
+--file=F:\MShop\MShop.Presentation.MPA.Auth\Views\Users\AccessDenied.cshtml
+--file=F:\MShop\MShop.Presentation.MPA.Auth\Views\Users\EditProfile.cshtml
+--file=F:\MShop\MShop.Presentation.MPA.Auth\Views\Users\ForgotPassword.cshtml
+--file=F:\MShop\MShop.Presentation.MPA.Auth\Views\Users\Login.cshtml
+--file=F:\MShop\MShop.Presentation.MPA.Auth\Views\Users\PasswordRecovery.cshtml
+--file=F:\MShop\MShop.Presentation.MPA.Auth\Views\Users\Register.cshtml
+--file=F:\MShop\MShop.Presentation.MPA.Auth\Views\_ViewImports.cshtml
+--file=F:\MShop\MShop.Presentation.MPA.Auth\Views\_ViewStart.cshtml

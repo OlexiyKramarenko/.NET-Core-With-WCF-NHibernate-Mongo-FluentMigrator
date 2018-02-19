@@ -1,0 +1,42 @@
+﻿@using MShop.Presentation.MPA.Public.Infrastructure.Extensions;
+@using MShop.Presentation.MPA.Public.Controllers;
+@model IEnumerable<MShop.Presentation.MPA.Public.Models.Newsletters.NewsletterItemViewModel>
+
+<div>Archived Newsletters</div>
+
+@*<p>
+		Here is the list of archived newsletters sent in the past. Click on the newsletter's subject to read the whole content.
+		If you want to receive future newsletters right into your e-mail box,
+
+		<a href="Register.aspx">register now</a> to the site, if you haven't done so yet.
+	</p>*@
+
+
+@if (Model.Any())
+{
+	<table>
+		@foreach (var item in Model)
+		{
+		<tr>
+			<td>
+				<a asp-action="@nameof(NewslettersController.ShowNewsletter)"
+				   asp-controller="@nameof(NewslettersController).ShortName()"
+				   asp-route-id="@item.NewsletterId">
+					@item.Subject
+				</a>
+			</td>
+			<td>
+				<a asp-action="@nameof(NewslettersController.DeleteNewsletter)"
+				   asp-controller="@nameof(NewslettersController).ShortName()"
+				   asp-route-id="@item.NewsletterId">
+					Delete
+				</a>
+			</td>
+		</tr>
+		}
+	</table>
+}
+else
+{
+	<b>No newsletters to show</b>
+}

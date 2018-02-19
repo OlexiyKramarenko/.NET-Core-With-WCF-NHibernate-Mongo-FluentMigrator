@@ -1,0 +1,14 @@
+F:\MShop\MShop.Presentation.MPA.Auth\bin\Any CPU\Release\netcoreapp2.0\MShop.Presentation.MPA.Auth.deps.json
+F:\MShop\MShop.Presentation.MPA.Auth\bin\Any CPU\Release\netcoreapp2.0\MShop.Presentation.MPA.Auth.runtimeconfig.json
+F:\MShop\MShop.Presentation.MPA.Auth\bin\Any CPU\Release\netcoreapp2.0\MShop.Presentation.MPA.Auth.runtimeconfig.dev.json
+F:\MShop\MShop.Presentation.MPA.Auth\bin\Any CPU\Release\netcoreapp2.0\MShop.Presentation.MPA.Auth.dll
+F:\MShop\MShop.Presentation.MPA.Auth\bin\Any CPU\Release\netcoreapp2.0\MShop.Presentation.MPA.Auth.pdb
+F:\MShop\MShop.Presentation.MPA.Auth\bin\Any CPU\Release\netcoreapp2.0\MShop.DataLayer.dll
+F:\MShop\MShop.Presentation.MPA.Auth\bin\Any CPU\Release\netcoreapp2.0\MShop.DataLayer.EF.dll
+F:\MShop\MShop.Presentation.MPA.Auth\bin\Any CPU\Release\netcoreapp2.0\MShop.DataLayer.EF.pdb
+F:\MShop\MShop.Presentation.MPA.Auth\bin\Any CPU\Release\netcoreapp2.0\MShop.DataLayer.pdb
+F:\MShop\MShop.Presentation.MPA.Auth\obj\Any CPU\Release\netcoreapp2.0\MShop.Presentation.MPA.Auth.csproj.CoreCompileInputs.cache
+F:\MShop\MShop.Presentation.MPA.Auth\obj\Any CPU\Release\netcoreapp2.0\MShop.Presentation.MPA.Auth.AssemblyInfoInputs.cache
+F:\MShop\MShop.Presentation.MPA.Auth\obj\Any CPU\Release\netcoreapp2.0\MShop.Presentation.MPA.Auth.AssemblyInfo.cs
+F:\MShop\MShop.Presentation.MPA.Auth\obj\Any CPU\Release\netcoreapp2.0\MShop.Presentation.MPA.Auth.dll
+F:\MShop\MShop.Presentation.MPA.Auth\obj\Any CPU\Release\netcoreapp2.0\MShop.Presentation.MPA.Auth.pdb

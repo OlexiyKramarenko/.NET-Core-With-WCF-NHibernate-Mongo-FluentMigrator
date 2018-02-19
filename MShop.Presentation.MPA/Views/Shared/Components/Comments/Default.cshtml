@@ -1,0 +1,18 @@
+﻿@model List<MShop.Presentation.MPA.Public.Models.Articles.CommentItemViewModel>
+User Feedback:
+
+<table>
+	@foreach (var item in Model)
+	{
+		<tr>
+			<td>
+				Comment posted by @item.AddedBy
+
+				@item.AddedDate
+			</td>
+		</tr>
+		<tr>
+			<td>@item.EncodedBody</td>
+		</tr>
+	}
+</table>

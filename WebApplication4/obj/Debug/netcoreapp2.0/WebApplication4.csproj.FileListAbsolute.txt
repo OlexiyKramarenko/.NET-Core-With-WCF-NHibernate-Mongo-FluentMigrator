@@ -1,0 +1,4 @@
+F:\MShop\WebApplication4\obj\Debug\netcoreapp2.0\WebApplication4.csprojResolveAssemblyReference.cache
+F:\MShop\WebApplication4\obj\Debug\netcoreapp2.0\WebApplication4.csproj.CoreCompileInputs.cache
+F:\MShop\WebApplication4\obj\Debug\netcoreapp2.0\WebApplication4.AssemblyInfoInputs.cache
+F:\MShop\WebApplication4\obj\Debug\netcoreapp2.0\WebApplication4.AssemblyInfo.cs

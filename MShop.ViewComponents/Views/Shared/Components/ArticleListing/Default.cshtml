@@ -1,0 +1,51 @@
+﻿@model MShop.ViewComponents.Models.ArticleListingViewModel
+@*Filter by category:
+@Html.DropDownListFor(m => Model.CategoryId, Model.Categories, "All categories")*@
+
+<style>
+	.listing-link {
+		text-decoration: none;
+	}
+
+	.edit_delete_links {
+		position: absolute;
+		top: 5px;
+		right: 5px;
+	}
+
+	.listing-item {
+		padding: 0px 10px 10px 10px;
+		border: 1px solid black;
+		margin: 10px 0 0 0;
+		position: relative;
+	}
+
+		.listing-item:hover {
+			border: 2px solid black;
+		}
+</style>
+
+@foreach (var item in Model.Articles)
+{
+	<div class="listing-item">
+		<div class="edit_delete_links">
+			<a asp-controller="ManageArticles"
+			   asp-action="EditArticle"
+			   asp-route-id="@item.Id">edit</a>&nbsp;&nbsp;
+
+			<a asp-controller="ManageArticles"
+			   asp-action="DeleteArticle"
+			   asp-route-id="@item.Id">delete</a>
+		</div>
+
+		<a asp-controller="Articles"
+		   asp-action="ShowArticle"
+		   asp-route-id="@item.Id"
+		   class="article-link">
+			<h3>@item.Title</h3>
+		</a>
+		<b>Posted by:</b>@item.AddedBy<br />
+		<b>Rating:</b> @item.AverageRating<br />
+		<b>Abstract:</b>@item.Abstract<br />
+	</div>
+}

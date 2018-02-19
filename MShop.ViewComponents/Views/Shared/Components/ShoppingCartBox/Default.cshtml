@@ -1,0 +1,15 @@
+﻿
+@model IEnumerable<MShop.ViewComponents.Models.OrderItemViewModel>
+
+
+@foreach (var item in Model)
+{
+    @item.Title
+    @item.UnitPrice
+    @item.Quantity
+}
+
+SubtotalHeader
+
+<a>Detailed Shopping Cart</a>
+<a>Order History</a>
