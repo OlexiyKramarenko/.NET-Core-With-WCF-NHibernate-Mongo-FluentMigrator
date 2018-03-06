@@ -1,7 +1,8 @@
 ﻿@using MShop.ViewComponents.Components;
+@model MShop.Presentation.MPA.Public.Models.Articles.BrowseArticlesViewModel
 
-<div>Article List</div>
+<h3>Article List</h3>
 
 
 
-@(await Component.InvokeAsync<ArticleListingViewComponent>(new { publishedOnly = true }))
+@(await Component.InvokeAsync<ArticleListingViewComponent>(new { categoryId = Model.CategoryId, pageIndex = Model.PageIndex, pageSize = Model.PageSize }))

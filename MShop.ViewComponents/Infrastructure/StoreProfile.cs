@@ -7,7 +7,7 @@ namespace MShop.ViewComponents.Infrastructure
 	{
 		public StoreProfile()
 		{
-			CreateMap<ProductProvider, MShop.ViewComponents.Models.ProductItemViewModel>();			
+			CreateMap<ProductProvider, Models.ProductItemViewModel>();			
 		}
 	}
 }

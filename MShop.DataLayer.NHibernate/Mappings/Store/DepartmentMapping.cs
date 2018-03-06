@@ -1,5 +1,6 @@
 ﻿using FluentNHibernate.Mapping;
 using MShop.DataLayer.NHibernate.Entities.Store;
+using System.Collections.Generic;
 
 namespace MShop.DataLayer.NHibernate.Mappings.Store
 {
@@ -8,14 +9,14 @@ namespace MShop.DataLayer.NHibernate.Mappings.Store
 		public DepartmentMapping()
 		{
 			Table("Departments");
-			Id(m => m.Id).GeneratedBy.Identity();
+			Id(m => m.Id);
 			Map(m => m.AddedDate);
 			Map(m => m.AddedBy);
 			Map(m => m.Title);
 			Map(m => m.Importance);
 			Map(m => m.Description);
 			Map(m => m.ImageUrl);
-			HasMany(x => x.Products).KeyColumn("Id");
+			HasMany(x => (List<Product>)x.Products).KeyColumn("Id");
 		}
 	}
 }

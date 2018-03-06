@@ -9,5 +9,6 @@ namespace MShop.DataLayer.Entities.Articles
 		string AddedByEmail { get; set; }
 		string AddedByIp { get; set; }
 		string Body { get; set; }
+		IArticle Article { get; set; }
 	}
 }

@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MShop.DataLayer;
 using MShop.DataLayer.EF.Entities.Articles;
+using MShop.DataLayer.EF.Providers.Articles;
 using MShop.Presentation.MPA.Public.Models.Articles;
 using System;
 using System.Collections.Generic;
@@ -21,42 +23,49 @@ namespace MShop.Presentation.MPA.Public.Controllers
 		private readonly IArticlesRepository _articlesRepository;
 		private readonly IUnitOfWork _unitOfWork;
 		private readonly IMapper _mapper;
+		private IHttpContextAccessor _accessor;
 
-		public ArticlesController(IArticlesRepository articlesRepository, IUnitOfWork unitOfWork, IMapper mapper)
+		public ArticlesController(IHttpContextAccessor accessor, IArticlesRepository articlesRepository, IUnitOfWork unitOfWork, IMapper mapper)
 		{
+			_accessor = accessor;
 			_articlesRepository = articlesRepository;
 			_unitOfWork = unitOfWork;
 			_mapper = mapper;
 		}
 
 		[HttpGet]
-		public IActionResult ShowArticle(Guid articleId)
+		public IActionResult BrowseArticles(Guid categoryId, int pageIndex, int pageSize)
 		{
-			return View();
+			var model = new BrowseArticlesViewModel
+			{
+				CategoryId = categoryId,
+				PageIndex = pageIndex,
+				PageSize = pageSize
+			};
+			return View(model);
 		}
 
 		[HttpGet]
-		public IActionResult RateArticle(Guid articleId, int rating)
+		public IActionResult ShowArticle(Guid id)
 		{
-			try
+			Article article = _articlesRepository.GetArticleById(id);
+			IEnumerable<CommentProvider> comments = _articlesRepository.GetComments(id, 1, 5);
+			var model = new ShowArticleViewModel
 			{
-				_articlesRepository.RateArticle(articleId, rating);
-				_unitOfWork.Commit();
-				return View("_RateArticle");
-			}
-			catch
-			{
-				return View();
-			}
+				Text = article.Body,
+				Title = article.Title,
+				Comments = _mapper.Map<List<CommentItemViewModel>>(comments)
+			};
+			return View(model);
 		}
-
+		
 		[HttpGet]
 		public IActionResult ShowCategories()
 		{
 			try
 			{
 				IList<Category> categories = _articlesRepository.GetCategories();
-				List<CategoryItemViewModel> model = _mapper.Map<IList<Category>, List<CategoryItemViewModel>>(categories);
+				var model = _mapper.Map<List<CategoryItemViewModel>>(categories);
 				return View(model);
 			}
 			catch
@@ -68,8 +77,12 @@ namespace MShop.Presentation.MPA.Public.Controllers
 		[HttpPost]
 		public IActionResult LeaveComment(CommentDetailsViewModel model)
 		{
-			//
-			return RedirectToAction(nameof(this.ShowCategories));
+			var comment = _mapper.Map<Comment>(model);
+			comment.AddedDate = DateTime.Now;
+			comment.AddedByIp = _accessor.HttpContext.Connection.RemoteIpAddress.ToString();
+			_articlesRepository.InsertComment(comment);
+			_unitOfWork.Commit();
+			return RedirectToAction(nameof(this.ShowArticle), new { id = model.ArticleId });
 		}
 	}
 }

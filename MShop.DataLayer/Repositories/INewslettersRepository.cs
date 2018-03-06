@@ -6,7 +6,6 @@ using MShop.DataLayer.Entities.Newsletters;
 namespace MShop.DataLayer.Repositories
 {
 	public interface INewslettersRepository<T, IdType> where T : INewsletter
-
 	{
 		List<T> GetNewsletters(DateTime toDate);
 		T GetNewsletterById(IdType newsletterId);

@@ -1,7 +1,6 @@
-﻿using FluentNHibernate.Automapping;
-using FluentNHibernate.Automapping.Alterations;
-using FluentNHibernate.Mapping;
+﻿using FluentNHibernate.Mapping;
 using MShop.DataLayer.NHibernate.Entities.Articles;
+using System.Collections.Generic;
 
 namespace MShop.DataLayer.NHibernate.Mappings.Articles
 {
@@ -10,10 +9,9 @@ namespace MShop.DataLayer.NHibernate.Mappings.Articles
 		public ArticleMapping()
 		{
 			Table("Articles");
-			Id(m => m.Id).GeneratedBy.Identity();			
+			Id(m => m.Id);
 			Map(m => m.AddedDate);
 			Map(m => m.AddedBy);
-			//Map(m => m.CategoryId);
 			Map(m => m.Title);
 			Map(m => m.Abstract);
 			Map(m => m.Body);
@@ -29,8 +27,8 @@ namespace MShop.DataLayer.NHibernate.Mappings.Articles
 			Map(m => m.ViewCount);
 			Map(m => m.Votes);
 			Map(m => m.TotalRating);
-			HasMany(x => x.Comments);//.KeyColumn("Id");
-			References(m => m.Category).Column("CategoryId").Cascade.All();
+			HasMany(x => (List<Comment>)x.Comments);
+			References(m => (Category)m.Category).Column("CategoryId").Cascade.All();
 		}
 	}
 }

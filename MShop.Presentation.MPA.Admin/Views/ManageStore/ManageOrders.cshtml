@@ -1,20 +1,31 @@
 ﻿@using MShop.Presentation.MPA.Admin.Controllers;
 @using MShop.Presentation.MPA.Admin.Infrastructure.Extensions;
-@model IEnumerable<MShop.Presentation.MPA.Admin.Models.Store.ManageOrderItemViewModel>
+@using MShop.ViewComponents.Components;
+@using MShop.ViewComponents.Models;
+@model MShop.Presentation.MPA.Admin.Models.Store.ManageOrdersViewModel
 
 
-@if (Model.Any())
+@(await Component.InvokeAsync<PageSizeViewComponent>(new PageSizeViewModel
+	{
+		TextAbove = "Orders per page:",
+		Action = Model.Pager.Action,
+		PageSize = Model.Pager.PageSize
+	}))
+
+@(await Component.InvokeAsync<PagerViewComponent>(new { Pager = Model.Pager }))
+
+@if (Model.OrderItems.Any())
 {
 	<table class="list">
-		@foreach (var item in Model)
+		@foreach (var item in Model.OrderItems)
 		{
 			<tr>
 				<td>
-					<label asp-for="@item.Date"></label>
+					<label asp-for="@item.AddedDate"></label>
 				</td>
-				<td><label asp-for="@item.Customer"></label></td>
+				<td><label asp-for="@item.ShippingLastName"></label></td>
 				<td>
-					@foreach (var orderItem in item.Items)
+					@foreach (var orderItem in item.OrderItems)
 					{
 						@orderItem.SKU
 						<a asp-controller="Store"
@@ -45,3 +56,4 @@ else
 	<span class="empty-list">No orders to show</span>
 }
 
+@(await Component.InvokeAsync<PagerViewComponent>(new { Pager = Model.Pager }))

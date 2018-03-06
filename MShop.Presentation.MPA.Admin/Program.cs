@@ -20,7 +20,7 @@ namespace MShop.Presentation.MPA.Admin
 				try
 				{
 					var context = services.GetRequiredService<DataBaseContext>();
-					DbInitializer.Initialize(context);
+					//DbInitializer.Initialize(context);
 				}
 				catch (Exception ex)
 				{

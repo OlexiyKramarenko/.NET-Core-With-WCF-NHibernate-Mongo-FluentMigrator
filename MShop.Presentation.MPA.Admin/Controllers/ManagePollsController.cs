@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using MShop.DataLayer;
 using MShop.DataLayer.EF.Entities.Polls;
 using MShop.Presentation.MPA.Admin.Models.Polls;
+using MShop.ViewComponents.Models;
 using IPollsRepository = MShop.DataLayer.Repositories.IPollsRepository<
 	MShop.DataLayer.EF.Entities.Polls.Poll,
 	MShop.DataLayer.EF.Entities.Polls.PollOption, System.Guid>;
@@ -111,12 +113,17 @@ namespace MShop.Presentation.MPA.Admin.Controllers
 		#region Polls
 
 		[HttpGet]
-		public IActionResult ManagePolls(bool includeActive, bool includeArchived)
+		public IActionResult ManagePolls(int pageSize, int pageIndex, bool includeActive, bool includeArchived)
 		{
 			try
 			{
-				List<Poll> polls = _pollsRepository.GetPolls(includeActive, includeArchived);
-				var model = _mapper.Map<List<PollItemViewModel>>(polls);
+				string controller = nameof(ManagePollsController);
+				string action = nameof(this.ManagePolls);
+				int pollsCount = _pollsRepository.GetPollsCount(includeActive, includeArchived);
+				IEnumerable<Poll> polls = _pollsRepository.GetPolls(includeActive, includeArchived, pageIndex, pageSize);
+				var model = new ManagePollsViewModel();
+				model.Pager = new PagerViewModel(pollsCount, pageSize, pageIndex, controller, action);
+				model.PollItems = _mapper.Map<IEnumerable<PollItemViewModel>>(polls);
 				return View(model);
 			}
 			catch

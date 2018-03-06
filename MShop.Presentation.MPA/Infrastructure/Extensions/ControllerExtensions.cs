@@ -8,11 +8,10 @@ namespace MShop.Presentation.MPA.Public.Infrastructure.Extensions
 		{
 			return typeof(T).Name.Replace("Controller", "");
 		}
-		
-			public static string ShortName(this string fullControllerClassName)
-			{
-				return fullControllerClassName.Replace("Controller", "");
-			}
-		
+
+		public static string ShortName(this string fullControllerClassName)
+		{
+			return fullControllerClassName.Replace("Controller", "");
+		}
 	}
 }

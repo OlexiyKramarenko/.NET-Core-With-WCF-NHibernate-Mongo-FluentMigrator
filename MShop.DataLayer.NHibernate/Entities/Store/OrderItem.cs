@@ -14,6 +14,7 @@ namespace MShop.DataLayer.NHibernate.Entities.Store
 		public virtual string SKU { get; set; }
 		public virtual decimal UnitPrice { get; set; }
 		public virtual int Quantity { get; set; }
-		public virtual Order Order { get; set; }
+		public virtual IOrder Order { get; set; }
+		public virtual IProduct Product { get; set; }
 	}
 }

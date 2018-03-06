@@ -1,14 +1,25 @@
 ﻿@using MShop.Presentation.MPA.Admin.Controllers;
 @using MShop.Presentation.MPA.Admin.Infrastructure.Extensions;
-@model IEnumerable<MShop.Presentation.MPA.Admin.Models.Articles.CategoryItemViewModel>
+@using MShop.ViewComponents.Components;
+@using MShop.ViewComponents.Models;
+@using MShop.Presentation.MPA.Admin.Models.Articles;
+@model ManageCategoriesViewModel
 
 
 
+@(await Component.InvokeAsync<PageSizeViewComponent>(new PageSizeViewModel
+{
+	TextAbove = "Categories per page:",
+	Action = Model.Pager.Action,
+	PageSize = Model.Pager.PageSize
+}))
 
-@if (Model.Any())
+@(await Component.InvokeAsync<PagerViewComponent>(new { Pager = Model.Pager }))
+
+@if (Model.CategoryItems.Any())
 {
 	<table class="list">
-		@foreach (var item in Model)
+		@foreach (var item in Model.CategoryItems)
 		{
 			<tr>
 				<td>
@@ -32,4 +43,6 @@
 else
 {
 	<span class="empty-list">No categories to show</span>
-} 
+}
+
+@(await Component.InvokeAsync<PagerViewComponent>(new { Pager = Model.Pager }))

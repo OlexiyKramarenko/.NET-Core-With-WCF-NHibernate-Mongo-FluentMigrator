@@ -306,6 +306,22 @@ namespace MShop.DataLayer.EF.Migrations
                     b.ToTable("Newsletters");
                 });
 
+            modelBuilder.Entity("MShop.DataLayer.EF.Entities.Polls.AnsweredUser", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<Guid>("PollId");
+
+                    b.Property<Guid>("PollOptionId");
+
+                    b.Property<string>("UserIpAdress");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("AnsweredUsers");
+                });
+
             modelBuilder.Entity("MShop.DataLayer.EF.Entities.Polls.Poll", b =>
                 {
                     b.Property<Guid>("Id")
@@ -391,6 +407,8 @@ namespace MShop.DataLayer.EF.Migrations
 
                     b.Property<string>("CustomerPhone");
 
+                    b.Property<Guid?>("OrderStatusId");
+
                     b.Property<DateTime?>("ShippedDate");
 
                     b.Property<decimal>("Shipping");
@@ -421,6 +439,8 @@ namespace MShop.DataLayer.EF.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("OrderStatusId");
+
                     b.ToTable("Orders");
                 });
 
@@ -448,6 +468,8 @@ namespace MShop.DataLayer.EF.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("OrderId");
+
+                    b.HasIndex("ProductId");
 
                     b.ToTable("OrderItems");
                 });
@@ -514,6 +536,8 @@ namespace MShop.DataLayer.EF.Migrations
                     b.Property<string>("AddedBy");
 
                     b.Property<DateTime>("AddedDate");
+
+                    b.Property<string>("Description");
 
                     b.Property<decimal>("Price");
 
@@ -654,11 +678,23 @@ namespace MShop.DataLayer.EF.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
+            modelBuilder.Entity("MShop.DataLayer.EF.Entities.Store.Order", b =>
+                {
+                    b.HasOne("MShop.DataLayer.EF.Entities.Store.OrderStatus", "OrderStatus")
+                        .WithMany("Orders")
+                        .HasForeignKey("OrderStatusId");
+                });
+
             modelBuilder.Entity("MShop.DataLayer.EF.Entities.Store.OrderItem", b =>
                 {
                     b.HasOne("MShop.DataLayer.EF.Entities.Store.Order", "Order")
                         .WithMany("OrderItems")
                         .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("MShop.DataLayer.EF.Entities.Store.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

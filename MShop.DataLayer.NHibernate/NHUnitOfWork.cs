@@ -13,7 +13,8 @@ namespace MShop.DataLayer.NHibernate
 {
 	public class NHUnitOfWork : IUnitOfWork
 	{
-		private static  ISessionFactory _sessionFactory;
+		private static string _connectionString;
+		private static ISessionFactory _sessionFactory;
 		private ITransaction _transaction;
 
 		public ISession Session { get; private set; }
@@ -23,9 +24,8 @@ namespace MShop.DataLayer.NHibernate
 			{
 				if (_sessionFactory == null)
 				{
-					string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=F:\MShop\WebApplication3\App_Data\Database2.mdf;Integrated Security=True";
 					_sessionFactory = Fluently.Configure()
-											   .Database(MsSqlConfiguration.MsSql2012.ConnectionString(connectionString))
+											   .Database(MsSqlConfiguration.MsSql2012.ConnectionString(_connectionString))
 											   .Mappings(m => m.FluentMappings.Add<CategoryMapping>())
 											   .Mappings(m => m.FluentMappings.Add<ArticleMapping>())
 											   .Mappings(m => m.FluentMappings.Add<CommentMapping>())
@@ -41,7 +41,7 @@ namespace MShop.DataLayer.NHibernate
 											   .Mappings(m => m.FluentMappings.Add<ProductMapping>())
 											   .Mappings(m => m.FluentMappings.Add<ShippingMethodMapping>())
 											   .ExposeConfiguration(config => new SchemaUpdate(config).Execute(false, true))
-											   .BuildSessionFactory();					
+											   .BuildSessionFactory();
 				}
 				return _sessionFactory;
 			}
@@ -57,7 +57,7 @@ namespace MShop.DataLayer.NHibernate
 
 			//	.ExposeConfiguration(config => new SchemaUpdate(config).Execute(false, true))
 			//	.BuildSessionFactory();
-			
+
 			//_sessionFactory = Fluently.Configure()
 			//								.Database(MsSqlConfiguration.MsSql2012.ConnectionString(connectionString))
 			//								.Mappings(m => m.FluentMappings.AddFromAssemblyOf<CategoryMapping>())
@@ -78,9 +78,9 @@ namespace MShop.DataLayer.NHibernate
 			//								.BuildSessionFactory();
 		}
 
-		public NHUnitOfWork()
+		public NHUnitOfWork(string conString)
 		{
-
+			_connectionString = conString;
 		}
 
 		public void BeginTransaction()

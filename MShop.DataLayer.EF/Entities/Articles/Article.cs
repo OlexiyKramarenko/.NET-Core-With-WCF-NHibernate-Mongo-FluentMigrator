@@ -25,7 +25,7 @@ namespace MShop.DataLayer.EF.Entities.Articles
 		public int ViewCount { get; set; }
 		public int Votes { get; set; }
 		public int TotalRating { get; set; }
-		public List<Comment> Comments { get; set; }
-		public Category Category { get; set; }
+		public IList<IComment> Comments { get; set; }
+		public ICategory Category { get; set; }
 	}
 }

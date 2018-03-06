@@ -13,6 +13,6 @@ namespace MShop.DataLayer.EF.Entities.Articles
 		public int Importance { get; set; }
 		public string Description { get; set; }
 		public string ImageUrl { get; set; }		
-		public List<Article> Articles { get; set; }
+		public IList<IArticle> Articles { get; set; }
 	}
 }

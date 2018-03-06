@@ -1,10 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MShop.Presentation.MPA.Public.Models.Home;
 using IArticlesRepository = MShop.DataLayer.Repositories.IArticlesRepository<
 MShop.DataLayer.EF.Entities.Articles.Article,
 MShop.DataLayer.EF.Entities.Articles.Category,
 MShop.DataLayer.EF.Entities.Articles.Comment,
 MShop.DataLayer.EF.Providers.Articles.ArticleProvider,
-MShop.DataLayer.EF.Providers.Articles.CommentProvider, string>;
+MShop.DataLayer.EF.Providers.Articles.CommentProvider, System.Guid>;
 
 namespace MShop.Presentation.MPA.Public.Controllers
 {
@@ -24,18 +25,17 @@ namespace MShop.Presentation.MPA.Public.Controllers
 
 		public IActionResult About()
 		{
-			ViewData["Message"] = "Your application description page.";
-
 			return View();
 		}
 
 		public IActionResult Contact()
 		{
-			ViewData["Message"] = "Your contact page.";
-
 			return View();
 		}
-
+		public IActionResult Contact(ContactsViewModel model)
+		{
+			return View();
+		}
 		public IActionResult Error()
 		{
 			return View();

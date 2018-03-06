@@ -15,6 +15,7 @@ namespace MShop.DataLayer.Entities.Store
 		string SmallImageUrl { get; set; }
 		string FullImageUrl { get; set; }
 		int Votes { get; set; }
-		int TotalRating { get; set; } 
+		int TotalRating { get; set; }
+		IDepartment Department { get; set; }
 	}
 }

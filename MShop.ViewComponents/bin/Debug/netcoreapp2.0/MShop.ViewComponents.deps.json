@@ -14,7 +14,9 @@
           "Microsoft.AspNetCore": "2.0.1",
           "Microsoft.AspNetCore.Mvc.Core": "2.0.2",
           "Microsoft.AspNetCore.Mvc.ViewFeatures": "2.0.2",
-          "Microsoft.AspNetCore.Razor.Tools": "1.1.0-preview4-final"
+          "Microsoft.AspNetCore.Razor.Tools": "1.1.0-preview4-final",
+          "Microsoft.AspNetCore.Mvc.Razor": "2.0.2.0",
+          "Microsoft.Extensions.Identity.Stores": "2.0.1.0"
         },
         "runtime": {
           "MShop.ViewComponents.dll": {}
@@ -2022,6 +2024,16 @@
         "runtime": {
           "MShop.DataLayer.EF.dll": {}
         }
+      },
+      "Microsoft.AspNetCore.Mvc.Razor/2.0.2.0": {
+        "runtime": {
+          "Microsoft.AspNetCore.Mvc.Razor.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Identity.Stores/2.0.1.0": {
+        "runtime": {
+          "Microsoft.Extensions.Identity.Stores.dll": {}
+        }
       }
     }
   },
@@ -3361,6 +3373,16 @@
     },
     "MShop.DataLayer.EF/1.0.0": {
       "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.AspNetCore.Mvc.Razor/2.0.2.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.Extensions.Identity.Stores/2.0.1.0": {
+      "type": "reference",
       "serviceable": false,
       "sha512": ""
     }

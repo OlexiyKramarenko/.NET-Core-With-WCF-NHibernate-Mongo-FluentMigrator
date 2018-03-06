@@ -1,28 +1,22 @@
 ﻿@using MShop.Presentation.MPA.Admin.Controllers;
 @using MShop.Presentation.MPA.Admin.Infrastructure.Extensions;
-@model IEnumerable<MShop.Presentation.MPA.Admin.Models.Polls.PollItemViewModel>
-@*<style>
-		#article_categories {
-			width: 600px;
-			margin: 30px auto;
-			border-collapse: collapse;
-			margin-bottom: 20px;
-		}
+@using MShop.ViewComponents.Components;
+@using MShop.ViewComponents.Models;
+@model MShop.Presentation.MPA.Admin.Models.Polls.ManagePollsViewModel
 
-			#article_categories table {
-				margin-bottom: 20px;
-			}
 
-			#article_categories tr td {
-				padding: 10px;
-				vertical-align: top;
-				border: 1px solid black;
-			}
-	</style>
 
-	<div id="article_categories">*@
+@(await Component.InvokeAsync<PageSizeViewComponent>(new PageSizeViewModel
+	{
+		TextAbove = "Polls per page:",
+		Action = Model.Pager.Action,
+		PageSize = Model.Pager.PageSize
+	}))
 
-@if (Model.Any())
+@(await Component.InvokeAsync<PagerViewComponent>(new { Pager = Model.Pager }))
+
+
+@if (Model.PollItems.Any())
 {
 	<table class="list">
 		<tr>
@@ -33,7 +27,7 @@
 			<td></td>
 			<td></td>
 		</tr>
-		@foreach (var item in Model)
+		@foreach (var item in Model.PollItems)
 		{
 			<tr>
 				<td>@item.QuestionText</td>
@@ -68,3 +62,5 @@ else
 	<span class="empty-list">No polls to show</span>
 }
 
+
+@(await Component.InvokeAsync<PagerViewComponent>(new { Pager = Model.Pager }))

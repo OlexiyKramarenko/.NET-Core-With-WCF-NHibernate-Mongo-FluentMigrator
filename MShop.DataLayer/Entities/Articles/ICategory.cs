@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace MShop.DataLayer.Entities.Articles
 {
@@ -10,5 +11,6 @@ namespace MShop.DataLayer.Entities.Articles
 		int Importance { get; set; }
 		string Description { get; set; }
 		string ImageUrl { get; set; } 
+		IList<IArticle> Articles { get; set; }
 	}
 }

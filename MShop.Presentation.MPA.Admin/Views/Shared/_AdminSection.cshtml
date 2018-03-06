@@ -2,29 +2,11 @@
 @using MShop.Presentation.MPA.Admin.Infrastructure.Extensions;
 
 <style>
-	td, body {
+	td {
 		color: #000000;
 		font-family: Tahoma, Arial, Helvetica;
 		font-size: 12px;
 	}
-
-	a {
-		color: #006699;
-		text-decoration: none;
-		font-weight: bold;
-	}
-
-		a:hover {
-			color: #000000;
-			text-decoration: none;
-			font-weight: bold;
-		}
-
-		a:active {
-			color: #000000;
-			text-decoration: none;
-			font-weight: bold;
-		}
 
 	#nav-tree {
 		border-collapse:unset;
@@ -80,7 +62,7 @@
 			<table id='@Html.Raw("x"+nameof(ManageArticlesController))' onclick="toggle('@nameof(ManageArticlesController)')" class="nav-tree-item"><tr><td><img class="img_folder"></td><td><b>Articles</b></td></tr></table>
 			<div id="@nameof(ManageArticlesController)" class="breadcrumbs" style="display:none;">
 				<table class="nav-tree-item"><tr><td><img class="img_text"></td><td><a asp-controller="@nameof(ManageArticlesController).ShortName()" asp-action="@nameof(ManageArticlesController.ManageArticles)" id="@nameof(ManageArticlesController.ManageArticles)" asp-route-pageIndex="1" asp-route-pageSize="5">Manage Articles</a></td></tr></table>
-				<table class="nav-tree-item"><tr><td><img class="img_text"></td><td><a asp-controller="@nameof(ManageArticlesController).ShortName()" asp-action="@nameof(ManageArticlesController.ManageCategories)" id="@nameof(ManageArticlesController.ManageCategories)">Manage Categories</a></td></tr></table>
+				<table class="nav-tree-item"><tr><td><img class="img_text"></td><td><a asp-controller="@nameof(ManageArticlesController).ShortName()" asp-action="@nameof(ManageArticlesController.ManageCategories)" id="@nameof(ManageArticlesController.ManageCategories)" asp-route-pageIndex="1" asp-route-pageSize="5">Manage Categories</a></td></tr></table>
 				<table class="nav-tree-item"><tr><td><img class="img_text"></td><td><a asp-controller="@nameof(ManageArticlesController).ShortName()" asp-action="@nameof(ManageArticlesController.ManageComments)" id="@nameof(ManageArticlesController.ManageComments)" asp-route-pageIndex="1" asp-route-pageSize="5">Manage Comments</a></td></tr></table>
 				<table class="nav-tree-item"><tr><td><img class="img_text"></td><td><a asp-controller="@nameof(ManageArticlesController).ShortName()" asp-action="@nameof(ManageArticlesController.AddArticle)" id="@nameof(ManageArticlesController.AddArticle)">Add Article</a></td></tr></table>
 				<table class="nav-tree-item"><tr><td><img class="img_text"></td><td><a asp-controller="@nameof(ManageArticlesController).ShortName()" asp-action="@nameof(ManageArticlesController.AddCategory)" id="@nameof(ManageArticlesController.AddCategory)">Add Category</a></td></tr></table>
@@ -93,7 +75,7 @@
 
 			<table id="@Html.Raw("x"+nameof(ManagePollsController))" onclick="toggle('@nameof(ManagePollsController)')" class="nav-tree-item"><tr><td><img class="img_folder"></td><td><b>Polls</b></td></tr></table>
 			<div id="@nameof(ManagePollsController)" class="breadcrumbs" style="display:none;">
-				<table class="nav-tree-item"><tr><td><img class="img_text"></td><td><a asp-controller="@nameof(ManagePollsController).ShortName()" asp-action="@nameof(ManagePollsController.ManagePolls)" id="@nameof(ManagePollsController.ManagePolls)">Manage Polls</a></td></tr></table>
+				<table class="nav-tree-item"><tr><td><img class="img_text"></td><td><a asp-controller="@nameof(ManagePollsController).ShortName()" asp-action="@nameof(ManagePollsController.ManagePolls)" id="@nameof(ManagePollsController.ManagePolls)" asp-route-pageIndex="1" asp-route-pageSize="10">Manage Polls</a></td></tr></table>
 				<table class="nav-tree-item"><tr><td><img class="img_text"></td><td><a asp-controller="@nameof(ManagePollsController).ShortName()" asp-action="@nameof(ManagePollsController.AddOption)" id="@nameof(ManagePollsController.AddOption)">Add Option</a></td></tr></table>
 				<table class="nav-tree-item"><tr><td><img class="img_text"></td><td><a asp-controller="@nameof(ManagePollsController).ShortName()" asp-action="@nameof(ManagePollsController.AddPoll)" id="@nameof(ManagePollsController.AddPoll)">Add Poll</a></td></tr></table>
 			</div>
@@ -107,7 +89,7 @@
 
 			<table id="@Html.Raw("x"+nameof(ManageStoreController))" onclick="toggle('@nameof(ManageStoreController)')" class="nav-tree-item"><tr><td><img class="img_folder"></td><td><b>Store</b></td></tr></table>
 			<div id="@nameof(ManageStoreController)" class="breadcrumbs" style="display:none;">
-				<table class="nav-tree-item"><tr><td><img class="img_text"></td><td><a asp-controller="@nameof(ManageStoreController).ShortName()" asp-action="@nameof(ManageStoreController.ManageProducts)" id="@nameof(ManageStoreController.ManageProducts)" asp-route-orderBy="Title" asp-route-pageIndex="1" asp-route-pageSize="10">Manage Products</a></td></tr></table>
+				<table class="nav-tree-item"><tr><td><img class="img_text"></td><td><a asp-controller="@nameof(ManageStoreController).ShortName()" asp-action="@nameof(ManageStoreController.ManageProducts)" id="@nameof(ManageStoreController.ManageProducts)"  asp-route-pageIndex="1" asp-route-pageSize="10">Manage Products</a></td></tr></table>
 				<table class="nav-tree-item"><tr><td><img class="img_text"></td><td><a asp-controller="@nameof(ManageStoreController).ShortName()" asp-action="@nameof(ManageStoreController.ManageDepartments)" id="@nameof(ManageStoreController.ManageDepartments)">Manage Departments</a></td></tr></table>
 				<table class="nav-tree-item"><tr><td><img class="img_text"></td><td><a asp-controller="@nameof(ManageStoreController).ShortName()" asp-action="@nameof(ManageStoreController.ManageOrders)" id="@nameof(ManageStoreController.ManageOrders)" asp-route-pageIndex="1" asp-route-pageSize="10">Manage Orders</a></td></tr></table>
 				<table class="nav-tree-item"><tr><td><img class="img_text"></td><td><a asp-controller="@nameof(ManageStoreController).ShortName()" asp-action="@nameof(ManageStoreController.ManageOrderStatuses)" id="@nameof(ManageStoreController.ManageOrderStatuses)">Manage Order Statuses</a></td></tr></table>
@@ -120,7 +102,7 @@
 
 			<table id="@Html.Raw("x"+nameof(ManageUsersController))" onclick="toggle('@nameof(ManageUsersController)')" class="nav-tree-item"><tr><td><img class="img_folder"></td><td><b>Users</b></td></tr></table>
 			<div id="@nameof(ManageUsersController)" class="breadcrumbs" style="display:none;">
-				<table class="nav-tree-item"><tr><td><img class="img_text"></td><td><a asp-controller="@nameof(ManageUsersController).ShortName()" asp-action="@nameof(ManageUsersController.ManageUsers)" id="@nameof(ManageUsersController.ManageUsers)">Manage Users</a></td></tr></table>
+				<table class="nav-tree-item"><tr><td><img class="img_text"></td><td><a asp-controller="@nameof(ManageUsersController).ShortName()" asp-action="@nameof(ManageUsersController.ManageUsers)" id="@nameof(ManageUsersController.ManageUsers)"  asp-route-pageIndex="1" asp-route-pageSize="10">Manage Users</a></td></tr></table>
 				<table class="nav-tree-item"><tr><td><img class="img_text"></td><td><a asp-controller="@nameof(ManageUsersController).ShortName()" asp-action="@nameof(ManageUsersController.CreateUser)" id="@nameof(ManageUsersController.CreateUser)">Create User</a></td></tr></table>
 			</div>
 

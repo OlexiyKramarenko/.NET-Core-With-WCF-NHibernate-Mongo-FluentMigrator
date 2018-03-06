@@ -1,5 +1,6 @@
 ﻿using FluentNHibernate.Mapping;
 using MShop.DataLayer.NHibernate.Entities.Polls;
+using System.Collections.Generic;
 
 namespace MShop.DataLayer.NHibernate.Mappings.Polls
 {
@@ -8,14 +9,14 @@ namespace MShop.DataLayer.NHibernate.Mappings.Polls
 		public PollMapping()
 		{
 			Table("Polls");
-			Id(m => m.Id).GeneratedBy.Identity();
+			Id(m => m.Id);
 			Map(m => m.AddedDate);
 			Map(m => m.AddedBy);
 			Map(m => m.QuestionText);
 			Map(m => m.IsCurrent);
 			Map(m => m.Votes);
 			Map(m => m.ArchivedDate);
-			HasMany(x => x.PollOptions).KeyColumn("Id");
+			HasMany(x => (List<PollOption>)x.PollOptions).KeyColumn("Id");
 		}
 	}
 }

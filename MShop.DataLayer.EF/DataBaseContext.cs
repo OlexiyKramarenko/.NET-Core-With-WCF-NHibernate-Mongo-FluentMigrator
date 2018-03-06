@@ -6,7 +6,8 @@ using MShop.DataLayer.EF.Entities.Forums;
 using MShop.DataLayer.EF.Entities.Newsletters;
 using MShop.DataLayer.EF.Entities.Polls;
 using MShop.DataLayer.EF.Entities.Store;
-using MShop.DataLayer.EF.Entities.Users; 
+using MShop.DataLayer.EF.Entities.Users;
+using System.Collections.Generic;
 
 namespace MShop.DataLayer.EF
 {
@@ -28,28 +29,39 @@ namespace MShop.DataLayer.EF
 		public DbSet<OrderItem> OrderItems { get; set; }
 		public DbSet<OrderStatus> OrderStatuses { get; set; }
 		public DbSet<ShippingMethod> ShippingMethods { get; set; }
+		public DbSet<AnsweredUser> AnsweredUsers { get; set; }
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
 			base.OnModelCreating(modelBuilder);
 
 			modelBuilder.Entity<Category>().HasKey(a => a.Id);
-			modelBuilder.Entity<Category>().HasMany(a => a.Articles).WithOne(a => a.Category);
+			modelBuilder.Entity<Category>().HasMany(a => (List<Article>)a.Articles).WithOne(a => (Category)a.Category);
 
 			modelBuilder.Entity<Article>().HasKey(a => a.Id);
-			modelBuilder.Entity<Article>().HasMany(a => a.Comments).WithOne(a => a.Article);
+			modelBuilder.Entity<Article>().HasMany(a => (List<Comment>)a.Comments).WithOne(a => (Article)a.Article);
 
 			modelBuilder.Entity<Forum>().HasKey(a => a.Id);
-			modelBuilder.Entity<Forum>().HasMany(a => a.Posts).WithOne(a => a.Forum);
+			modelBuilder.Entity<Forum>().HasMany(a => (List<Post>)a.Posts).WithOne(a => (Forum)a.Forum);
 
 			modelBuilder.Entity<Poll>().HasKey(a => a.Id);
-			modelBuilder.Entity<Poll>().HasMany(a => a.PollOptions).WithOne(a => a.Poll);
+			modelBuilder.Entity<Poll>().HasMany(a => (List<PollOption>)a.PollOptions).WithOne(a => (Poll)a.Poll);
 
 			modelBuilder.Entity<Department>().HasKey(a => a.Id);
-			modelBuilder.Entity<Department>().HasMany(a => a.Products).WithOne(a => a.Department);
+			modelBuilder.Entity<Department>().HasMany(a => (List<Product>)a.Products).WithOne(a => (Department)a.Department);
 
 			modelBuilder.Entity<Order>().HasKey(a => a.Id);
-			modelBuilder.Entity<Order>().HasMany(a => a.OrderItems).WithOne(a => a.Order);
+			modelBuilder.Entity<Order>().HasMany(a => (List<OrderItem>)a.OrderItems).WithOne(a => (Order)a.Order);
+
+			modelBuilder.Entity<OrderStatus>().HasKey(a => a.Id);
+			modelBuilder.Entity<OrderStatus>().HasMany(a => (List<Order>)a.Orders).WithOne(a => (OrderStatus)a.OrderStatus);
+
+			modelBuilder.Entity<OrderItem>().HasKey(a => a.Id);
+			modelBuilder.Entity<OrderItem>().HasOne(a => (Product)a.Product);
+
+			
+			//	modelBuilder.Entity<ShippingMethod>().HasKey(a => a.Id);
+			//modelBuilder.Entity<ShippingMethod>().HasMany(a => (List<Order>)a.Orders).WithOne(a=>a.ShippingMethod);
 		}
 	}
 }

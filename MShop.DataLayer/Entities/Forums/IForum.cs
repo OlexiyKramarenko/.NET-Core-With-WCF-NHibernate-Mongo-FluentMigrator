@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+
 namespace MShop.DataLayer.Entities.Forums
 {
 	public interface IForum
@@ -10,5 +12,6 @@ namespace MShop.DataLayer.Entities.Forums
 		int Importance { get; set; }
 		string Description { get; set; }
 		string ImageUrl { get; set; } 
+		IList<IPost> Posts { get; set; }
 	}
 }

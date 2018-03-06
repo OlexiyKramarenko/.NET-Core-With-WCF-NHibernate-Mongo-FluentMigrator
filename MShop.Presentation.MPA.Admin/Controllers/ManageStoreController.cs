@@ -3,12 +3,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using MShop.DataLayer;
 using MShop.DataLayer.EF.Entities.Store;
-using MShop.DataLayer.EF.Providers.Store;
-using MShop.DataLayer.Providers.Store;
+using MShop.DataLayer.EF.Providers.Store; 
 using MShop.Presentation.MPA.Admin.Models.Store;
+using MShop.ViewComponents.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq.Expressions;
+using System.Collections.Generic; 
 using IStoreRepository = MShop.DataLayer.Repositories.IStoreRepository<
 	MShop.DataLayer.EF.Entities.Store.Department,
 	MShop.DataLayer.EF.Entities.Store.OrderStatus,
@@ -35,13 +34,15 @@ namespace MShop.Presentation.MPA.Admin.Controllers
 		}
 		#region Products
 		[HttpGet]
-		public IActionResult ManageProducts(string orderBy, int pageIndex, int pageSize)
+		public IActionResult ManageProducts(int pageIndex, int pageSize)
 		{
 			try
 			{
-				List<ProductProvider> products = _storeRepository.GetProducts(this.GetSortExpession(orderBy), pageIndex, pageSize);
-				var model = _mapper.Map<IEnumerable<AddProductViewModel>>(products);
-				return View(model);
+				string controller = nameof(ManageStoreController);
+				string action = nameof(this.ManageProducts);
+				int count = _storeRepository.GetProductCount();
+				var model = new PagerViewModel(count, pageSize, pageIndex, controller, action);
+				return View(model); 
 			}
 			catch
 			{
@@ -281,8 +282,22 @@ namespace MShop.Presentation.MPA.Admin.Controllers
 		{
 			try
 			{
+				int itemsCount = _storeRepository.GetOrdersCount();
+				string controller = nameof(ManageStoreController);
+				string action = nameof(this.ManageOrders);
 				List<OrderProvider> list = _storeRepository.GetOrders(pageIndex, pageSize);
-				var model = _mapper.Map<List<ManageOrderItemViewModel>>(list);
+				var model = new ManageOrdersViewModel();
+				try
+				{
+					
+
+					model.Pager = new PagerViewModel(itemsCount, pageSize, pageIndex, controller, action);
+					model.OrderItems = _mapper.Map<List<ManageOrderItemViewModel>>(list);
+				}
+				catch(Exception exc)
+				{
+
+				}
 				return View(model);
 			}
 			catch
@@ -312,9 +327,8 @@ namespace MShop.Presentation.MPA.Admin.Controllers
 			{
 				Order order = _storeRepository.GetOrderById(id);
 				var model = _mapper.Map<EditOrderViewModel>(order);
-
 				List<OrderStatus> statuses = _storeRepository.GetOrderStatuses();
-				model.Items = _mapper.Map<List<OrderItemViewModel>>(order.OrderItems);
+				model.Items = _mapper.Map<List<Models.Store.OrderItemViewModel>>(order.OrderItems);
 				model.OrderStatuses = new SelectList(statuses, "Id", "Title");
 				return View(model);
 			}
@@ -329,7 +343,7 @@ namespace MShop.Presentation.MPA.Admin.Controllers
 		{
 			try
 			{
-				
+
 				_storeRepository.UpdateOrderStatusId(id, statusId);
 				_unitOfWork.Commit();
 				return RedirectToAction(nameof(this.ManageOrders));
@@ -424,35 +438,6 @@ namespace MShop.Presentation.MPA.Admin.Controllers
 				return View();
 			}
 		}
-		#endregion
-
-		#region Private methods
-		private Expression<Func<ProductProvider, dynamic>> GetSortExpession(string orderBy)
-		{
-			Expression<Func<ProductProvider, dynamic>> expression = null;
-			switch (orderBy)
-			{
-				case (nameof(ProductProvider.AddedBy)):
-					expression = p => p.AddedBy;
-					break;
-				case (nameof(ProductProvider.DepartmentTitle)):
-					expression = p => p.DepartmentTitle;
-					break;
-				case (nameof(ProductProvider.AddedDate)):
-					expression = p => p.AddedDate;
-					break;
-				case (nameof(ProductProvider.SKU)):
-					expression = p => p.SKU;
-					break;
-				case (nameof(ProductProvider.Title)):
-					expression = p => p.Title;
-					break;
-				default:
-					expression = p => p.AddedDate;
-					break;
-			}
-			return expression;
-		}
-		#endregion
+		#endregion 
 	}
 }

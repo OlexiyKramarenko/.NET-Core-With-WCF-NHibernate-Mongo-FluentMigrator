@@ -1,5 +1,5 @@
 ﻿using System;
-
+using System.Collections.Generic;
 
 namespace MShop.DataLayer.Entities.Store
 {
@@ -8,5 +8,6 @@ namespace MShop.DataLayer.Entities.Store
 		DateTime AddedDate { get; set; }
 		string AddedBy { get; set; }
 		string Title { get; set; }
+		IList<IOrder> Orders { get; set; }
 	}
 }

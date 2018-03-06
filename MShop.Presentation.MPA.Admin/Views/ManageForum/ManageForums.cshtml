@@ -32,17 +32,17 @@
 	{
 		<div class="forum-item">
 			<div class="edit_delete_link">
-				<a asp-controller="@nameof(ManageForumController)"
-				   asp-action="@nameof(ManageForumController.EditForum).ShortName()"
+				<a asp-controller="@nameof(ManageForumController).ShortName()"
+				   asp-action="@nameof(ManageForumController.EditForum)"
 				   asp-route-id="@item.Id">edit</a>&nbsp;&nbsp;
 
-				<a asp-controller="@nameof(ManageForumController)"
-				   asp-action="@nameof(ManageForumController.DeleteForum).ShortName()"
+				<a asp-controller="@nameof(ManageForumController).ShortName()"
+				   asp-action="@nameof(ManageForumController.DeleteForum)"
 				   asp-route-id="@item.Id">delete</a>
 			</div>
 
-			<h4>@item.ForumTitle</h4>
-			@if (item.IsModerated)
+			<h4>@item.Title</h4>
+			@if (item.Moderated)
 			{
 				<label>moderated</label>
 			}

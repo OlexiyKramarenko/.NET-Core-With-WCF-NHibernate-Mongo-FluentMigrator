@@ -10,7 +10,6 @@ namespace MShop.Presentation.MPA.Admin.Infrastructure.Profiles
 		public ForumProfile()
 		{
 			CreateMap<Forum, ManageForumItemViewModel>();
-			CreateMap<Forum, ManageForumItemViewModel>();
 			CreateMap<AddForumViewModel, Forum>();
 			CreateMap<Forum, EditForumViewModel>();
 			CreateMap<EditForumViewModel, Forum>();

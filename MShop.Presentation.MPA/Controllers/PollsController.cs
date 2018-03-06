@@ -1,11 +1,14 @@
 ﻿
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using AutoMapper;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MShop.DataLayer;
 using MShop.DataLayer.EF.Entities.Polls;
 using MShop.Presentation.MPA.Public.Models.Polls;
+using MShop.ViewComponents.Models;
 using IPollsRepository = MShop.DataLayer.Repositories.IPollsRepository<
 	MShop.DataLayer.EF.Entities.Polls.Poll,
 	MShop.DataLayer.EF.Entities.Polls.PollOption, System.Guid>;
@@ -17,47 +20,41 @@ namespace MShop.Presentation.MPA.Public.Controllers
 		private readonly IPollsRepository _pollsRepository;
 		private readonly IUnitOfWork _unitOfWork;
 		private readonly IMapper _mapper;
-		public PollsController(IPollsRepository pollsRepository, IUnitOfWork unitOfWork, IMapper mapper)
+		private IHttpContextAccessor _accessor;
+		public PollsController(IPollsRepository pollsRepository, IUnitOfWork unitOfWork, IMapper mapper, IHttpContextAccessor accessor)
 		{
+			_accessor = accessor;
 			_pollsRepository = pollsRepository;
 			_unitOfWork = unitOfWork;
 			_mapper = mapper;
-
-			//List<PollOption> options = _pollsRepository.GetOptions(id);
-			//PollOption option = _pollsRepository.GetOptionById(id);
-			//Poll poll = _pollsRepository.GetPollWithVotesById(id);
-			//List<Poll> polls = _pollsRepository.GetPolls(false, false);
-			//int pollId = _pollsRepository.GetCurrentPollId();
 		}
-
-		[HttpGet]
-		public IActionResult ArchivedPolls(bool includeActive, bool includeArchived)
+		
+		[HttpPost]
+		public IActionResult PollResult(PollViewModel model)
 		{
-			try
-			{
-				List<Poll> polls = _pollsRepository.GetPolls(includeActive, includeArchived);
-				List<ArchivedPollItemViewModel> model = _mapper.Map<List<Poll>, List<ArchivedPollItemViewModel>>(polls);
-				return View(model);
-			}
-			catch
-			{
-				return View();
-			}
-		}
+			string userIp = _accessor.HttpContext.Connection.RemoteIpAddress.ToString();
+			_pollsRepository.InsertVote(model.SelectedOptionId, model.Id, userIp);
+			_unitOfWork.Commit();
+			
+			Poll poll = _pollsRepository.GetPollById(model.Id);
+			List<PollOption> options = _pollsRepository.GetOptions(model.Id);
+			int totalVotes = options.Sum(o => o.Votes);
 
-		[HttpDelete]
-		public IActionResult DeletePoll(Guid id)
-		{
-			try
+			var pollResult = new PollResultViewModel
 			{
-				_pollsRepository.DeletePoll(id);
-				_unitOfWork.Commit();
-				return View(nameof(this.ArchivedPolls));
-			}
-			catch
-			{
-				return View();
-			}
+				QuestionText = poll.QuestionText,
+				TotalVotes = totalVotes,
+				Items = options.Select(option => new PollResultItemViewModel
+				{
+					AnswerText = option.OptionText,
+					Votes = option.Votes,
+					Percentage = Math.Round((double)100 / totalVotes * option.Votes, 1)
+				})
+			};
+
+			ViewBag.IsPostBack = true;
+			
+			return View(pollResult);
 		}
 	}
 }

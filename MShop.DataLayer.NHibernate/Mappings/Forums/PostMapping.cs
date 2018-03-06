@@ -8,7 +8,7 @@ namespace MShop.DataLayer.NHibernate.Mappings.Forums
 		public PostMapping()
 		{
 			Table("Posts");
-			Id(m => m.Id).GeneratedBy.Identity();
+			Id(m => m.Id);
 			Map(m => m.AddedDate);
 			Map(m => m.AddedBy);
 			Map(m => m.AddedByIP);
@@ -23,7 +23,7 @@ namespace MShop.DataLayer.NHibernate.Mappings.Forums
 			Map(m => m.LastPostDate);
 			Map(m => m.LastPostBy);
 			Map(m => m.IsThreadPost);
-			References(m => m.Forum).Column("ForumId").Cascade.All();
+			References(m => (Forum)m.Forum).Column("ForumId").Cascade.All();
 		}
 	}
 }

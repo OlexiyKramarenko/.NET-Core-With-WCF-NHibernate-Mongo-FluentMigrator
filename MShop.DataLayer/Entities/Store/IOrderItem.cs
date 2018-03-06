@@ -9,6 +9,8 @@ namespace MShop.DataLayer.Entities.Store
 		string Title { get; set; }
 		string SKU { get; set; }
 		decimal UnitPrice { get; set; }
-		int Quantity { get; set; } 
+		int Quantity { get; set; }
+		IOrder Order { get; set; }
+		IProduct Product { get; set; }
 	}
 }

@@ -13,6 +13,6 @@ namespace MShop.DataLayer.EF.Entities.Forums
         public int Importance { get; set; }
         public string Description { get; set; }
         public string ImageUrl { get; set; }
-        public List<Post> Posts { get; set; }
+        public IList<IPost> Posts { get; set; }
     }
 }

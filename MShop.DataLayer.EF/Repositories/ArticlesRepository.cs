@@ -95,13 +95,25 @@ namespace MShop.DataLayer.EF.Repositories
 														 .ToList();
 			return articleProviders;
 		}
-
-		public IList<Category> GetCategories()
+		public IList<Category> GetCategories( )
+		{ 
+			IList<Category> categories = _unitOfWork.Context
+												   .Categories
+												   .OrderByDescending(a => a.Importance)
+												   .ThenBy(a => a.Title) 
+												   .AsNoTracking()
+												   .ToList();
+			return categories;
+		}
+		public IList<Category> GetCategories(int pageSize, int pageIndex)
 		{
+			int skipCount = (pageIndex - 1) * pageSize;
 			IList<Category> categories = _unitOfWork.Context
 												   .Categories
 												   .OrderByDescending(a => a.Importance)
 												   .ThenBy(a => a.Title)
+												   .Skip(skipCount)
+												   .Take(pageSize)
 												   .AsNoTracking()
 												   .ToList();
 			return categories;
@@ -155,10 +167,31 @@ namespace MShop.DataLayer.EF.Repositories
 
 		public IList<CommentProvider> GetComments(Guid articleId, int pageIndex, int pageSize)
 		{
-			IList<CommentProvider> comments = this.GetCommentsQuery(pageIndex, pageSize)
-												 .Where(com => com.ArticleId == articleId)
-												 .AsNoTracking()
-												 .ToList();
+			int skipCount = (pageIndex - 1) * pageSize;
+
+			List<CommentProvider> comments = (from comment in _unitOfWork.Context.Comments
+												join article in _unitOfWork.Context.Articles
+												on comment.ArticleId equals article.Id
+												where comment.ArticleId == articleId
+												select new CommentProvider
+												{
+													Id = comment.Id,
+													AddedDate = comment.AddedDate,
+													AddedBy = comment.AddedBy,
+													AddedByEmail = comment.AddedByEmail,
+													AddedByIp = comment.AddedByIp,
+													ArticleId = comment.ArticleId,
+													Body = comment.Body,
+													ArticleTitle = article.Title
+												})
+												.Skip(skipCount)
+												.Take(pageSize)
+												.ToList();
+
+			//IList<CommentProvider> comments = this.GetCommentsQuery(pageIndex, pageSize)
+			//									 .Where(com => com.ArticleId == articleId)
+			//									 .AsNoTracking()
+			//									 .ToList();
 			return comments;
 		}
 
@@ -335,8 +368,7 @@ namespace MShop.DataLayer.EF.Repositories
 													ArticleId = comment.ArticleId,
 													Body = comment.Body,
 													ArticleTitle = article.Title
-												};
-
+												};			
 			return query;
 		}
 
@@ -348,6 +380,7 @@ namespace MShop.DataLayer.EF.Repositories
 													.OrderByDescending(o => o.AddedDate)
 													.Skip(scipCount)
 													.Take(pageSize);
+			var t = query.ToList();
 			return query;
 		}
 

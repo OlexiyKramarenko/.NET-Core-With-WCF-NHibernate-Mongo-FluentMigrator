@@ -1,5 +1,6 @@
 ﻿using FluentNHibernate.Mapping;
 using MShop.DataLayer.NHibernate.Entities.Store;
+using System.Collections.Generic;
 
 namespace MShop.DataLayer.NHibernate.Mappings.Store
 {
@@ -8,7 +9,7 @@ namespace MShop.DataLayer.NHibernate.Mappings.Store
 		public OrderMapping()
 		{
 			Table("Orders");
-			Id(m => m.Id).GeneratedBy.Identity();
+			Id(m => m.Id);
 			Map(m => m.AddedDate);
 			Map(m => m.AddedBy);
 			Map(m => m.StatusId);
@@ -28,8 +29,8 @@ namespace MShop.DataLayer.NHibernate.Mappings.Store
 			Map(m => m.TransactionId);
 			Map(m => m.ShippedDate);
 			Map(m => m.TrackingId);
-			HasMany(x => x.OrderItems).KeyColumn("Id");
-			References(m => m.Status).Column("StatusId").Cascade.All();
+			HasMany(x => (List<OrderItem>)x.OrderItems).KeyColumn("Id");
+			References(m => (OrderStatus)m.OrderStatus).Column("StatusId").Cascade.All();
 		}
 	}
 }

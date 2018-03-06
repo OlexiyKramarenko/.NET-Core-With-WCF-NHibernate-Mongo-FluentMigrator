@@ -4798,7 +4798,8 @@
         "dependencies": {
           "MShop.DataLayer": "1.0.0",
           "Microsoft.EntityFrameworkCore": "2.0.1",
-          "Microsoft.EntityFrameworkCore.SqlServer": "2.0.1"
+          "Microsoft.EntityFrameworkCore.SqlServer": "2.0.1",
+          "Microsoft.EntityFrameworkCore.Tools": "2.0.1"
         },
         "compile": {
           "bin/placeholder/MShop.DataLayer.EF.dll": {}

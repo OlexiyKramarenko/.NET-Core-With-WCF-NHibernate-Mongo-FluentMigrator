@@ -60,8 +60,9 @@ namespace MShop.DataLayer.Repositories
 		void UpdateOrder(Order order);
 
 		// methods that work with order items
-		List<OrderItem> GetOrderItems(IdType orderId);
+		List<IOrderItem> GetOrderItems(IdType orderId);
 		void InsertOrderItem(OrderItem orderItem);
 		void UpdateOrderStatusId(IdType orderId, IdType statusId);
+		int GetOrdersCount();
 	}
 }

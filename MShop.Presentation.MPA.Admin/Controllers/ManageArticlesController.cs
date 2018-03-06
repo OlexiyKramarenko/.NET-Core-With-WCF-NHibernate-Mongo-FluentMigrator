@@ -34,7 +34,7 @@ namespace MShop.Presentation.MPA.Admin.Controllers
 
 		[HttpGet]
 		public IActionResult ManageArticles(int pageIndex = 1, int pageSize = 5)
-		{			
+		{
 			int itemsCount = _articlesRepository.GetArticleCount();
 			string controller = nameof(ManageArticlesController);
 			string action = nameof(this.ManageArticles);
@@ -90,7 +90,6 @@ namespace MShop.Presentation.MPA.Admin.Controllers
 			{
 				Article article = _articlesRepository.GetArticleById(id);
 				var model = _mapper.Map<EditArticleViewModel>(article);
-
 				return View(model);
 			}
 			catch
@@ -120,12 +119,19 @@ namespace MShop.Presentation.MPA.Admin.Controllers
 
 		#region Categories
 		[HttpGet]
-		public IActionResult ManageCategories()
+		public IActionResult ManageCategories(int pageSize, int pageIndex)
 		{
 			try
 			{
-				IList<Category> categories = _articlesRepository.GetCategories();
-				var model = _mapper.Map<IEnumerable<CategoryItemViewModel>>(categories);
+				int itemsCount = _articlesRepository.GetArticleCount();
+				string controller = nameof(ManageArticlesController);
+				string action = nameof(this.ManageCategories);
+				IList<Category> categories = _articlesRepository.GetCategories(pageSize, pageIndex);
+				var model = new ManageCategoriesViewModel
+				{
+					Pager = new PagerViewModel(itemsCount, pageSize, pageIndex, controller, action),
+					CategoryItems = _mapper.Map<IEnumerable<CategoryItemViewModel>>(categories)
+				};
 				return View(model);
 			}
 			catch
@@ -220,11 +226,9 @@ namespace MShop.Presentation.MPA.Admin.Controllers
 				int itemsCount = _articlesRepository.GetCommentCount();
 				string controller = nameof(ManageArticlesController);
 				string action = nameof(this.ManageComments);
-				var model = new ManageCommentsViewModel
-				{
-					CommentItems = _mapper.Map<IEnumerable<ManageCommentItemViewModel>>(comments),
-					Pager = new PagerViewModel(itemsCount, pageSize, pageIndex, controller, action)
-				};
+				var model = new ManageCommentsViewModel();
+				model.CommentItems = _mapper.Map<IList<ManageCommentItemViewModel>>(comments);
+				model.Pager = new PagerViewModel(itemsCount, pageSize, pageIndex, controller, action);
 				return View(model);
 			}
 			catch

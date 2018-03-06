@@ -102,6 +102,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app.config" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -111,9 +112,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\Database2.mdf" />
-    <Content Include="App_Data\Database2_log.ldf">
-      <DependentUpon>Database2.mdf</DependentUpon>
+    <Content Include="App_Data\Database_100.mdf" />
+    <Content Include="App_Data\Database_100_log.ldf">
+      <DependentUpon>Database_100.mdf</DependentUpon>
     </Content>
     <Content Include="Web.config" />
     <Content Include="WebForm1.aspx" />
@@ -129,14 +130,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MShop.DataLayer.EF\MShop.DataLayer.EF.csproj">
-      <Project>{6bcbda6e-f2a1-4b87-a95e-2d7a1e9e0222}</Project>
-      <Name>MShop.DataLayer.EF</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MShop.DataLayer.Mongo\MShop.DataLayer.Mongo.csproj">
-      <Project>{a7009d8e-5461-4df3-ba16-073346199d46}</Project>
-      <Name>MShop.DataLayer.Mongo</Name>
-    </ProjectReference>
     <ProjectReference Include="..\MShop.DataLayer.NHibernate\MShop.DataLayer.NHibernate.csproj">
       <Project>{7f9ff035-b202-4f92-bc20-086a480dafeb}</Project>
       <Name>MShop.DataLayer.NHibernate</Name>
@@ -146,6 +139,7 @@
       <Name>MShop.DataLayer</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using MShop.DataLayer.EF.Entities.Polls;
 using MShop.Presentation.MPA.Admin.Models.Polls;
+using MShop.ViewComponents.Models;
 
 namespace MShop.Presentation.MPA.Admin.Infrastructure.Profiles
 {
@@ -11,6 +12,8 @@ namespace MShop.Presentation.MPA.Admin.Infrastructure.Profiles
 			CreateMap<Poll, PollItemViewModel>();
 			CreateMap<Poll, EditPollViewModel>().ReverseMap();
 			CreateMap<PollOption, OptionItemViewModel>();
+			CreateMap<Poll, PollViewModel>();
+			CreateMap<PollOption, OptionViewModel>();
 		}
     }
 }

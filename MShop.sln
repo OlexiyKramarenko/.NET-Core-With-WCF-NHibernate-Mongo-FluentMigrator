@@ -21,7 +21,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MShop.ViewComponents", "MSh
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Areas", "Areas", "{A641D426-A623-4C64-AA67-D49C70CCD863}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication1", "WebApplication1\WebApplication1.csproj", "{36FC4BAE-C729-427A-84BE-83DE72D4B1C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApplication1", "WebApplication1\WebApplication1.csproj", "{36FC4BAE-C729-427A-84BE-83DE72D4B1C5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication2", "WebApplication2\WebApplication2.csproj", "{C4768DCA-74F7-4F78-8660-B9F83DACF170}"
 EndProject
@@ -43,9 +43,22 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MShop.Search", "MShop.Searc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MShop.Search.Lucene", "MShop.Search.Lucene\MShop.Search.Lucene.csproj", "{8B25E2C4-2D5E-4C74-BB5E-2B78A6DAF9D0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication5", "WebApplication5\WebApplication5.csproj", "{C403C1CA-9F77-437E-9E7A-32489FF36BED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApplication5", "WebApplication5\WebApplication5.csproj", "{C403C1CA-9F77-437E-9E7A-32489FF36BED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication6", "WebApplication6\WebApplication6.csproj", "{40D8350B-DE02-49BC-AA9D-F4E1D17D31D9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApplication6", "WebApplication6\WebApplication6.csproj", "{40D8350B-DE02-49BC-AA9D-F4E1D17D31D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MShop.WebContext", "MShop.WebContext\MShop.WebContext.csproj", "{0B85EFB5-87A6-4FEF-8A9B-B9D12145EADE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCF.Service.Host", "WCF.Service.Host\WCF.Service.Host.csproj", "{B5473ED7-1D5E-473B-851C-732E02E8BF01}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MShop.Client.SPA.React", "MShop.Client.SPA.React\MShop.Client.SPA.React.csproj", "{7C178779-008F-4C8E-90C2-3B0B904DCBF2}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B5473ED7-1D5E-473B-851C-732E02E8BF01} = {B5473ED7-1D5E-473B-851C-732E02E8BF01}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCF.Service.Library", "WCF.Service.Library\WCF.Service.Library.csproj", "{A3A3F73A-89F3-43D2-AB03-C4E6DC81E853}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MShop.DataLayer.NHibernate.Migrations", "MShop.DataLayer.NHibernate.Migrations\MShop.DataLayer.NHibernate.Migrations.csproj", "{969EBB35-6166-492E-81D3-D37E3C13111B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -125,6 +138,26 @@ Global
 		{40D8350B-DE02-49BC-AA9D-F4E1D17D31D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{40D8350B-DE02-49BC-AA9D-F4E1D17D31D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{40D8350B-DE02-49BC-AA9D-F4E1D17D31D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B85EFB5-87A6-4FEF-8A9B-B9D12145EADE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B85EFB5-87A6-4FEF-8A9B-B9D12145EADE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B85EFB5-87A6-4FEF-8A9B-B9D12145EADE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B85EFB5-87A6-4FEF-8A9B-B9D12145EADE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5473ED7-1D5E-473B-851C-732E02E8BF01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5473ED7-1D5E-473B-851C-732E02E8BF01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5473ED7-1D5E-473B-851C-732E02E8BF01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5473ED7-1D5E-473B-851C-732E02E8BF01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C178779-008F-4C8E-90C2-3B0B904DCBF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C178779-008F-4C8E-90C2-3B0B904DCBF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C178779-008F-4C8E-90C2-3B0B904DCBF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C178779-008F-4C8E-90C2-3B0B904DCBF2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3A3F73A-89F3-43D2-AB03-C4E6DC81E853}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3A3F73A-89F3-43D2-AB03-C4E6DC81E853}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3A3F73A-89F3-43D2-AB03-C4E6DC81E853}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3A3F73A-89F3-43D2-AB03-C4E6DC81E853}.Release|Any CPU.Build.0 = Release|Any CPU
+		{969EBB35-6166-492E-81D3-D37E3C13111B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{969EBB35-6166-492E-81D3-D37E3C13111B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{969EBB35-6166-492E-81D3-D37E3C13111B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{969EBB35-6166-492E-81D3-D37E3C13111B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -142,6 +175,7 @@ Global
 		{82C721EC-1963-4676-8599-0FAA6BFBD6F2} = {45F751A5-D05F-4321-ABC4-F3875EFEE0BB}
 		{6E98316D-3C13-44B4-A170-DC1AA3322C30} = {45F751A5-D05F-4321-ABC4-F3875EFEE0BB}
 		{8B25E2C4-2D5E-4C74-BB5E-2B78A6DAF9D0} = {45F751A5-D05F-4321-ABC4-F3875EFEE0BB}
+		{969EBB35-6166-492E-81D3-D37E3C13111B} = {9E256D35-478D-4863-9DAA-14D9966E6B8B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5A64D46A-1994-4451-A5A3-DF6810F47EF4}

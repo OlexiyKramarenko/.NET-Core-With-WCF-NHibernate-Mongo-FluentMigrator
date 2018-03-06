@@ -35,7 +35,7 @@ namespace MShop.Presentation.MPA.Admin.Controllers
 			try
 			{
 				List<Forum> forums = _forumsRepository.GetForums();
-				var model = _mapper.Map<IEnumerable<ManageForumItemViewModel>>(forums);
+				var model = _mapper.Map<List<ManageForumItemViewModel>>(forums);
 				return View(model);
 			}
 			catch

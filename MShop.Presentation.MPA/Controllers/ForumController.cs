@@ -1,7 +1,7 @@
 ﻿
 using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Linq.Expressions;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -30,50 +30,62 @@ namespace MShop.Presentation.MPA.Public.Controllers
 		}
 
 		[HttpGet]
-		public IActionResult BrowseThreads(Guid id, int pageIndex, int pageSize)
-		{
-			List<PostProvider> threads = _forumsRepository.GetThreads(id, null, pageIndex, pageSize);
-			List<ThreadItemViewModel> threadItems = _mapper.Map<List<PostProvider>, List<ThreadItemViewModel>>(threads);
-			var forums = _forumsRepository.GetForums().Select(f => new SelectListItem { Text = f.Title, Value = f.Id.ToString() });
+		public IActionResult BrowseThreads(Guid forumId, int pageIndex, int pageSize)
+		{ 
+			List<PostProvider> threads = _forumsRepository.GetThreads(forumId, p => p.AddedBy, pageIndex, pageSize);
+			var threadItems = _mapper.Map<List<ThreadItemViewModel>>(threads);
+			var forums = _forumsRepository.GetForums();
 			var model = new BrowseThreadsViewModel
 			{
-				ForumId = id,
+				ForumId = forumId,
 				ThreadItems = threadItems,
-				Forums = new SelectList(forums)
+				Forums = new SelectList(forums, nameof(Forum.Id), nameof(Forum.Title))
+			};
+			return View(model);
+		}
+		
+		[HttpGet]
+		public IActionResult ShowForums()
+		{
+			List<Forum> forums = _forumsRepository.GetForums();
+			var model = _mapper.Map<List<ForumItemViewModel>>(forums);
+			return View(model);
+		}
+
+		[HttpGet]
+		public IActionResult ShowThread(Guid threadId, Guid forumId)
+		{
+			List<PostProvider> posts = _forumsRepository.GetThreadById(threadId);
+			var model = new ShowThreadViewModel
+			{
+				ThreadId = threadId,
+				ForumId = forumId,
+				Posts = _mapper.Map<List<PostItemViewModel>>(posts)
 			};
 			return View(model);
 		}
 
 		[HttpGet]
-		public IActionResult ShowForums()
+		public IActionResult AddPost(Guid forumId, Guid threadId)
 		{
-			List<Forum> forums = _forumsRepository.GetForums();
-			List<ForumItemViewModel> model = _mapper.Map<List<Forum>, List<ForumItemViewModel>>(forums);
+			var model = new AddPostViewModel
+			{
+				ThreadId = threadId,
+				ForumId = forumId
+			};
 			return View(model);
 		}
 
-		[HttpGet]
-		public IActionResult ShowThread(Guid id)
-		{
-			List<PostProvider> forums = _forumsRepository.GetThreadById(id);
-			List<PostItemViewModel> model = _mapper.Map<List<PostProvider>, List<PostItemViewModel>>(forums);
-			return View(model);
-		}
-		[HttpGet]
-		public IActionResult AddPost()
-		{
-
-			return View();
-		}
 		[HttpPost]
 		public IActionResult AddPost(AddPostViewModel model)
 		{
 			try
 			{
-				Post post = _mapper.Map<AddPostViewModel, Post>(model);
+				var post = _mapper.Map<Post>(model);
 				_forumsRepository.InsertPost(post);
 				_unitOfWork.Commit();
-				return RedirectToAction(nameof(this.BrowseThreads));
+				return RedirectToAction(nameof(this.BrowseThreads), 
+					new { forumId = model.ForumId, pageIndex = 1, pageSize = 5 });
 			}
 			catch
 			{
@@ -111,6 +123,7 @@ namespace MShop.Presentation.MPA.Public.Controllers
 				return View();
 			}
 		}
+
 		[HttpDelete]
 		public IActionResult DeletePost(Guid id)
 		{
@@ -125,5 +138,7 @@ namespace MShop.Presentation.MPA.Public.Controllers
 				return View();
 			}
 		}
+		
+		 
 	}
 }

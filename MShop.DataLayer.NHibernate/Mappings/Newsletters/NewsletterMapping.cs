@@ -8,7 +8,7 @@ namespace MShop.DataLayer.NHibernate.Mappings.Newsletters
 		public NewsletterMapping()
 		{
 			Table("Newsletters");
-			Id(m => m.Id).GeneratedBy.Identity();
+			Id(m => m.Id);
 			Map(m => m.AddedDate);
 			Map(m => m.AddedBy);
 			Map(m => m.Subject);

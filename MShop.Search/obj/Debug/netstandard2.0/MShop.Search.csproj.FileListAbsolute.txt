@@ -1,9 +1,9 @@
 F:\MShop\MShop.Search\bin\Debug\netstandard2.0\MShop.Search.deps.json
 F:\MShop\MShop.Search\bin\Debug\netstandard2.0\MShop.Search.dll
 F:\MShop\MShop.Search\bin\Debug\netstandard2.0\MShop.Search.pdb
+F:\MShop\MShop.Search\obj\Debug\netstandard2.0\MShop.Search.csprojResolveAssemblyReference.cache
 F:\MShop\MShop.Search\obj\Debug\netstandard2.0\MShop.Search.csproj.CoreCompileInputs.cache
 F:\MShop\MShop.Search\obj\Debug\netstandard2.0\MShop.Search.AssemblyInfoInputs.cache
 F:\MShop\MShop.Search\obj\Debug\netstandard2.0\MShop.Search.AssemblyInfo.cs
 F:\MShop\MShop.Search\obj\Debug\netstandard2.0\MShop.Search.dll
 F:\MShop\MShop.Search\obj\Debug\netstandard2.0\MShop.Search.pdb
-F:\MShop\MShop.Search\obj\Debug\netstandard2.0\MShop.Search.csprojResolveAssemblyReference.cache

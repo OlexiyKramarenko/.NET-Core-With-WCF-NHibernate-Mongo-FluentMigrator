@@ -19,6 +19,6 @@ namespace MShop.DataLayer.NHibernate.Entities.Store
 		public virtual string FullImageUrl { get; set; }
 		public virtual int Votes { get; set; }
 		public virtual int TotalRating { get; set; }
-		public virtual Department Department { get; set; }
+		public virtual IDepartment Department { get; set; }
 	}
 }

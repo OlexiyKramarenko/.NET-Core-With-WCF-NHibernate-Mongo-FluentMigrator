@@ -11,36 +11,35 @@ using INewslettersRepository =
 
 namespace MShop.Presentation.MPA.Public.Controllers
 {
-    public class NewslettersController:Controller
-    {
-        private readonly INewslettersRepository _newslettersRepository;
-        private readonly IUnitOfWork _unitOfWork;
-        private readonly IMapper _mapper;
+	public class NewslettersController : Controller
+	{
+		private readonly INewslettersRepository _newslettersRepository;
+		private readonly IUnitOfWork _unitOfWork;
+		private readonly IMapper _mapper;
 
-        public NewslettersController(INewslettersRepository newslettersRepository, IUnitOfWork unitOfWork, IMapper mapper)
-        {
-            _newslettersRepository = newslettersRepository;
-            _unitOfWork = unitOfWork;
+		public NewslettersController(INewslettersRepository newslettersRepository, IUnitOfWork unitOfWork, IMapper mapper)
+		{
+			_newslettersRepository = newslettersRepository;
+			_unitOfWork = unitOfWork;
 			_mapper = mapper;
 		}
+		
+		[HttpGet]
+		public IActionResult ArchivedNewsletters(DateTime toDate)
+		{
+			List<Newsletter> newsletters = _newslettersRepository.GetNewsletters(toDate);
+			var model = _mapper.Map<List<NewsletterItemViewModel>>(newsletters);
+			return View(model);
+		}
 
-	    [HttpGet]
-	    public IActionResult ArchivedNewsletters(DateTime toDate)
-	    {
-		    List<Newsletter> newsletters = _newslettersRepository.GetNewsletters(toDate);
-		    List<NewsletterItemViewModel> model =
-			    _mapper.Map<List<Newsletter>, List<NewsletterItemViewModel>>(newsletters);
-		    return View(model);
-	    }
+		[HttpGet]
+		public IActionResult ShowNewsletter(Guid id)
+		{
+			Newsletter newsletter = _newslettersRepository.GetNewsletterById(id);
+			var model = _mapper.Map<NewsletterViewModel>(newsletter);
+			return View(model);
+		}
 
-	    [HttpGet]
-	    public IActionResult ShowNewsletter(Guid id)
-	    {
-		    Newsletter newsletter = _newslettersRepository.GetNewsletterById(id);
-		    NewsletterViewModel model =
-			    _mapper.Map<Newsletter, NewsletterViewModel>(newsletter);
-		    return View(model);
-	    }
 		[HttpGet]
 		public IActionResult DeleteNewsletter(Guid id)
 		{

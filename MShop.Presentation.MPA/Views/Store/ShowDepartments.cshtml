@@ -2,31 +2,51 @@
 @using MShop.Presentation.MPA.Public.Controllers;
 @model IEnumerable<MShop.Presentation.MPA.Public.Models.Store.DepartmentItemViewModel>
 
-<div>Store departments</div>
+<h3>Store departments</h3>
 
-Click on the title of the department for which you want to browse the products:
+<div>Click on the title of the department for which you want to browse the products:</div>
 
+<br />
 
+<style>
+	#categories {
+		margin-top: 20px;
+	}
+
+	td {
+		padding: 5px;
+	}
+
+	.category-item {
+		padding: 15px;
+		display: inline-block;
+		border: 3px solid #5aaeb1;
+		width: 300px;
+		height: 120px;
+		vertical-align: top;
+		margin-bottom: 4px;
+		border-radius: 10px;
+	}
+</style>
 @if (Model.Any())
 {
-	<table>
+	<div>
 		@foreach (var item in Model)
 		{
-			<tr>
-				<td>@item.Title</td>
-				<td>
-					<a asp-controller="@nameof(StoreController).ShortName()"
-					   asp-action="@nameof(StoreController.BrowseProducts)"
-					   asp-route-departmentId="@item.Id">
-						Browse products
-					</a>
-				</td>
-				<td>
-					@item.Description
-				</td>
-			</tr>
+			<div class="category-item">
+
+				<a asp-controller="@nameof(StoreController).ShortName()"
+				   asp-action="@nameof(StoreController.BrowseProducts)"
+				   asp-route-departmentId="@item.Id">
+					@item.Title
+				</a>
+
+				<br />
+
+				<p>@item.Description</p>
+			</div>
 		}
-	</table>
+	</div>
 }
 else
 {

@@ -8,6 +8,6 @@ namespace MShop.Presentation.MPA.Public.Models.Articles
         public string AddedBy { get; set; }
         public string AddedByEmail { get; set; }
         public DateTime AddedDate { get; set; }
-        public string EncodedBody { get; set; }
+        public string Body { get; set; }
     }
 }

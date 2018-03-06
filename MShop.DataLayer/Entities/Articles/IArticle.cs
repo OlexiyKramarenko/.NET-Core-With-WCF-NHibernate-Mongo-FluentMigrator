@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace MShop.DataLayer.Entities.Articles
 {
@@ -20,6 +21,8 @@ namespace MShop.DataLayer.Entities.Articles
 		bool OnlyForMembers { get; set; }
 		int ViewCount { get; set; }
 		int Votes { get; set; }
-		int TotalRating { get; set; } 
+		int TotalRating { get; set; }
+		IList<IComment> Comments { get; set; }
+		ICategory Category { get; set; }
 	}
 }

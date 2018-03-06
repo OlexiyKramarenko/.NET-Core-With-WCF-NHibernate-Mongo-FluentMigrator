@@ -9,7 +9,7 @@ namespace MShop.ViewComponents.Models
         public bool OnlyForMembers { get; set; }
         public bool Approved { get; set; }
         public int Votes { get; set; }
-        public int AverageRating { get; set; }
+        //public int AverageRating { get; set; }
         public string AddedBy { get; set; }
         public DateTime ReleaseDate { get; set; }
         public string CategoryTitle { get; set; }

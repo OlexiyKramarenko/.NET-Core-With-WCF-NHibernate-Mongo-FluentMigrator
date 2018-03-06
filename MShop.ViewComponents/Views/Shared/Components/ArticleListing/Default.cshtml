@@ -1,7 +1,5 @@
 ﻿@model MShop.ViewComponents.Models.ArticleListingViewModel
-@*Filter by category:
-@Html.DropDownListFor(m => Model.CategoryId, Model.Categories, "All categories")*@
-
+ 
 <style>
 	.listing-link {
 		text-decoration: none;
@@ -44,8 +42,8 @@
 		   class="article-link">
 			<h3>@item.Title</h3>
 		</a>
-		<b>Posted by:</b>@item.AddedBy<br />
-		<b>Rating:</b> @item.AverageRating<br />
+		<b>Posted by:</b>@item.AddedBy<br /> 
+		@*<b>Rating:</b> @item.AverageRating<br />*@
 		<b>Abstract:</b>@item.Abstract<br />
 	</div>
 }

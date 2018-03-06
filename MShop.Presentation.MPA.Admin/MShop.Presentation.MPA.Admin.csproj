@@ -203,4 +203,8 @@
     </Content>
   </ItemGroup>
 
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xcopy /C /E /F /R /Y /I &quot;F:\MShop\MShop.Presentation.MPA.Admin\Views&quot; &quot;F:\MShop\MShop.Presentation.MPA.Auth\Views&quot;" />
+  </Target>
+
 </Project>

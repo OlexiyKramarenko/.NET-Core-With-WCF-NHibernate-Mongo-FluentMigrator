@@ -16,6 +16,7 @@ namespace MShop.DataLayer.NHibernate.Repositories
 		public ArticlesRepository(NHUnitOfWork unitOfWork)
 		{
 			_unitOfWork = unitOfWork;
+			_unitOfWork.BeginTransaction();
 		}
 
 		#region Articles
@@ -382,6 +383,11 @@ namespace MShop.DataLayer.NHibernate.Repositories
 		public void UpdateComment(Comment comment)
 		{
 			_unitOfWork.Session.Update(comment);
+		}
+
+		public IList<Category> GetCategories(int pageSize, int pageIndex)
+		{
+			throw new NotImplementedException();
 		}
 		#endregion
 

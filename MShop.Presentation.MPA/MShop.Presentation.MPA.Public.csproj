@@ -4,17 +4,19 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Compile Remove="Views\Home\Components\**" />
-    <Content Remove="Views\Home\Components\**" />
-    <EmbeddedResource Remove="Views\Home\Components\**" />
-    <None Remove="Views\Home\Components\**" />
-  </ItemGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>bin\Debug\netcoreapp2.0\</OutputPath>
+  </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Components\ProductsViewComponent.cs" />
-    <Compile Remove="Components\ShippingDetailsViewComponent.cs" />
-    <Compile Remove="Components\ShippingMethodsViewComponent.cs" />
+    <Compile Remove="Components\**" />
+    <Compile Remove="Views\Home\Components\**" />
+    <Content Remove="Components\**" />
+    <Content Remove="Views\Home\Components\**" />
+    <EmbeddedResource Remove="Components\**" />
+    <EmbeddedResource Remove="Views\Home\Components\**" />
+    <None Remove="Components\**" />
+    <None Remove="Views\Home\Components\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -22,9 +24,6 @@
     <Content Remove="Views\Articles\_CommentDetails.cshtml" />
     <Content Remove="Views\Articles\_Comments.cshtml" />
     <Content Remove="Views\Articles\_RateArticle.cshtml" />
-    <Content Remove="Views\Shared\Components\NewFolder\Products\Default.cshtml" />
-    <Content Remove="Views\Shared\Components\NewFolder\ShippingDetails\Default.cshtml" />
-    <Content Remove="Views\Shared\Components\NewFolder\ShippingMethods\Default.cshtml" />
     <Content Remove="Views\Store\_Products.cshtml" />
     <Content Remove="Views\Store\_ShippingDetails.cshtml" />
     <Content Remove="Views\Store\_ShippingMethods.cshtml" />
@@ -45,12 +44,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="Views\Shared\Components\NewFolder\Products\Default.cshtml" />
-    <None Include="Views\Shared\Components\NewFolder\ShippingDetails\Default.cshtml" />
-    <None Include="Views\Shared\Components\NewFolder\ShippingMethods\Default.cshtml" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\MShop.DataLayer.EF\MShop.DataLayer.EF.csproj" />
     <ProjectReference Include="..\MShop.DataLayer\MShop.DataLayer.csproj" />
     <ProjectReference Include="..\MShop.ViewComponents\MShop.ViewComponents.csproj" />
@@ -66,13 +59,13 @@
     <Content Update="Views\Articles\ShowCategories.cshtml">
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Update="Views\Forums\BrowseThreads.cshtml">
+    <Content Update="Views\Forum\BrowseThreads.cshtml">
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Update="Views\Forums\ShowForums.cshtml">
+    <Content Update="Views\Forum\ShowForums.cshtml">
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Update="Views\Forums\ShowThread.cshtml">
+    <Content Update="Views\Forum\ShowThread.cshtml">
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
     <Content Update="Views\Home\About.cshtml">
@@ -87,9 +80,6 @@
     <Content Update="Views\Newsletters\ShowNewsletter.cshtml">
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Update="Views\Polls\ArchivedPolls.cshtml">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
     <Content Update="Views\Shared\Error.cshtml">
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
@@ -97,9 +87,6 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
     <Content Update="Views\Store\BrowseProducts.cshtml">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Update="Views\Store\OrderHistory.cshtml">
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
     <Content Update="Views\Store\ShoppingCart.cshtml">
@@ -122,5 +109,9 @@
   <ItemGroup>
     <Folder Include="Models\Users\" />
   </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xcopy /C /E /F /R /Y /I &quot;F:\MShop\MShop.Presentation.MPA\Views&quot; &quot;F:\MShop\MShop.Presentation.MPA.Auth\Views&quot;" />
+  </Target>
 
 </Project>

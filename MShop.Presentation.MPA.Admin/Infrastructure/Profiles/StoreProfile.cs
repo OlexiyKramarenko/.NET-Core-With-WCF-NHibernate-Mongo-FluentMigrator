@@ -25,7 +25,7 @@ namespace MShop.Presentation.MPA.Admin.Infrastructure.Profiles
 			CreateMap<AddDepartmentViewModel, Department>();
 			CreateMap<Department, EditDepartmentViewModel>().ReverseMap();
 			CreateMap<OrderProvider, ManageOrderItemViewModel>()
-				.ForMember(dest => dest.Items, opt => opt.MapFrom(src => src.OrderItems));
+				.ForMember(dest => dest.OrderItems, opt => opt.MapFrom(src => src.OrderItems));
 			CreateMap<OrderItem, ManageOrderedItemViewModel>();
 			CreateMap<List<OrderItem>,List< OrderItemViewModel>>();
 			CreateMap<Order, EditOrderViewModel>()

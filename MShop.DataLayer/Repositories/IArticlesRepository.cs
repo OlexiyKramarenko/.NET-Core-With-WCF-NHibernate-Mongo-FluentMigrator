@@ -5,15 +5,16 @@ using System.Collections.Generic;
 
 namespace MShop.DataLayer.Repositories
 {
-		public interface IArticlesRepository<Article, Category, Comment, ArticleProvider, CommentProvider, IdType>
-		where Article : IArticle
-		where Category : ICategory
-		where Comment : IComment
-		where ArticleProvider : IArticleProvider
-		where CommentProvider : ICommentProvider	
-			
+	public interface IArticlesRepository<Article, Category, Comment, ArticleProvider, CommentProvider, IdType>
+	where Article : class, IArticle
+	where Category : class, ICategory
+	where Comment : class, IComment
+	where ArticleProvider : class, IArticleProvider
+	where CommentProvider : class, ICommentProvider
+
 	{
 		IList<Category> GetCategories();
+		IList<Category> GetCategories(int pageSize, int pageIndex);
 		Category GetCategoryById(IdType categoryId);
 		void DeleteCategory(IdType categoryId);
 		void UpdateCategory(Category category);

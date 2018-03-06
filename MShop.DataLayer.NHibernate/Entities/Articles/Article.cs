@@ -25,7 +25,7 @@ namespace MShop.DataLayer.NHibernate.Entities.Articles
 		public virtual int ViewCount { get; set; }
 		public virtual int Votes { get; set; }
 		public virtual int TotalRating { get; set; }
-		public virtual List<Comment> Comments { get; set; }
-		public virtual Category Category { get; set; }
+		public virtual IList<IComment> Comments { get; set; }
+		public virtual ICategory Category { get; set; }
 	}
 }

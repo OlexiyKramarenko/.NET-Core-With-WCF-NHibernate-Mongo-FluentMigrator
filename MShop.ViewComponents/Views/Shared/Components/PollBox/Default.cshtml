@@ -1,21 +1,47 @@
-﻿@model MShop.ViewComponents.Models.PollBoxViewModel
-Ответы:
+﻿@model MShop.ViewComponents.Models.PollViewModel
 
-@Model.OptionTexts
+<style>
+	#poll-form {
+		border: 1px solid black;
+		display: inline-block;
+		width: 200px;
+		margin-bottom: 5px;
+		font-weight: bold;
+		border-radius: 15px;
+	}
 
-@*<input type="radio" name="gender" value="male" checked> Male<br>
-    <input type="radio" name="gender" value="female"> Female<br>
-    <input type="radio" name="gender" value="other"> Other*@
+		#poll-form ul {
+			list-style-type: none;
+		}
+</style>
 
-
-
-@foreach (var item in Model.Options)
+@if (Model.ShowPoll)
 {
-    @item.OptionText
-    @item.Votes
-    @item.Percentage
+	if (!Model.IsPostBack && Model.Options.Any())
+	{
+		<form id="poll-form"
+			  asp-controller="Polls"
+			  asp-action="PollResult">
+			<input asp-for="@Model.Id" type="hidden" />
+			<ul>
+				<li><label asp-for="QuestionText">@Model.QuestionText</label><br /></li>
+				@for (int i = 0; i < Model.Options.Count; i++)
+				{
+					<li>
+						<input value="@Model.Options[i].Id" asp-for="SelectedOptionId" type="radio" />
+						<label asp-for="@Model.Options[i].Id">@Model.Options[i].OptionText</label>
+						<input asp-for="@Model.Options[i].Id" type="hidden" />
+					</li>
+				}
+				<li>
+					<br />
+					<input type="submit" value="Vote" />
+				</li>
+			</ul>
+		</form>
+	}
+	else
+	{
+		<div>@Model.Congratulation</div>
+	}
 }
-
-@Model.Question
-
-@Model.TotalVotes

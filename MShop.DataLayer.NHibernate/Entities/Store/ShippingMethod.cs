@@ -10,5 +10,6 @@ namespace MShop.DataLayer.NHibernate.Entities.Store
 		public virtual string AddedBy { get; set; }
 		public virtual string Title { get; set; }
 		public virtual decimal Price { get; set; }
+		public virtual string Description { get; set; }
 	}
 }

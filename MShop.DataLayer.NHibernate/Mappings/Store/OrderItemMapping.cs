@@ -8,7 +8,7 @@ namespace MShop.DataLayer.NHibernate.Mappings.Store
 		public OrderItemMapping()
 		{
 			Table("OrderItems");
-			Id(m => m.Id).GeneratedBy.Identity();
+			Id(m => m.Id);
 			Map(m => m.AddedDate);
 			Map(m => m.AddedBy);
 			Map(m => m.OrderId);
@@ -17,7 +17,7 @@ namespace MShop.DataLayer.NHibernate.Mappings.Store
 			Map(m => m.SKU);
 			Map(m => m.UnitPrice);
 			Map(m => m.Quantity);
-			References(m => m.Order).Column("OrderId").Cascade.All();
+			References(m => (Order)m.Order).Column("OrderId").Cascade.All();
 		}
 	}
 }

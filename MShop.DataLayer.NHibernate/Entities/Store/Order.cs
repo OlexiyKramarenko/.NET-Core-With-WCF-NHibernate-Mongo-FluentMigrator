@@ -26,7 +26,7 @@ namespace MShop.DataLayer.NHibernate.Entities.Store
 		public virtual string TransactionId { get; set; }
 		public virtual DateTime? ShippedDate { get; set; }
 		public virtual string TrackingId { get; set; }
-		public virtual List<OrderItem> OrderItems { get; set; }
-		public virtual OrderStatus Status { get; set; }
+		public virtual IList<IOrderItem> OrderItems { get; set; }
+		public virtual IOrderStatus OrderStatus { get; set; }
 	}
 }

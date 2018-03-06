@@ -1,9 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace MShop.DataLayer.Entities.Store
 {
 	public interface IOrder
-	{ 
+	{
 		DateTime AddedDate { get; set; }
 		string AddedBy { get; set; }
 		string ShippingMethod { get; set; }
@@ -21,6 +22,8 @@ namespace MShop.DataLayer.Entities.Store
 		string CustomerFax { get; set; }
 		string TransactionId { get; set; }
 		DateTime? ShippedDate { get; set; }
-		string TrackingId { get; set; } 
+		string TrackingId { get; set; }
+		IOrderStatus OrderStatus { get; set; }
+		IList<IOrderItem> OrderItems { get; set; }
 	}
 }

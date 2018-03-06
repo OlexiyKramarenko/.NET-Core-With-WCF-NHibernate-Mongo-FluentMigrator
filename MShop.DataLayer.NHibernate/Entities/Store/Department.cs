@@ -13,6 +13,6 @@ namespace MShop.DataLayer.NHibernate.Entities.Store
 		public virtual int Importance { get; set; }
 		public virtual string Description { get; set; }
 		public virtual string ImageUrl { get; set; }
-		public virtual List<Product> Products { get; set; }
+		public virtual IList<IProduct> Products { get; set; }
 	}
 }

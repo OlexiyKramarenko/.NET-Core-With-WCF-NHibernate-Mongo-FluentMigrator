@@ -1,5 +1,6 @@
 ﻿using FluentNHibernate.Mapping;
-using MShop.DataLayer.NHibernate.Entities.Forums; 
+using MShop.DataLayer.NHibernate.Entities.Forums;
+using System.Collections.Generic;
 
 namespace MShop.DataLayer.NHibernate.Mappings.Forums
 {
@@ -8,7 +9,7 @@ namespace MShop.DataLayer.NHibernate.Mappings.Forums
 		public ForumMapping()
 		{
 			Table("Forums");
-			Id(m => m.Id).GeneratedBy.Identity();
+			Id(m => m.Id);
 			Map(m => m.AddedDate);
 			Map(m => m.AddedBy);
 			Map(m => m.Title);
@@ -16,7 +17,7 @@ namespace MShop.DataLayer.NHibernate.Mappings.Forums
 			Map(m => m.Importance);
 			Map(m => m.Description);
 			Map(m => m.ImageUrl);
-			HasMany(x => x.Posts);//.KeyColumn("Id");
+			HasMany(x => (List<Post>)x.Posts);//.KeyColumn("Id");
 		}
 	}
 }

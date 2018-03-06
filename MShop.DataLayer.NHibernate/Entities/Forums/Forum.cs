@@ -13,6 +13,6 @@ namespace MShop.DataLayer.NHibernate.Entities.Forums
 		public virtual int Importance { get; set; }
 		public virtual string Description { get; set; }
 		public virtual string ImageUrl { get; set; }
-		public virtual List<Post> Posts { get; set; }
+		public virtual IList<IPost> Posts { get; set; }
 	}
 }

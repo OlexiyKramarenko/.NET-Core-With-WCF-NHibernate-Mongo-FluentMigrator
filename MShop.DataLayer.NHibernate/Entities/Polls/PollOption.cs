@@ -12,6 +12,6 @@ namespace MShop.DataLayer.NHibernate.Entities.Polls
 		public virtual string OptionText { get; set; }
 		public virtual int Votes { get; set; }
 		public virtual double Percentage { get; set; }
-		public virtual Poll Poll { get; set; }
+		public virtual IPoll Poll { get; set; }
 	}
 }

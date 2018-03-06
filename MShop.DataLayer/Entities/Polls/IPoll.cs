@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace MShop.DataLayer.Entities.Polls
 {
@@ -10,6 +11,7 @@ namespace MShop.DataLayer.Entities.Polls
 		bool IsCurrent { get; set; }
 		bool IsArchived { get; set; }
 		int Votes { get; set; }
-		DateTime? ArchivedDate { get; set; } 
+		DateTime? ArchivedDate { get; set; }
+		IList<IPollOption> PollOptions { get; set; }
 	}
 }

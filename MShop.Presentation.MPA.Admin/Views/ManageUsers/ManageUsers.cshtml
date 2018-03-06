@@ -1,11 +1,25 @@
 ﻿@using MShop.Presentation.MPA.Admin.Controllers;
 @using MShop.Presentation.MPA.Admin.Infrastructure.Extensions;
-@model IEnumerable<MShop.DataLayer.EF.Entities.Users.ApplicationUser>
+@using MShop.ViewComponents.Components;
+@using MShop.ViewComponents.Models;
+@using MShop.Presentation.MPA.Admin.Models.Users;
 
-@if (Model.Any())
+@model ManageUsersViewModel
+
+
+@(await Component.InvokeAsync<PageSizeViewComponent>(new PageSizeViewModel
+	{
+		TextAbove = "Users per page:",
+		Action = Model.Pager.Action,
+		PageSize = Model.Pager.PageSize
+	}))
+
+@(await Component.InvokeAsync<PagerViewComponent>(new { Pager = Model.Pager }))
+
+@if (Model.Users.Any())
 {
 	<table class="list">
-		@foreach (var user in Model)
+		@foreach (var user in Model.Users)
 		{
 			<tr>
 				<td>@user.Email</td>
@@ -30,3 +44,5 @@ else
 {
 	<span class="empty-list">No users to show</span>
 }
+
+@(await Component.InvokeAsync<PagerViewComponent>(new { Pager = Model.Pager }))

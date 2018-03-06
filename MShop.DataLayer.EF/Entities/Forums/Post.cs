@@ -20,6 +20,6 @@ namespace MShop.DataLayer.EF.Entities.Forums
 		public DateTime LastPostDate { get; set; }
 		public string LastPostBy { get; set; }
 		public bool IsThreadPost { get; set; }
-		public Forum Forum { get; set; }
+		public IForum Forum { get; set; }
 	}
 }

@@ -3,31 +3,38 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using MShop.DataLayer;
 using MShop.DataLayer.EF.Entities.Users;
 using MShop.Presentation.MPA.Admin.Models.Users;
-//using IUsersRepository = MShop.DataLayer.Repositories.IUsersRepository<MShop.DataLayer.EF.Entities.Users.ApplicationUser>;
+using MShop.ViewComponents.Models;
 
 namespace MShop.Presentation.MPA.Admin.Controllers
 {
 	public class ManageUsersController : Controller
 	{
 		private readonly IMapper _mapper;
-		//private readonly IUsersRepository _usersRepository;
-		//private readonly IUnitOfWork _unitOfWork;
 		private readonly UserManager<ApplicationUser> _userManager;
 
-		public ManageUsersController(IMapper mapper,  UserManager<ApplicationUser> userManager)
+		public ManageUsersController(IMapper mapper, UserManager<ApplicationUser> userManager)
 		{
-			_mapper = mapper;			
+			_mapper = mapper;
 			_userManager = userManager;
 		}
 
 		[HttpGet]
-		public IActionResult ManageUsers()
+		public IActionResult ManageUsers(int pageIndex, int pageSize)
 		{
-			return View(_userManager.Users.ToList());
+			string controller = nameof(ManageUsersController);
+			string action = nameof(this.ManageUsers);
+			int usersCount = _userManager.Users.Count();
+			int skipCount = (pageIndex - 1) * pageSize;
+			var model = new ManageUsersViewModel
+			{
+				Pager = new PagerViewModel(usersCount, pageSize, pageIndex, controller, action),
+				Users = _userManager.Users.Skip(skipCount).Take(pageSize).ToList()
+			};
+			return View(model);
 		}
+
 		[HttpGet]
 		public IActionResult CreateUser() => View();
 

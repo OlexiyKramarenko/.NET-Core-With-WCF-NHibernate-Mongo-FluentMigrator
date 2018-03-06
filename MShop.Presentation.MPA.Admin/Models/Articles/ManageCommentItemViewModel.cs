@@ -11,7 +11,7 @@ namespace MShop.Presentation.MPA.Admin.Models.Articles
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd.MM.yyyy}")]
 		public DateTime AddedDate { get; set; }
         public string ArticleTitle { get; set; }
-        public string EncodedBody { get; set; }
+        public string Body { get; set; }
 		public Guid ArticleId { get; set; }		
 	}
 }

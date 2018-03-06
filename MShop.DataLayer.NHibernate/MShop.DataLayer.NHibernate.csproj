@@ -61,6 +61,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DbInitializer.cs" />
     <Compile Include="Entities\Articles\Article.cs" />
     <Compile Include="Entities\Articles\Category.cs" />
     <Compile Include="Entities\Articles\Comment.cs" />
@@ -106,7 +107,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

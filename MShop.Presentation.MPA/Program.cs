@@ -24,7 +24,7 @@ namespace MShop.Presentation.MPA.Public
 				try
 				{
 					var context = services.GetRequiredService<DataBaseContext>();
-					DbInitializer.Initialize(context);
+					//DbInitializer.Initialize(context);
 				}
 				catch (Exception ex)
 				{

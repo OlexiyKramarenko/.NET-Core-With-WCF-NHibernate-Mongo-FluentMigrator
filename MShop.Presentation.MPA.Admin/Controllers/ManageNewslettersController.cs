@@ -3,7 +3,6 @@ using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using MShop.DataLayer; 
 using MShop.Presentation.MPA.Admin.Models.Newsletters;
-using System;
 using INewslettersRepository = MShop.DataLayer.Repositories.INewslettersRepository<MShop.DataLayer.EF.Entities.Newsletters.Newsletter, System.Guid>;
 
 

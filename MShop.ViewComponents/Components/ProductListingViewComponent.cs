@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
-using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using MShop.DataLayer.Providers.Store;
@@ -28,14 +27,24 @@ namespace MShop.ViewComponents.Components.Store
 			_storeRepository = storeRepository;
 			_mapper = mapper;
 		}
-		
-		public async Task<IViewComponentResult> InvokeAsync(int pageIndex, int pageSize)
+
+		public IViewComponentResult Invoke(Guid departmentId, int pageIndex, int pageSize)
 		{
-			Expression<Func<ProductProvider, dynamic>> expression = p => p.Title;
-			IEnumerable<ProductProvider> products = _storeRepository.GetProducts(expression, pageIndex, pageSize);
+			IEnumerable<ProductProvider> products = null;
+			Expression<Func<ProductProvider, dynamic>> sortExpression = p => p.AddedDate;  
+			if (departmentId != Guid.Empty)
+			{
+				products = _storeRepository.GetProducts(departmentId, pageIndex, pageSize);
+			}
+			else
+			{
+				products = _storeRepository.GetProducts(sortExpression, pageIndex, pageSize);
+			}
 			var model = _mapper.Map<IEnumerable<ProductItemViewModel>>(products);
 			ViewBag.IsAdmin = true;
 			return View(model);
 		}
+
+
 	}
 }

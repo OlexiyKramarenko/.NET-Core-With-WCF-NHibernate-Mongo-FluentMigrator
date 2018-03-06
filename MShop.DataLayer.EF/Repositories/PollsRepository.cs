@@ -51,7 +51,7 @@ namespace MShop.DataLayer.EF.Repositories
 			Poll poll = _unitOfWork.Context
 								   .Polls
 								   .AsNoTracking()
-								   .SingleOrDefault(p => p.IsCurrent && !p.IsArchived);
+								   .FirstOrDefault(p => p.IsCurrent && !p.IsArchived);
 			if (poll == null)
 			{
 				return Guid.Empty;
@@ -83,7 +83,7 @@ namespace MShop.DataLayer.EF.Repositories
 			int totVotes = _unitOfWork.Context
 									  .PollOptions
 									  .AsNoTracking()
-									  .Where(a => a.PollId == pollId) 
+									  .Where(a => a.PollId == pollId)
 									  .Sum(a => a.Votes);
 
 			if (totVotes == 0)
@@ -124,7 +124,7 @@ namespace MShop.DataLayer.EF.Repositories
 			return poll;
 		}
 
-		public List<Poll> GetPolls(bool includeActive, bool includeArchived)
+		public int GetPollsCount(bool includeActive, bool includeArchived)
 		{
 			bool isArchived1 = true;
 			bool isArchived2 = false;
@@ -139,30 +139,12 @@ namespace MShop.DataLayer.EF.Repositories
 				isArchived2 = true;
 			}
 
-			List<Poll> polls = _unitOfWork.Context
+			int pollsCount = _unitOfWork.Context
 										  .Polls
 										  .Where(a => a.IsArchived == isArchived1 ||
 													 a.IsArchived == isArchived2)
-										  .Select(p => new Poll
-										  {
-											  Id = p.Id,
-											  AddedBy = p.AddedBy,
-											  AddedDate = p.AddedDate,
-											  ArchivedDate = p.ArchivedDate,
-											  IsArchived = p.IsArchived,
-											  IsCurrent = p.IsCurrent,
-											  QuestionText = p.QuestionText,
-											  Votes = _unitOfWork.Context
-															   .PollOptions
-															   .Where(a => a.PollId == p.Id)
-															   .Sum(a => a.Votes)
-										  })
-										  .OrderBy(a => a.IsArchived)
-										  .ThenByDescending(a => a.ArchivedDate)
-										  .ThenByDescending(a => a.AddedDate)
-										  .AsNoTracking()
-										  .ToList();
-			return polls;
+										  .Count();
+			return pollsCount;
 		}
 
 		public void InsertOption(PollOption option)
@@ -175,10 +157,19 @@ namespace MShop.DataLayer.EF.Repositories
 			_unitOfWork.Context.Polls.Add(poll);
 		}
 
-		public void InsertVote(Guid optionId)
+		public void InsertVote(Guid optionId, Guid pollId, string currentUserIpAdress)
 		{
+			_unitOfWork.Context
+					   .AnsweredUsers
+					   .Add(new AnsweredUser
+					   {
+						   PollId = pollId,
+						   PollOptionId = optionId,
+						   UserIpAdress = currentUserIpAdress
+					   });
+
 			PollOption pollOption = _unitOfWork.Context
-											   .PollOptions 
+											   .PollOptions
 											   .Find(optionId);
 			if (pollOption != null)
 			{
@@ -212,6 +203,14 @@ namespace MShop.DataLayer.EF.Repositories
 				ctxPoll.IsArchived = false;
 			}
 		}
+		public Poll GetPollById(Guid id)
+		{
+			Poll poll = _unitOfWork.Context
+								   .Polls
+								   .Include(p => p.PollOptions)
+								   .FirstOrDefault(a => a.Id == id);
+			return poll;
+		}
 		#endregion
 
 		#region Private Methods
@@ -222,13 +221,63 @@ namespace MShop.DataLayer.EF.Repositories
 											   .Find(id);
 			return pollOption;
 		}
-		private Poll GetPollById(Guid id)
+
+
+		public List<Poll> GetPolls(bool includeActive, bool includeArchived, int pageIndex, int pageSize)
 		{
-			Poll poll = _unitOfWork.Context
-								   .Polls
-								   .Find(id);
-			return poll;
+			bool isArchived1 = true;
+			bool isArchived2 = false;
+
+			if (includeActive && !includeArchived)
+			{
+				isArchived1 = false;
+			}
+
+			if (!includeActive && includeArchived)
+			{
+				isArchived2 = true;
+			}
+			int skipCount = (pageIndex - 1) * pageSize;
+			List<Poll> polls = _unitOfWork.Context
+										  .Polls
+										  .Where(a => a.IsArchived == isArchived1 ||
+													 a.IsArchived == isArchived2)
+										  .Select(p => new Poll
+										  {
+											  Id = p.Id,
+											  AddedBy = p.AddedBy,
+											  AddedDate = p.AddedDate,
+											  ArchivedDate = p.ArchivedDate,
+											  IsArchived = p.IsArchived,
+											  IsCurrent = p.IsCurrent,
+											  QuestionText = p.QuestionText,
+											  Votes = _unitOfWork.Context
+															   .PollOptions
+															   .Where(a => a.PollId == p.Id)
+															   .Sum(a => a.Votes)
+										  })
+										  .OrderBy(a => a.IsArchived)
+										  .ThenByDescending(a => a.ArchivedDate)
+										  .ThenByDescending(a => a.AddedDate)
+										  .Skip(skipCount)
+										  .Take(pageSize)
+										  .AsNoTracking()
+										  .ToList();
+			return polls;
 		}
+
+		public bool ShowPoll(string currentUserIpAdress, Guid pollId)
+		{
+			AnsweredUser user = _unitOfWork.Context
+										   .AnsweredUsers
+										   .FirstOrDefault(a => a.UserIpAdress == currentUserIpAdress && a.PollId == pollId);
+			if (user != null)
+			{
+				return false;
+			}
+			return true;
+		}
+
 		#endregion
 	}
 }

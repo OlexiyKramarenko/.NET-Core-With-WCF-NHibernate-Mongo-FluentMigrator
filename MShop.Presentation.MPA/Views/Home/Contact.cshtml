@@ -1,29 +1,28 @@
 ﻿@using MShop.Presentation.MPA.Public.Infrastructure.Extensions;
 @using MShop.Presentation.MPA.Public.Controllers;
-@model MShop.Presentation.MPA.Public.Models.Home.ContactsViewModel;
+@model MShop.Presentation.MPA.Public.Models.Home.ContactsViewModel
 
-<form asp-controller="@nameof(HomeController).ShortName()" 
-	  asp-action="@nameof(HomeController.Contact)">
-	<table>
-		<tr>
-			<td>Ваше имя:</td>
-			<td><input type="text" asp-for="Name" /></td>
-		</tr>
-		<tr>
-			<td>Ваш email:</td>
-			<td><input type="text" asp-for="Email" /></td>
-		</tr>
-		<tr>
-			<td>Тема:</td>
-			<td><input type="text" asp-for="Subject" /></td>
-		</tr>
-		<tr>
-			<td>Сообщение:</td>
-			<td><textarea type="text" asp-for="Body"></textarea></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td><button type="submit"></button></td>
-		</tr>
-	</table>
+<form asp-action="@nameof(ForumController.AddPost)"
+	  asp-controller="@nameof(ForumController).ShortName()">
+	<div class="form-group">
+		<label asp-for="Name" class="control-label">Name</label>
+		<input type="text" asp-for="Name" class="form-control" />
+	</div>
+	<div class="form-group">
+		<label asp-for="Email" class="control-label">Email</label>
+		<input type="text" asp-for="Email" class="form-control" />
+	</div>
+	<div class="form-group">
+		<label asp-for="Subject" class="control-label">Subject</label>
+		<input type="text" asp-for="Subject" class="form-control" />
+	</div>
+	<div class="form-group">
+		<label asp-for="Body" class="control-label">Body</label>
+		<textarea asp-for="Body" class="form-control"></textarea>
+	</div>
+	<div class="form-group">
+		<input type="submit" value="Send" class="btn btn-default" />
+	</div>	
 </form>
+
+

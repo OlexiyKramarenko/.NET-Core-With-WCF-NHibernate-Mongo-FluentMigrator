@@ -20,6 +20,6 @@ namespace MShop.DataLayer.NHibernate.Entities.Forums
 		public virtual DateTime LastPostDate { get; set; }
 		public virtual string LastPostBy { get; set; }
 		public virtual bool IsThreadPost { get; set; }
-		public virtual Forum Forum { get; set; }
+		public virtual IForum Forum { get; set; }
 	}
 }

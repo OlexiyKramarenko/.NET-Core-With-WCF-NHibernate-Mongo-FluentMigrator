@@ -82,16 +82,17 @@ namespace MShop.DataLayer.EF.Repositories
 											 int pageSize)
 		{
 			int skipCount = (pageIndex - 1) * pageSize;
-			List<PostProvider> products = this.GetPostProviderQuery()
-											  .Where(p => p.ForumId == forumId &&
-														  p.ParentPostId == null &&
-														  p.Approved)
+			List<PostProvider> posts = this.GetPostProviderQuery()
+											  .Where(p => p.ForumId == forumId 
+											        && p.ParentPostId == Guid.Empty
+													//&&	  p.Approved
+													)
 											  .OrderBy(sortExpression)
 											  .Skip(skipCount)
 											  .Take(pageSize)
 											  .AsNoTracking()
 											  .ToList();
-			return products;
+			return posts;
 		}
 		public int GetThreadCount(Guid forumId)
 		{

@@ -7,8 +7,8 @@
 
 @(await Component.InvokeAsync<PageSizeViewComponent>(new PageSizeViewModel
 {
-	TextAbove = "Comments per page:",	
-	Action = nameof(ManageArticlesController.ManageComments),
+	TextAbove = "Comments per page:",
+	Action = Model.Pager.Action,
 	PageSize = Model.Pager.PageSize
 }))
 
@@ -30,7 +30,7 @@
 					   asp-action="@nameof(ManageArticlesController.EditArticle)"
 					   asp-route-id="@item.ArticleId">@item.ArticleTitle</a>
 					<br />
-					@item.EncodedBody
+					@item.Body
 				</td>
 				<td>
 					<a asp-controller="@nameof(ManageArticlesController).ShortName()"

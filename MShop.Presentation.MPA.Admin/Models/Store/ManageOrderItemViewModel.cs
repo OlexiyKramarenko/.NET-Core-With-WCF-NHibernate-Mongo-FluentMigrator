@@ -8,10 +8,10 @@ namespace MShop.Presentation.MPA.Admin.Models.Store
 	{
 		public Guid Id { get; set; }
 		[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd.MM.yyyy}")]
-		public DateTime Date { get; set; }
-		public string Customer { get; set; }
+		public DateTime AddedDate { get; set; }
+		public string ShippingLastName { get; set; }
 		public int Subtotal { get; set; }
 		public string Shipping { get; set; }
-		public IEnumerable<ManageOrderedItemViewModel> Items { get; set; } = new List<ManageOrderedItemViewModel>();
+		public IEnumerable<ManageOrderedItemViewModel> OrderItems { get; set; } = new List<ManageOrderedItemViewModel>();
 	}
 }

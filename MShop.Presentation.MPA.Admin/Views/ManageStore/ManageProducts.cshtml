@@ -1,5 +1,18 @@
 ﻿@using MShop.ViewComponents.Components.Store;
+@using MShop.ViewComponents.Components;
+@using MShop.ViewComponents.Models;
+@model PagerViewModel
 
-<div>Manage Products</div>
 
-@(await Component.InvokeAsync<ProductListingViewComponent>(new { pageIndex = 1, pageSize = 10 }))
+@(await Component.InvokeAsync<PageSizeViewComponent>(new PageSizeViewModel
+	{
+		TextAbove = "Products per page:",
+		Action = Model.Action,
+		PageSize = Model.PageSize
+	}))
+
+@(await Component.InvokeAsync<PagerViewComponent>(new { Pager = Model }))
+
+@(await Component.InvokeAsync<ProductListingViewComponent>(new { pageIndex = Model.PageIndex, pageSize = Model.PageSize }))
+
+@(await Component.InvokeAsync<PagerViewComponent>(new { Pager = Model }))

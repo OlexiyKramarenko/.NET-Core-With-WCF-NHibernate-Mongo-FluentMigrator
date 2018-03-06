@@ -1,4 +1,5 @@
-F:\MShop\MShop.DataLayer.NHibernate\bin\Debug\MShop.DataLayer.NHibernate.dll.config
+F:\MShop\MShop.DataLayer.NHibernate\obj\Debug\MShop.DataLayer.NHibernate.csprojResolveAssemblyReference.cache
+F:\MShop\MShop.DataLayer.NHibernate\obj\Debug\MShop.DataLayer.NHibernate.csproj.CoreCompileInputs.cache
 F:\MShop\MShop.DataLayer.NHibernate\bin\Debug\MShop.DataLayer.NHibernate.dll
 F:\MShop\MShop.DataLayer.NHibernate\bin\Debug\MShop.DataLayer.NHibernate.pdb
 F:\MShop\MShop.DataLayer.NHibernate\bin\Debug\Microsoft.Win32.Primitives.dll
@@ -112,7 +113,5 @@ F:\MShop\MShop.DataLayer.NHibernate\bin\Debug\Iesi.Collections.xml
 F:\MShop\MShop.DataLayer.NHibernate\bin\Debug\NHibernate.xml
 F:\MShop\MShop.DataLayer.NHibernate\bin\Debug\Remotion.Linq.xml
 F:\MShop\MShop.DataLayer.NHibernate\bin\Debug\Remotion.Linq.EagerFetching.xml
-F:\MShop\MShop.DataLayer.NHibernate\obj\Debug\MShop.DataLayer.NHibernate.csprojResolveAssemblyReference.cache
-F:\MShop\MShop.DataLayer.NHibernate\obj\Debug\MShop.DataLayer.NHibernate.csproj.CoreCompileInputs.cache
 F:\MShop\MShop.DataLayer.NHibernate\obj\Debug\MShop.DataLayer.NHibernate.dll
 F:\MShop\MShop.DataLayer.NHibernate\obj\Debug\MShop.DataLayer.NHibernate.pdb

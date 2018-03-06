@@ -7,6 +7,7 @@ using MShop.DataLayer.Repositories;
 using MShop.DataLayer.EF.Entities.Store;
 using MShop.DataLayer.EF.Providers.Store;
 using Microsoft.EntityFrameworkCore;
+using MShop.DataLayer.Entities.Store;
 
 namespace MShop.DataLayer.EF.Repositories
 {
@@ -341,15 +342,15 @@ namespace MShop.DataLayer.EF.Repositories
 				ctxOrder.TrackingId = order.TrackingId;
 			}
 		}
-		public List<OrderItem> GetOrderItems(Guid orderId)
+		public List<IOrderItem> GetOrderItems(Guid orderId)
 		{
 			try
 			{
-				List<OrderItem> orderItems = _unitOfWork.Context
+				List<IOrderItem> orderItems = _unitOfWork.Context
 					.OrderItems
 					.Where(a => a.OrderId == orderId)?
-					.ToList();
-				return orderItems ?? new List<OrderItem>();
+					.ToList<IOrderItem>();
+				return orderItems ;
 			}
 			catch (Exception exc)
 			{
@@ -385,6 +386,7 @@ namespace MShop.DataLayer.EF.Repositories
 													SKU = product.SKU,
 													UnitPrice = product.UnitPrice,
 													UnitsInStock = product.UnitsInStock,
+													Title = product.Title,
 													Votes = product.Votes
 												};
 			return query;
@@ -430,6 +432,11 @@ namespace MShop.DataLayer.EF.Repositories
 			{
 				order.StatusId = statusId;
 			}
+		}
+
+		public int GetOrdersCount()
+		{
+			return _unitOfWork.Context.Orders.Count();
 		}
 		#endregion
 	}

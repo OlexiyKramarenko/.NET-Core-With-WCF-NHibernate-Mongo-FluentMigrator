@@ -1,5 +1,6 @@
 ﻿using FluentNHibernate.Mapping;
 using MShop.DataLayer.NHibernate.Entities.Articles;
+using System.Collections.Generic;
 
 namespace MShop.DataLayer.NHibernate.Mappings.Articles
 {
@@ -8,14 +9,14 @@ namespace MShop.DataLayer.NHibernate.Mappings.Articles
 		public CategoryMapping()
 		{
 			Table("Categories");
-			Id(m => m.Id).GeneratedBy.Identity();
+			Id(m => m.Id);
 			Map(m => m.AddedDate);
 			Map(m => m.AddedBy);
 			Map(m => m.Title);
 			Map(m => m.Importance);
 			Map(m => m.Description);
 			Map(m => m.ImageUrl);
-			HasMany(x => x.Articles);//.KeyColumn("Id");
+			HasMany(x => (List<Article>)x.Articles);//.KeyColumn("Id");
 		}
 	}
 }

@@ -271,6 +271,22 @@
           "lib/netstandard1.5/MongoDB.Bson.dll": {}
         }
       },
+      "MongoDB.Bson.signed/2.5.0": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1",
+          "System.Collections.NonGeneric": "4.0.1",
+          "System.Diagnostics.Process": "4.1.0",
+          "System.Dynamic.Runtime": "4.0.11",
+          "System.Reflection.Emit.Lightweight": "4.0.1"
+        },
+        "compile": {
+          "lib/netstandard1.5/MongoDB.Bson.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.5/MongoDB.Bson.dll": {}
+        }
+      },
       "MongoDB.Driver/2.5.0": {
         "type": "package",
         "dependencies": {
@@ -304,6 +320,21 @@
         },
         "runtime": {
           "lib/netstandard1.5/MongoDB.Driver.Core.dll": {}
+        }
+      },
+      "MongoDB.Driver.GridFS/2.5.0": {
+        "type": "package",
+        "dependencies": {
+          "MongoDB.Bson": "2.5.0",
+          "MongoDB.Driver": "2.5.0",
+          "MongoDB.Driver.Core": "2.5.0",
+          "NETStandard.Library": "1.6.1"
+        },
+        "compile": {
+          "lib/netstandard1.5/MongoDB.Driver.GridFS.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.5/MongoDB.Driver.GridFS.dll": {}
         }
       },
       "NETStandard.Library/2.0.0": {
@@ -1541,6 +1572,22 @@
         "runtime": {
           "bin/placeholder/MShop.DataLayer.dll": {}
         }
+      },
+      "MShop.DataLayer.Mongo/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "MShop.DataLayer": "1.0.0",
+          "MongoDB.Bson.signed": "2.5.0",
+          "MongoDB.Driver": "2.5.0",
+          "MongoDB.Driver.GridFS": "2.5.0"
+        },
+        "compile": {
+          "bin/placeholder/MShop.DataLayer.Mongo.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MShop.DataLayer.Mongo.dll": {}
+        }
       }
     }
   },
@@ -1978,6 +2025,20 @@
         "mongodb.bson.nuspec"
       ]
     },
+    "MongoDB.Bson.signed/2.5.0": {
+      "sha512": "uayRoTXuve0PZlL7mWNsoFRg9/qjLZV6+rxIE5hf746NWoa8fZwxVWERxzpL+9oJnErAN/fqFQbGyOg+PQ7A1g==",
+      "type": "package",
+      "path": "mongodb.bson.signed/2.5.0",
+      "files": [
+        "License.rtf",
+        "lib/net45/MongoDB.Bson.XML",
+        "lib/net45/MongoDB.Bson.dll",
+        "lib/netstandard1.5/MongoDB.Bson.dll",
+        "lib/netstandard1.5/MongoDB.Bson.xml",
+        "mongodb.bson.signed.2.5.0.nupkg.sha512",
+        "mongodb.bson.signed.nuspec"
+      ]
+    },
     "MongoDB.Driver/2.5.0": {
       "sha512": "VbHVV8Xdl3PcPU3XxdOUE/yc4BnPokg7k1XHU/3fEM/UdfCy0Ie0eXVE+U2HJXVcM3TQuuyVn+B1La2YY7X8dA==",
       "type": "package",
@@ -2004,6 +2065,20 @@
         "lib/netstandard1.5/MongoDB.Driver.Core.xml",
         "mongodb.driver.core.2.5.0.nupkg.sha512",
         "mongodb.driver.core.nuspec"
+      ]
+    },
+    "MongoDB.Driver.GridFS/2.5.0": {
+      "sha512": "9vhOWf9f+OgpBdY3sObS4nX0VEhFwSm04z96609GYa/K94+P22FyekCZD/ZxYNV7PFD6S/fCMVa0uUbFdPAWoA==",
+      "type": "package",
+      "path": "mongodb.driver.gridfs/2.5.0",
+      "files": [
+        "License.rtf",
+        "lib/net45/MongoDB.Driver.GridFS.dll",
+        "lib/net45/MongoDB.Driver.GridFS.xml",
+        "lib/netstandard1.5/MongoDB.Driver.GridFS.dll",
+        "lib/netstandard1.5/MongoDB.Driver.GridFS.xml",
+        "mongodb.driver.gridfs.2.5.0.nupkg.sha512",
+        "mongodb.driver.gridfs.nuspec"
       ]
     },
     "NETStandard.Library/2.0.0": {
@@ -5234,12 +5309,17 @@
       "type": "project",
       "path": "../MShop.DataLayer/MShop.DataLayer.csproj",
       "msbuildProject": "../MShop.DataLayer/MShop.DataLayer.csproj"
+    },
+    "MShop.DataLayer.Mongo/1.0.0": {
+      "type": "project",
+      "path": "../MShop.DataLayer.Mongo/MShop.DataLayer.Mongo.csproj",
+      "msbuildProject": "../MShop.DataLayer.Mongo/MShop.DataLayer.Mongo.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.0": [
-      "F:\\MShop\\MShop.DataLayer.Mongo\\MShop.DataLayer.Mongo.csproj",
       "MShop.DataLayer >= 1.0.0",
+      "MShop.DataLayer.Mongo >= 1.0.0",
       "Microsoft.NETCore.App >= 2.0.0",
       "MongoDB.Driver >= 2.5.0"
     ]
@@ -5312,16 +5392,5 @@
         "warn": true
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1105",
-      "level": "Error",
-      "message": "Unable to find project information for 'F:\\MShop\\MShop.DataLayer.Mongo\\MShop.DataLayer.Mongo.csproj'. The project file may be invalid or missing targets required for restore.",
-      "libraryId": "F:\\MShop\\MShop.DataLayer.Mongo\\MShop.DataLayer.Mongo.csproj",
-      "targetGraphs": [
-        ".NETCoreApp,Version=v2.0"
-      ]
-    }
-  ]
+  }
 }
