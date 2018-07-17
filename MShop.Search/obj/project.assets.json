@@ -177,26 +177,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Alexiy\\.nuget\\packages\\": {},
+    "C:\\Users\\Dragon\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
-    "restoreSettings": {
-      "hideWarningsAndErrors": true
-    },
     "restore": {
-      "projectUniqueName": "F:\\MShop\\MShop.Search\\MShop.Search.csproj",
+      "projectUniqueName": "G:\\MShop\\MShop.Search\\MShop.Search.csproj",
       "projectName": "MShop.Search",
-      "projectPath": "F:\\MShop\\MShop.Search\\MShop.Search.csproj",
-      "packagesPath": "C:\\Users\\Alexiy\\.nuget\\packages\\",
-      "outputPath": "F:\\MShop\\MShop.Search\\obj\\",
+      "projectPath": "G:\\MShop\\MShop.Search\\MShop.Search.csproj",
+      "packagesPath": "C:\\Users\\Dragon\\.nuget\\packages\\",
+      "outputPath": "G:\\MShop\\MShop.Search\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Alexiy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Dragon\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

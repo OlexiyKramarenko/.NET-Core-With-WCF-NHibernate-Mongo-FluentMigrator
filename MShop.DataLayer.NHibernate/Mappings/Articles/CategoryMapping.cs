@@ -14,9 +14,9 @@ namespace MShop.DataLayer.NHibernate.Mappings.Articles
 			Map(m => m.AddedBy);
 			Map(m => m.Title);
 			Map(m => m.Importance);
-			Map(m => m.Description);
+			Map(m => m.Description).Length(5000); 
 			Map(m => m.ImageUrl);
-			HasMany(x => (List<Article>)x.Articles);//.KeyColumn("Id");
+			HasMany(x => (List<Article>)x.Articles).KeyColumn("CategoryId").Cascade.All();
 		}
 	}
 }

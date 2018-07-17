@@ -2,11 +2,6 @@
 @using MShop.Presentation.MPA.Public.Controllers;
 @model IEnumerable<MShop.Presentation.MPA.Public.Models.Store.DepartmentItemViewModel>
 
-<h3>Store departments</h3>
-
-<div>Click on the title of the department for which you want to browse the products:</div>
-
-<br />
 
 <style>
 	#categories {
@@ -28,6 +23,10 @@
 		border-radius: 10px;
 	}
 </style>
+
+<h3>Store departments</h3>
+<div>Click on the title of the department for which you want to browse the products:</div>
+<br />
 @if (Model.Any())
 {
 	<div>

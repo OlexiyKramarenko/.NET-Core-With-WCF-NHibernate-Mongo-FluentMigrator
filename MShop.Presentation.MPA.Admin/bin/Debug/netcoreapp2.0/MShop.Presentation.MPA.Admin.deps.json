@@ -3241,6 +3241,7 @@
       "MShop.DataLayer.EF/1.0.0": {
         "dependencies": {
           "MShop.DataLayer": "1.0.0",
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "2.0.1",
           "Microsoft.EntityFrameworkCore": "2.0.1",
           "Microsoft.EntityFrameworkCore.SqlServer": "2.0.1",
           "Microsoft.EntityFrameworkCore.Tools": "2.0.1"

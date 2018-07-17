@@ -2,8 +2,8 @@
 @using MShop.Presentation.MPA.Public.Controllers;
 @model MShop.Presentation.MPA.Public.Models.Home.ContactsViewModel
 
-<form asp-action="@nameof(ForumController.AddPost)"
-	  asp-controller="@nameof(ForumController).ShortName()">
+<form asp-action="@nameof(HomeController.Contact)"
+	  asp-controller="@nameof(HomeController).ShortName()">
 	<div class="form-group">
 		<label asp-for="Name" class="control-label">Name</label>
 		<input type="text" asp-for="Name" class="form-control" />

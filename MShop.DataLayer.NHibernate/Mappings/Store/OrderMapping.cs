@@ -12,7 +12,6 @@ namespace MShop.DataLayer.NHibernate.Mappings.Store
 			Id(m => m.Id);
 			Map(m => m.AddedDate);
 			Map(m => m.AddedBy);
-			Map(m => m.StatusId);
 			Map(m => m.ShippingMethod);
 			Map(m => m.SubTotal);
 			Map(m => m.Shipping);
@@ -29,8 +28,8 @@ namespace MShop.DataLayer.NHibernate.Mappings.Store
 			Map(m => m.TransactionId);
 			Map(m => m.ShippedDate);
 			Map(m => m.TrackingId);
-			HasMany(x => (List<OrderItem>)x.OrderItems).KeyColumn("Id");
-			References(m => (OrderStatus)m.OrderStatus).Column("StatusId").Cascade.All();
+			HasMany(x => (List<OrderItem>)x.OrderItems).KeyColumn("OrderId").Cascade.All();
+			References(m => (OrderStatus)m.OrderStatus, "OrderStatusId");
 		}
 	}
 }

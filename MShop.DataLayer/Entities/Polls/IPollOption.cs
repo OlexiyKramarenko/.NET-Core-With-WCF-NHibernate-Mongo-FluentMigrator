@@ -9,6 +9,6 @@ namespace MShop.DataLayer.Entities.Polls
 		string OptionText { get; set; }
 		int Votes { get; set; }
 		double Percentage { get; set; }
-		IPoll Poll { get; set; }
+		IPoll Poll { get; set; } 
 	}
 }

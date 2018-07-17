@@ -15,9 +15,9 @@ namespace MShop.DataLayer.NHibernate.Mappings.Forums
 			Map(m => m.Title);
 			Map(m => m.Moderated);
 			Map(m => m.Importance);
-			Map(m => m.Description);
+			Map(m => m.Description).Length(5000);
 			Map(m => m.ImageUrl);
-			HasMany(x => (List<Post>)x.Posts);//.KeyColumn("Id");
+			HasMany(x => (List<Post>)x.Posts).KeyColumn("ForumId").Cascade.All();
 		}
 	}
 }

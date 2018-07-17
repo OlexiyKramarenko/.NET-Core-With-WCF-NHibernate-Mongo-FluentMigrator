@@ -43,15 +43,21 @@ namespace MShop.ViewComponents.Components
 				}
 				return View(model);
 			}
-			if (showPoll)
+
+            showPoll = true;
+
+            if (showPoll)
 			{
 				Poll poll = _pollsRepository.GetPollById(pollId);
-				model = _mapper.Map<PollViewModel>(poll);
-				model.ShowPoll = true;				
-				if (poll.PollOptions.Any())
-				{
-					model.Options = _mapper.Map<List<OptionViewModel>>(poll.PollOptions);
-				}
+                if (poll != null)
+                {
+                    model = _mapper.Map<PollViewModel>(poll);
+                    model.ShowPoll = true;
+                    if (poll.PollOptions.Any())
+                    {
+                        model.Options = _mapper.Map<List<OptionViewModel>>(poll.PollOptions);
+                    }
+                }				
 			}
 			return View(model);
 

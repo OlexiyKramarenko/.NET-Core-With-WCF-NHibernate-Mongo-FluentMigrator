@@ -12,10 +12,9 @@ namespace MShop.DataLayer.NHibernate.Mappings.Forums
 			Map(m => m.AddedDate);
 			Map(m => m.AddedBy);
 			Map(m => m.AddedByIP);
-			Map(m => m.ForumId);
 			Map(m => m.ParentPostId);
 			Map(m => m.Title);
-			Map(m => m.Body);
+			Map(m => m.Body).Length(5000);
 			Map(m => m.Approved);
 			Map(m => m.Closed);
 			Map(m => m.ViewCount);
@@ -23,7 +22,7 @@ namespace MShop.DataLayer.NHibernate.Mappings.Forums
 			Map(m => m.LastPostDate);
 			Map(m => m.LastPostBy);
 			Map(m => m.IsThreadPost);
-			References(m => (Forum)m.Forum).Column("ForumId").Cascade.All();
+			References(m => (Forum)m.Forum, "ForumId");
 		}
 	}
 }

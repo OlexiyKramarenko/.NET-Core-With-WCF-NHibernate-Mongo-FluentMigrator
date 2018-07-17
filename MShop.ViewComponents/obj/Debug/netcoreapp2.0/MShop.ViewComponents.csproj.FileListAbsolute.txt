@@ -19,3 +19,17 @@ F:\MShop\MShop.ViewComponents\obj\Debug\netcoreapp2.0\MShop.ViewComponents.Assem
 F:\MShop\MShop.ViewComponents\obj\Debug\netcoreapp2.0\MShop.ViewComponents.AssemblyInfo.cs
 F:\MShop\MShop.ViewComponents\obj\Debug\netcoreapp2.0\MShop.ViewComponents.dll
 F:\MShop\MShop.ViewComponents\obj\Debug\netcoreapp2.0\MShop.ViewComponents.pdb
+G:\MShop\MShop.ViewComponents\bin\Debug\netcoreapp2.0\MShop.ViewComponents.deps.json
+G:\MShop\MShop.ViewComponents\bin\Debug\netcoreapp2.0\MShop.ViewComponents.dll
+G:\MShop\MShop.ViewComponents\bin\Debug\netcoreapp2.0\MShop.ViewComponents.pdb
+G:\MShop\MShop.ViewComponents\bin\Debug\netcoreapp2.0\MShop.DataLayer.dll
+G:\MShop\MShop.ViewComponents\bin\Debug\netcoreapp2.0\MShop.DataLayer.EF.dll
+G:\MShop\MShop.ViewComponents\bin\Debug\netcoreapp2.0\MShop.DataLayer.EF.pdb
+G:\MShop\MShop.ViewComponents\bin\Debug\netcoreapp2.0\MShop.DataLayer.pdb
+G:\MShop\MShop.ViewComponents\obj\Debug\netcoreapp2.0\MShop.ViewComponents.csprojResolveAssemblyReference.cache
+G:\MShop\MShop.ViewComponents\obj\Debug\netcoreapp2.0\MShop.ViewComponents.csproj.CoreCompileInputs.cache
+G:\MShop\MShop.ViewComponents\obj\Debug\netcoreapp2.0\MShop.ViewComponents.AssemblyInfoInputs.cache
+G:\MShop\MShop.ViewComponents\obj\Debug\netcoreapp2.0\MShop.ViewComponents.AssemblyInfo.cs
+G:\MShop\MShop.ViewComponents\obj\Debug\netcoreapp2.0\MShop.ViewComponents.csproj.CopyComplete
+G:\MShop\MShop.ViewComponents\obj\Debug\netcoreapp2.0\MShop.ViewComponents.dll
+G:\MShop\MShop.ViewComponents\obj\Debug\netcoreapp2.0\MShop.ViewComponents.pdb

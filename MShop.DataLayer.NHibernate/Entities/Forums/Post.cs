@@ -9,7 +9,6 @@ namespace MShop.DataLayer.NHibernate.Entities.Forums
 		public virtual DateTime AddedDate { get; set; }
 		public virtual string AddedBy { get; set; }
 		public virtual string AddedByIP { get; set; }
-		public virtual Guid ForumId { get; set; }
 		public virtual Guid ParentPostId { get; set; }
 		public virtual string Title { get; set; }
 		public virtual string Body { get; set; }

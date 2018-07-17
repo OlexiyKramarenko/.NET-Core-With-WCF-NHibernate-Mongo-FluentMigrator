@@ -32,6 +32,7 @@ namespace MShop.Presentation.MPA.Public.Controllers
 		{
 			return View();
 		}
+        [HttpPost]
 		public IActionResult Contact(ContactsViewModel model)
 		{
 			return View();

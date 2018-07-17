@@ -9,7 +9,6 @@ namespace MShop.DataLayer.NHibernate.Entities.Articles
 		public virtual Guid Id { get; set; }
 		public virtual DateTime AddedDate { get; set; }
 		public virtual string AddedBy { get; set; }
-		public virtual Guid CategoryId { get; set; }
 		public virtual string Title { get; set; }
 		public virtual string Abstract { get; set; }
 		public virtual string Body { get; set; }

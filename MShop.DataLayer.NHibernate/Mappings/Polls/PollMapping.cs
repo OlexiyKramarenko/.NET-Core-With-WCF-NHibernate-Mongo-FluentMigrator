@@ -16,7 +16,7 @@ namespace MShop.DataLayer.NHibernate.Mappings.Polls
 			Map(m => m.IsCurrent);
 			Map(m => m.Votes);
 			Map(m => m.ArchivedDate);
-			HasMany(x => (List<PollOption>)x.PollOptions).KeyColumn("Id");
+			HasMany(x => (List<PollOption>)x.PollOptions).KeyColumn("PollId").Cascade.All(); ;
 		}
 	}
 }

@@ -13,7 +13,7 @@ namespace MShop.DataLayer.NHibernate.Mappings.Store
 			Map(m => m.AddedDate);
 			Map(m => m.AddedBy);
 			Map(m => m.Title);
-			HasMany(x => (List<Order>)x.Orders).KeyColumn("Id");
+			HasMany(x => (List<Order>)x.Orders).KeyColumn("OrderStatusId").Cascade.All();
 		}
 	}
 }

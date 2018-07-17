@@ -7,3 +7,11 @@ F:\MShop\MShop.DataLayer\obj\Debug\netstandard2.0\MShop.DataLayer.AssemblyInfoIn
 F:\MShop\MShop.DataLayer\obj\Debug\netstandard2.0\MShop.DataLayer.AssemblyInfo.cs
 F:\MShop\MShop.DataLayer\obj\Debug\netstandard2.0\MShop.DataLayer.dll
 F:\MShop\MShop.DataLayer\obj\Debug\netstandard2.0\MShop.DataLayer.pdb
+G:\MShop\MShop.DataLayer\bin\Debug\netstandard2.0\MShop.DataLayer.deps.json
+G:\MShop\MShop.DataLayer\bin\Debug\netstandard2.0\MShop.DataLayer.dll
+G:\MShop\MShop.DataLayer\bin\Debug\netstandard2.0\MShop.DataLayer.pdb
+G:\MShop\MShop.DataLayer\obj\Debug\netstandard2.0\MShop.DataLayer.csproj.CoreCompileInputs.cache
+G:\MShop\MShop.DataLayer\obj\Debug\netstandard2.0\MShop.DataLayer.AssemblyInfoInputs.cache
+G:\MShop\MShop.DataLayer\obj\Debug\netstandard2.0\MShop.DataLayer.AssemblyInfo.cs
+G:\MShop\MShop.DataLayer\obj\Debug\netstandard2.0\MShop.DataLayer.dll
+G:\MShop\MShop.DataLayer\obj\Debug\netstandard2.0\MShop.DataLayer.pdb

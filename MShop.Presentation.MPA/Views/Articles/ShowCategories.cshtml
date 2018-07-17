@@ -34,6 +34,7 @@
 		@foreach (var item in Model)
 		{
 			<div class="category-item">
+
 				<a asp-controller="@nameof(ArticlesController).ShortName()"
 				   asp-action="@nameof(ArticlesController.BrowseArticles)"
 				   asp-route-pageIndex="1"
@@ -43,6 +44,7 @@
 				<br />
 
 				<p>@item.Description</p>
+
 			</div>
 		}
 	</div>

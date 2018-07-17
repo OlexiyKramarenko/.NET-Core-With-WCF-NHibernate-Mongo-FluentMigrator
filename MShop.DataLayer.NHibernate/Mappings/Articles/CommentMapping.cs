@@ -13,9 +13,8 @@ namespace MShop.DataLayer.NHibernate.Mappings.Articles
 			Map(m => m.AddedBy);
 			Map(m => m.AddedByEmail);
 			Map(m => m.AddedByIp);
-			Map(m => m.Body);
-			//Map(m => m.ArticleId);
-			References(m => (Article)m.Article).Column("ArticleId").Cascade.All();
+			Map(m => m.Body).Length(5000); 
+			References(m => (Article)m.Article, "ArticleId");
 		}
 	}
 }

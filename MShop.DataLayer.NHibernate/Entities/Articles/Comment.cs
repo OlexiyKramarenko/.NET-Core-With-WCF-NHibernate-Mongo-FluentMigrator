@@ -11,7 +11,6 @@ namespace MShop.DataLayer.NHibernate.Entities.Articles
 		public virtual string AddedByEmail { get; set; }
 		public virtual string AddedByIp { get; set; }
 		public virtual string Body { get; set; }
-		public virtual Guid ArticleId { get; set; }
 		public virtual IArticle Article { get; set; }
-	}
+	} 
 }

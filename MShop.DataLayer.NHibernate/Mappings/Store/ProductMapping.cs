@@ -11,7 +11,6 @@ namespace MShop.DataLayer.NHibernate.Mappings.Store
 			Id(m => m.Id);
 			Map(m => m.AddedDate);
 			Map(m => m.AddedBy);
-			Map(m => m.DepartmentId);
 			Map(m => m.Title);
 			Map(m => m.Description);
 			Map(m => m.SKU);
@@ -22,7 +21,7 @@ namespace MShop.DataLayer.NHibernate.Mappings.Store
 			Map(m => m.FullImageUrl);
 			Map(m => m.Votes);
 			Map(m => m.TotalRating);
-			References(m => (Department)m.Department).Column("DepartmentId").Cascade.All();
+			References(m => (Department)m.Department, "DepartmentId");
 		}
 	}
 }

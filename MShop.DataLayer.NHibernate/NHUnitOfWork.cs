@@ -46,38 +46,7 @@ namespace MShop.DataLayer.NHibernate
 				return _sessionFactory;
 			}
 		}
-		static NHUnitOfWork()
-		{
-			// Initialise singleton instance of ISessionFactory, static constructors are only executed once during the
-			// application lifetime - the first time the UnitOfWork class is used
-			//_sessionFactory = Fluently.Configure()
-			//	.Database(MsSqlConfiguration.MsSql2012.ConnectionString(x => x.FromConnectionStringWithKey("DefaultConnection")))
-			//	.Mappings(x => x.AutoMappings.Add(
-			//		AutoMap.AssemblyOf<Article>(new AutomappingConfiguration()).UseOverridesFromAssemblyOf<ArticleMapping>()))
-
-			//	.ExposeConfiguration(config => new SchemaUpdate(config).Execute(false, true))
-			//	.BuildSessionFactory();
-
-			//_sessionFactory = Fluently.Configure()
-			//								.Database(MsSqlConfiguration.MsSql2012.ConnectionString(connectionString))
-			//								.Mappings(m => m.FluentMappings.AddFromAssemblyOf<CategoryMapping>())
-			//								//.Mappings(m => m.FluentMappings.AddFromAssemblyOf<ArticleMapping>())
-			//								//.Mappings(m => m.FluentMappings.AddFromAssemblyOf<CommentMapping>())
-			//								//.Mappings(m => m.FluentMappings.AddFromAssemblyOf<ForumMapping>())
-			//								//.Mappings(m => m.FluentMappings.AddFromAssemblyOf<PostMapping>())
-			//								//.Mappings(m => m.FluentMappings.AddFromAssemblyOf<NewsletterMapping>())
-			//								//.Mappings(m => m.FluentMappings.AddFromAssemblyOf<PollMapping>())
-			//								//.Mappings(m => m.FluentMappings.AddFromAssemblyOf<PollOptionMapping>())
-			//								//.Mappings(m => m.FluentMappings.AddFromAssemblyOf<DepartmentMapping>())
-			//								//.Mappings(m => m.FluentMappings.AddFromAssemblyOf<OrderItemMapping>())
-			//								//.Mappings(m => m.FluentMappings.AddFromAssemblyOf<OrderMapping>())
-			//								//.Mappings(m => m.FluentMappings.AddFromAssemblyOf<OrderStatusMapping>())
-			//								//.Mappings(m => m.FluentMappings.AddFromAssemblyOf<ProductMapping>())
-			//								//.Mappings(m => m.FluentMappings.AddFromAssemblyOf<ShippingMethodMapping>())
-			//								.ExposeConfiguration(config => new SchemaUpdate(config).Execute(false, true))
-			//								.BuildSessionFactory();
-		}
-
+		
 		public NHUnitOfWork(string conString)
 		{
 			_connectionString = conString;
@@ -97,12 +66,11 @@ namespace MShop.DataLayer.NHibernate
 				if (_transaction != null && _transaction.IsActive)
 					_transaction.Commit();
 			}
-			catch
+			catch(Exception exc)
 			{
 				// rollback if there was an exception
 				if (_transaction != null && _transaction.IsActive)
 					_transaction.Rollback();
-
 				throw;
 			}
 			finally

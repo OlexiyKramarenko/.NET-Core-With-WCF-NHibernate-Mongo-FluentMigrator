@@ -1,7 +1,6 @@
 ﻿using MShop.DataLayer.NHibernate.Entities.Articles;
 using MShop.DataLayer.NHibernate.Providers.Articles;
 using MShop.DataLayer.Repositories;
-using NHibernate;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -63,7 +62,7 @@ namespace MShop.DataLayer.NHibernate.Repositories
 								.Select(() => tblArticle.Id)
 								.Select(() => tblArticle.AddedDate)
 								.Select(() => tblArticle.AddedBy)
-								.Select(() => tblArticle.CategoryId)
+								.Select(() => ((Category)tblArticle.Category).Id)
 								.Select(() => tblArticle.Title)
 								.Select(() => tblArticle.Abstract)
 								.Select(() => tblArticle.Body)
@@ -85,8 +84,8 @@ namespace MShop.DataLayer.NHibernate.Repositories
 							.SingleOrDefault();
 
 			ArticleProvider article = ConvertToArticleProvider(obj);
-			return article;			
-		}		
+			return article;
+		}
 
 		public int GetArticleCount()
 		{
@@ -100,7 +99,7 @@ namespace MShop.DataLayer.NHibernate.Repositories
 		{
 			int count = _unitOfWork.Session
 								   .QueryOver<Article>()
-								   .Where(a => a.CategoryId == categoryId)
+								   .Where(a => ((Category)a.Category).Id == categoryId)
 								   .RowCount();
 			return count;
 		}
@@ -112,7 +111,7 @@ namespace MShop.DataLayer.NHibernate.Repositories
 				Id = Guid.Parse(Convert.ToString(obj[0])),
 				AddedDate = Convert.ToDateTime(obj[1]),
 				AddedBy = Convert.ToString(obj[2]),
-				CategoryId = Guid.Parse(obj[3].ToString()),
+				//CategoryId = Guid.Parse(obj[3].ToString()),
 				Title = Convert.ToString(obj[4]),
 				Abstract = Convert.ToString(obj[5]),
 				Body = Convert.ToString(obj[6]),
@@ -147,7 +146,7 @@ namespace MShop.DataLayer.NHibernate.Repositories
 								.Select(() => tblArticle.Id)
 								.Select(() => tblArticle.AddedDate)
 								.Select(() => tblArticle.AddedBy)
-								.Select(() => tblArticle.CategoryId)
+								.Select(() => ((Category)tblArticle.Category).Id)
 								.Select(() => tblArticle.Title)
 								.Select(() => tblArticle.Abstract)
 								.Select(() => tblArticle.Body)
@@ -183,13 +182,13 @@ namespace MShop.DataLayer.NHibernate.Repositories
 				_unitOfWork.Session
 						   .QueryOver(() => tblArticle)
 						   .JoinQueryOver(a => a.Category, () => tblCategory)
-						   .Where(() => tblArticle.CategoryId == categoryId)
+						   .Where(() => ((Category)tblArticle.Category).Id == categoryId)
 						   .OrderBy(() => tblArticle.ReleaseDate).Desc
 						   .SelectList(list => list
 								.Select(() => tblArticle.Id)
 								.Select(() => tblArticle.AddedDate)
 								.Select(() => tblArticle.AddedBy)
-								.Select(() => tblArticle.CategoryId)
+								.Select(() => ((Category)tblArticle.Category).Id)
 								.Select(() => tblArticle.Title)
 								.Select(() => tblArticle.Abstract)
 								.Select(() => tblArticle.Body)
@@ -241,7 +240,7 @@ namespace MShop.DataLayer.NHibernate.Repositories
 			int count = _unitOfWork.Session
 								   .QueryOver<Article>()
 								   .Where(expression)
-								   .Where(a => a.CategoryId == categoryId)
+								   .Where(a => ((Category)a.Category).Id == categoryId)
 								   .RowCount();
 			return count;
 		}

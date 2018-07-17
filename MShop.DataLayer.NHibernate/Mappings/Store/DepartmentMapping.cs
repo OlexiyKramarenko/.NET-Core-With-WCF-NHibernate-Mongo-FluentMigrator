@@ -16,7 +16,7 @@ namespace MShop.DataLayer.NHibernate.Mappings.Store
 			Map(m => m.Importance);
 			Map(m => m.Description);
 			Map(m => m.ImageUrl);
-			HasMany(x => (List<Product>)x.Products).KeyColumn("Id");
+			HasMany(x => (List<Product>)x.Products).KeyColumn("DepartmentId").Cascade.All();
 		}
 	}
 }

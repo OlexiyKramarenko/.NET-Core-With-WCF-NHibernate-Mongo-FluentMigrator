@@ -8,7 +8,6 @@ namespace MShop.DataLayer.NHibernate.Entities.Store
 		public virtual Guid Id { get; set; }
 		public virtual DateTime AddedDate { get; set; }
 		public virtual string AddedBy { get; set; }
-		public virtual Guid DepartmentId { get; set; }
 		public virtual string Title { get; set; }
 		public virtual string Description { get; set; }
 		public virtual string SKU { get; set; }

@@ -17,3 +17,15 @@ F:\MShop\MShop.DataLayer.EF\obj\Debug\netcoreapp2.0\MShop.DataLayer.EF.AssemblyI
 F:\MShop\MShop.DataLayer.EF\obj\Debug\netcoreapp2.0\MShop.DataLayer.EF.AssemblyInfo.cs
 F:\MShop\MShop.DataLayer.EF\obj\Debug\netcoreapp2.0\MShop.DataLayer.EF.dll
 F:\MShop\MShop.DataLayer.EF\obj\Debug\netcoreapp2.0\MShop.DataLayer.EF.pdb
+G:\MShop\MShop.DataLayer.EF\bin\Debug\netcoreapp2.0\MShop.DataLayer.EF.deps.json
+G:\MShop\MShop.DataLayer.EF\bin\Debug\netcoreapp2.0\MShop.DataLayer.EF.dll
+G:\MShop\MShop.DataLayer.EF\bin\Debug\netcoreapp2.0\MShop.DataLayer.EF.pdb
+G:\MShop\MShop.DataLayer.EF\bin\Debug\netcoreapp2.0\MShop.DataLayer.dll
+G:\MShop\MShop.DataLayer.EF\bin\Debug\netcoreapp2.0\MShop.DataLayer.pdb
+G:\MShop\MShop.DataLayer.EF\obj\Debug\netcoreapp2.0\MShop.DataLayer.EF.csprojResolveAssemblyReference.cache
+G:\MShop\MShop.DataLayer.EF\obj\Debug\netcoreapp2.0\MShop.DataLayer.EF.csproj.CoreCompileInputs.cache
+G:\MShop\MShop.DataLayer.EF\obj\Debug\netcoreapp2.0\MShop.DataLayer.EF.AssemblyInfoInputs.cache
+G:\MShop\MShop.DataLayer.EF\obj\Debug\netcoreapp2.0\MShop.DataLayer.EF.AssemblyInfo.cs
+G:\MShop\MShop.DataLayer.EF\obj\Debug\netcoreapp2.0\MShop.DataLayer.EF.csproj.CopyComplete
+G:\MShop\MShop.DataLayer.EF\obj\Debug\netcoreapp2.0\MShop.DataLayer.EF.dll
+G:\MShop\MShop.DataLayer.EF\obj\Debug\netcoreapp2.0\MShop.DataLayer.EF.pdb

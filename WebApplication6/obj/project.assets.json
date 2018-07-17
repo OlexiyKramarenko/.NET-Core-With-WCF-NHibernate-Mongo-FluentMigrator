@@ -13124,26 +13124,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Alexiy\\.nuget\\packages\\": {},
+    "C:\\Users\\Dragon\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
-    "restoreSettings": {
-      "hideWarningsAndErrors": true
-    },
     "restore": {
-      "projectUniqueName": "F:\\MShop\\WebApplication6\\WebApplication6.csproj",
+      "projectUniqueName": "G:\\MShop\\WebApplication6\\WebApplication6.csproj",
       "projectName": "WebApplication6",
-      "projectPath": "F:\\MShop\\WebApplication6\\WebApplication6.csproj",
-      "packagesPath": "C:\\Users\\Alexiy\\.nuget\\packages\\",
-      "outputPath": "F:\\MShop\\WebApplication6\\obj\\",
+      "projectPath": "G:\\MShop\\WebApplication6\\WebApplication6.csproj",
+      "packagesPath": "C:\\Users\\Dragon\\.nuget\\packages\\",
+      "outputPath": "G:\\MShop\\WebApplication6\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Alexiy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Dragon\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

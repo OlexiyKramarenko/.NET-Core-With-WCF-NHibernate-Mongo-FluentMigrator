@@ -4094,6 +4094,7 @@
         "framework": ".NETCoreApp,Version=v2.0",
         "dependencies": {
           "MShop.DataLayer": "1.0.0",
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "2.0.1",
           "Microsoft.EntityFrameworkCore": "2.0.1",
           "Microsoft.EntityFrameworkCore.SqlServer": "2.0.1",
           "Microsoft.EntityFrameworkCore.Tools": "2.0.1"
@@ -10958,26 +10959,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Alexiy\\.nuget\\packages\\": {},
+    "C:\\Users\\Dragon\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
-    "restoreSettings": {
-      "hideWarningsAndErrors": true
-    },
     "restore": {
-      "projectUniqueName": "F:\\MShop\\MShop.Presentation.MPA.Admin\\MShop.Presentation.MPA.Admin.csproj",
+      "projectUniqueName": "G:\\MShop\\MShop.Presentation.MPA.Admin\\MShop.Presentation.MPA.Admin.csproj",
       "projectName": "MShop.Presentation.MPA.Admin",
-      "projectPath": "F:\\MShop\\MShop.Presentation.MPA.Admin\\MShop.Presentation.MPA.Admin.csproj",
-      "packagesPath": "C:\\Users\\Alexiy\\.nuget\\packages\\",
-      "outputPath": "F:\\MShop\\MShop.Presentation.MPA.Admin\\obj\\",
+      "projectPath": "G:\\MShop\\MShop.Presentation.MPA.Admin\\MShop.Presentation.MPA.Admin.csproj",
+      "packagesPath": "C:\\Users\\Dragon\\.nuget\\packages\\",
+      "outputPath": "G:\\MShop\\MShop.Presentation.MPA.Admin\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Alexiy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Dragon\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -10990,14 +10988,14 @@
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
-            "F:\\MShop\\MShop.ViewComponents\\MShop.ViewComponents.csproj": {
-              "projectPath": "F:\\MShop\\MShop.ViewComponents\\MShop.ViewComponents.csproj"
+            "G:\\MShop\\MShop.DataLayer.EF\\MShop.DataLayer.EF.csproj": {
+              "projectPath": "G:\\MShop\\MShop.DataLayer.EF\\MShop.DataLayer.EF.csproj"
             },
-            "F:\\MShop\\MShop.DataLayer\\MShop.DataLayer.csproj": {
-              "projectPath": "F:\\MShop\\MShop.DataLayer\\MShop.DataLayer.csproj"
+            "G:\\MShop\\MShop.DataLayer\\MShop.DataLayer.csproj": {
+              "projectPath": "G:\\MShop\\MShop.DataLayer\\MShop.DataLayer.csproj"
             },
-            "F:\\MShop\\MShop.DataLayer.EF\\MShop.DataLayer.EF.csproj": {
-              "projectPath": "F:\\MShop\\MShop.DataLayer.EF\\MShop.DataLayer.EF.csproj"
+            "G:\\MShop\\MShop.ViewComponents\\MShop.ViewComponents.csproj": {
+              "projectPath": "G:\\MShop\\MShop.ViewComponents\\MShop.ViewComponents.csproj"
             }
           }
         }

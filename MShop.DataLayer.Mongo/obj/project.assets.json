@@ -4818,26 +4818,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Alexiy\\.nuget\\packages\\": {},
+    "C:\\Users\\Dragon\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
-    "restoreSettings": {
-      "hideWarningsAndErrors": true
-    },
     "restore": {
-      "projectUniqueName": "F:\\MShop\\MShop.DataLayer.Mongo\\MShop.DataLayer.Mongo.csproj",
+      "projectUniqueName": "G:\\MShop\\MShop.DataLayer.Mongo\\MShop.DataLayer.Mongo.csproj",
       "projectName": "MShop.DataLayer.Mongo",
-      "projectPath": "F:\\MShop\\MShop.DataLayer.Mongo\\MShop.DataLayer.Mongo.csproj",
-      "packagesPath": "C:\\Users\\Alexiy\\.nuget\\packages\\",
-      "outputPath": "F:\\MShop\\MShop.DataLayer.Mongo\\obj\\",
+      "projectPath": "G:\\MShop\\MShop.DataLayer.Mongo\\MShop.DataLayer.Mongo.csproj",
+      "packagesPath": "C:\\Users\\Dragon\\.nuget\\packages\\",
+      "outputPath": "G:\\MShop\\MShop.DataLayer.Mongo\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Alexiy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Dragon\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -4850,8 +4847,8 @@
       "frameworks": {
         "netstandard2.0": {
           "projectReferences": {
-            "F:\\MShop\\MShop.DataLayer\\MShop.DataLayer.csproj": {
-              "projectPath": "F:\\MShop\\MShop.DataLayer\\MShop.DataLayer.csproj"
+            "G:\\MShop\\MShop.DataLayer\\MShop.DataLayer.csproj": {
+              "projectPath": "G:\\MShop\\MShop.DataLayer\\MShop.DataLayer.csproj"
             }
           }
         }

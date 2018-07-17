@@ -15,5 +15,6 @@ namespace MShop.DataLayer.NHibernate.Entities.Polls
 		public virtual int Votes { get; set; }
 		public virtual DateTime? ArchivedDate { get; set; }
 		public virtual IList<IPollOption> PollOptions { get; set; }
+
 	}
 }

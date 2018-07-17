@@ -11,13 +11,11 @@ namespace MShop.DataLayer.NHibernate.Mappings.Store
 			Id(m => m.Id);
 			Map(m => m.AddedDate);
 			Map(m => m.AddedBy);
-			Map(m => m.OrderId);
-			Map(m => m.ProductId);
 			Map(m => m.Title);
 			Map(m => m.SKU);
 			Map(m => m.UnitPrice);
 			Map(m => m.Quantity);
-			References(m => (Order)m.Order).Column("OrderId").Cascade.All();
+			References(m => (Order)m.Order, "OrderId");
 		}
 	}
 }
