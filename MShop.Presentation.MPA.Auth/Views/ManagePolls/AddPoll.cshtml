@@ -1,0 +1,32 @@
+﻿@using MShop.Presentation.MPA.Admin.Controllers;
+@using MShop.Presentation.MPA.Admin.Infrastructure.Extensions;
+@model MShop.Presentation.MPA.Admin.Models.Polls.EditPollViewModel
+
+<form asp-action="@nameof(ManagePollsController.AddPoll)" 
+	  asp-controller="@nameof(ManagePollsController).ShortName()">
+	<div asp-validation-summary="All" class="text-danger"></div>
+	<div class="form-group">
+		<label asp-for="AddedBy" class="control-label">AddedBy</label>
+		<input type="text" asp-for="AddedBy" class="form-control" />
+	</div>
+	<div class="form-group">
+		<label asp-for="AddedDate" class="control-label">AddedDate</label>
+		<input type="text" asp-for="AddedDate" class="form-control" />
+	</div>
+	<div class="form-group">
+		<label asp-for="Votes" class="control-label">Votes</label>
+		<input type="text" asp-for="Votes" class="form-control" />
+	</div>
+	<div class="form-group">
+		<label asp-for="QuestionText" class="control-label">QuestionText</label>
+		<input type="text" asp-for="QuestionText" class="form-control" />
+	</div>
+	<div class="form-group">
+		<label asp-for="IsCurrent" class="control-label">IsCurrent</label>
+		<input type="text" asp-for="IsCurrent" class="form-control" />
+	</div>
+	<div class="form-group">
+		<input type="submit" value="Update" class="btn btn-default" />
+	</div>
+</form>
+

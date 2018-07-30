@@ -1,0 +1,44 @@
+﻿@using MShop.Presentation.MPA.Admin.Controllers;
+@using MShop.Presentation.MPA.Admin.Infrastructure.Extensions;
+@model IEnumerable<MShop.Presentation.MPA.Admin.Models.Polls.OptionItemViewModel>
+
+
+@if (Model.Any())
+{
+	<table class="list">
+		<thead>
+			<tr>
+				<td>OptionText</td>
+				<td>Percentage</td>
+				<td>Percentage</td>
+				<td></td>
+				<td></td>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model)
+			{
+				<tr>
+					<td>@item.OptionText</td>
+					<td>@item.Percentage</td>
+					<td>@item.Percentage</td>
+					<td>
+						<a asp-controller="@nameof(ManagePollsController).ShortName()"
+						   asp-action="@nameof(ManagePollsController.EditOption)"
+						   asp-route-id="@item.Id">Edit</a>
+					</td>
+					<td>
+						<a asp-controller="@nameof(ManagePollsController).ShortName()"
+						   asp-action="@nameof(ManagePollsController.DeleteOption)"
+						   asp-route-id="@item.Id">Delete</a>
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+}
+else
+{
+	<span class="empty-list">No options to show</span>
+}
+

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MShop.Presentation.MPA.Public.Models.Home;
+using System.Net.Mail;
 using IArticlesRepository = MShop.DataLayer.Repositories.IArticlesRepository<
 MShop.DataLayer.EF.Entities.Articles.Article,
 MShop.DataLayer.EF.Entities.Articles.Category,
@@ -17,12 +18,6 @@ namespace MShop.Presentation.MPA.Public.Controllers
 			this.repo = repo;
 		}
 
-		public IActionResult Index()
-		{
-			int count = repo.GetArticleCount();
-			return View();
-		}
-
 		public IActionResult About()
 		{
 			return View();
@@ -35,11 +30,19 @@ namespace MShop.Presentation.MPA.Public.Controllers
         [HttpPost]
 		public IActionResult Contact(ContactsViewModel model)
 		{
-			return View();
+            using (var message = new MailMessage(model.Email, "me@mydomain.com"))
+            {
+                message.To.Add(new MailAddress("me@mydomain.com"));
+                message.From = new MailAddress(model.Email);              
+                message.Body = model.Body;
+                message.Subject = model.Subject;
+                using (var smtpClient = new SmtpClient("smtp.gmail.com", 587))
+                {
+                    smtpClient.Send(message);
+                }
+            }
+            return View();
 		}
-		public IActionResult Error()
-		{
-			return View();
-		}
+		
 	}
 }

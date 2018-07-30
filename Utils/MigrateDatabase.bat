@@ -1,0 +1,2 @@
+..\packages\FluentMigrator.1.6.2\tools\Migrate.exe /connection "Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=F:\MShop\MShop.DataLayer.NHibernate\App_Data\database_nh.mdf;Integrated Security=True" /db sqlserver2014 /timeout 600 /target ..\MShop.DataLayer.NHibernate.Migrations\bin\Debug\MShop.DataLayer.NHibernate.Migrations.dll
+pause

@@ -1,0 +1,34 @@
+﻿@using MShop.Presentation.MPA.Public.Infrastructure.Extensions;
+@using MShop.Presentation.MPA.Public.Controllers;
+@model IEnumerable<MShop.Presentation.MPA.Public.Models.Newsletters.NewsletterItemViewModel>
+
+<h3>Archived Newsletters</h3>
+
+@if (Model.Any())
+{
+	<table>
+		@foreach (var item in Model)
+		{
+		<tr>
+			<td>
+				<a asp-action="@nameof(NewslettersController.ShowNewsletter)"
+				   asp-controller="@nameof(NewslettersController).ShortName()"
+				   asp-route-id="@item.NewsletterId">
+					@item.Subject
+				</a>
+			</td>
+			<td>
+				<a asp-action="@nameof(NewslettersController.DeleteNewsletter)"
+				   asp-controller="@nameof(NewslettersController).ShortName()"
+				   asp-route-id="@item.NewsletterId">
+					Delete
+				</a>
+			</td>
+		</tr>
+		}
+	</table>
+}
+else
+{
+	<b>No newsletters to show</b>
+}

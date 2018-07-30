@@ -35,7 +35,9 @@
             <li class="nav-li"><a asp-controller="Store" asp-action="ShowDepartments">Store</a></li>
             <li class="nav-li"><a asp-controller="Home" asp-action="About">About</a></li>
             <li class="nav-li"><a asp-controller="Home" asp-action="Contact">Contact</a></li>
-            <li class="nav-logout"><a id="logout" href="">logout</a></li>
+            @*<li class="nav-logout"><a asp-controller="Users" asp-action="LogOff">logout</a></li>*@
+            <li class="nav-logout"><a asp-controller="Users" asp-action="Login">login</a></li>
+            <li class="nav-logout"><a asp-controller="Users" asp-action="Register">register</a></li>
         </ul>
     </nav>
 
@@ -46,11 +48,24 @@
             margin: 15px;
         }
     </style>
-    
+
+    @*<div id="left-sidebar">
+            @if (User.Identity.IsAuthenticated)
+            {
+                @(await Component.InvokeAsync<PollBoxViewComponent>())
+            }
+            @if (User.IsInRole("admin"))
+            {
+                Html.Partial("_AdminSection");
+            }
+        </div>*@
+
+
     <div id="left-sidebar">
-        @(await Component.InvokeAsync<PollBoxViewComponent>())
-        @Html.Partial("_AdminSection")
+        @(await Component.InvokeAsync<PollBoxViewComponent>()) 
+        @Html.Partial("_AdminSection") 
     </div>
+
 
     <div id="content" class="container body-content">
         @RenderBody()

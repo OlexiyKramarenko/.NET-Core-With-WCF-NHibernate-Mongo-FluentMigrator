@@ -1,0 +1,147 @@
+﻿@using MShop.Presentation.MPA.Admin.Controllers;
+@using MShop.Presentation.MPA.Admin.Infrastructure.Extensions;
+
+<style>
+    td {
+        color: #000000;
+        font-family: Tahoma, Arial, Helvetica;
+        font-size: 12px;
+    }
+
+    #nav-tree {
+        border-collapse: unset;
+        margin: 15px;
+        padding: 10px;
+        border: 1px solid black;
+        border-radius: 15px;
+        float: left;
+    }
+
+    @@media(max-width:650px) {
+        #nav-tree {
+            float: none;
+        }
+
+        #content {
+            margin: 0;
+        }
+    }
+
+    #nav-tree-item {
+        padding: 1px;
+        border: 0;
+        border-spacing: 1px;
+    }
+
+    .nav-tree-item:hover {
+        cursor: pointer;
+    }
+
+    img, td {
+        height: 16px;
+    }
+
+    .breadcrumbs {
+        margin-left: 2em;
+    }
+
+    .img_textfolder {
+        content: url("/images/textfolder.gif");
+    }
+
+    .img_folder {
+        content: url("/images/folder.gif");
+    }
+</style>
+
+
+<table id="nav-tree">
+	<tr>
+		<td>
+			<h3>Admin:</h3>
+			<table id='@Html.Raw("x"+nameof(ManageArticlesController))' onclick="toggle('@nameof(ManageArticlesController)')" class="nav-tree-item"><tr><td><img class="img_folder"></td><td><b>Articles</b></td></tr></table>
+			<div id="@nameof(ManageArticlesController)" class="breadcrumbs" style="display:none;">
+				<table class="nav-tree-item"><tr><td><img class="img_text"></td><td><a asp-controller="@nameof(ManageArticlesController).ShortName()" asp-action="@nameof(ManageArticlesController.ManageArticles)" id="@nameof(ManageArticlesController.ManageArticles)" asp-route-pageIndex="1" asp-route-pageSize="5">Manage Articles</a></td></tr></table>
+				<table class="nav-tree-item"><tr><td><img class="img_text"></td><td><a asp-controller="@nameof(ManageArticlesController).ShortName()" asp-action="@nameof(ManageArticlesController.ManageCategories)" id="@nameof(ManageArticlesController.ManageCategories)" asp-route-pageIndex="1" asp-route-pageSize="5">Manage Categories</a></td></tr></table>
+				<table class="nav-tree-item"><tr><td><img class="img_text"></td><td><a asp-controller="@nameof(ManageArticlesController).ShortName()" asp-action="@nameof(ManageArticlesController.ManageComments)" id="@nameof(ManageArticlesController.ManageComments)" asp-route-pageIndex="1" asp-route-pageSize="5">Manage Comments</a></td></tr></table>
+				<table class="nav-tree-item"><tr><td><img class="img_text"></td><td><a asp-controller="@nameof(ManageArticlesController).ShortName()" asp-action="@nameof(ManageArticlesController.AddArticle)" id="@nameof(ManageArticlesController.AddArticle)">Add Article</a></td></tr></table>
+				<table class="nav-tree-item"><tr><td><img class="img_text"></td><td><a asp-controller="@nameof(ManageArticlesController).ShortName()" asp-action="@nameof(ManageArticlesController.AddCategory)" id="@nameof(ManageArticlesController.AddCategory)">Add Category</a></td></tr></table>
+			</div>
+
+			<table id="@Html.Raw("x"+nameof(ManageNewslettersController))" onclick="toggle('@nameof(ManageNewslettersController)')" class="nav-tree-item"><tr><td><img class="img_folder"></td><td><b>Newsletters</b></td></tr></table>
+			<div id="@nameof(ManageNewslettersController)" class="breadcrumbs" style="display:none;">
+				<table class="nav-tree-item"><tr><td><img class="img_text"></td><td><a asp-controller="@nameof(ManageNewslettersController).ShortName()" asp-action="@nameof(ManageNewslettersController.SendNewsletter)" id="@nameof(ManageNewslettersController.SendNewsletter)">Send Newsletters</a></td></tr></table>
+			</div>
+
+			<table id="@Html.Raw("x"+nameof(ManagePollsController))" onclick="toggle('@nameof(ManagePollsController)')" class="nav-tree-item"><tr><td><img class="img_folder"></td><td><b>Polls</b></td></tr></table>
+			<div id="@nameof(ManagePollsController)" class="breadcrumbs" style="display:none;">
+				<table class="nav-tree-item"><tr><td><img class="img_text"></td><td><a asp-controller="@nameof(ManagePollsController).ShortName()" asp-action="@nameof(ManagePollsController.ManagePolls)" id="@nameof(ManagePollsController.ManagePolls)" asp-route-pageIndex="1" asp-route-pageSize="10">Manage Polls</a></td></tr></table>
+				<table class="nav-tree-item"><tr><td><img class="img_text"></td><td><a asp-controller="@nameof(ManagePollsController).ShortName()" asp-action="@nameof(ManagePollsController.AddOption)" id="@nameof(ManagePollsController.AddOption)">Add Option</a></td></tr></table>
+				<table class="nav-tree-item"><tr><td><img class="img_text"></td><td><a asp-controller="@nameof(ManagePollsController).ShortName()" asp-action="@nameof(ManagePollsController.AddPoll)" id="@nameof(ManagePollsController.AddPoll)">Add Poll</a></td></tr></table>
+			</div>
+
+			<table id="@Html.Raw("x"+nameof(ManageForumController))" onclick="toggle('@nameof(ManageForumController)')" class="nav-tree-item"><tr><td><img class="img_folder"></td><td><b>Forum</b></td></tr></table>
+			<div id="@nameof(ManageForumController)" class="breadcrumbs" style="display:none;">
+				<table class="nav-tree-item"><tr><td><img class="img_text"></td><td><a asp-controller="@nameof(ManageForumController).ShortName()" asp-action="@nameof(ManageForumController.ManageForums)" id="@nameof(ManageForumController.ManageForums)">Manage Forums</a></td></tr></table>
+				<table class="nav-tree-item"><tr><td><img class="img_text"></td><td><a asp-controller="@nameof(ManageForumController).ShortName()" asp-action="@nameof(ManageForumController.ManageUnapprovedPosts)" id="@nameof(ManageForumController.ManageUnapprovedPosts)">Manage Unapproved Posts</a></td></tr></table>
+				<table class="nav-tree-item"><tr><td><img class="img_text"></td><td><a asp-controller="@nameof(ManageForumController).ShortName()" asp-action="@nameof(ManageForumController.AddForum)" id="@nameof(ManageForumController.AddForum)">Add Forum</a></td></tr></table>
+			</div>
+
+			<table id="@Html.Raw("x"+nameof(ManageStoreController))" onclick="toggle('@nameof(ManageStoreController)')" class="nav-tree-item"><tr><td><img class="img_folder"></td><td><b>Store</b></td></tr></table>
+			<div id="@nameof(ManageStoreController)" class="breadcrumbs" style="display:none;">
+				<table class="nav-tree-item"><tr><td><img class="img_text"></td><td><a asp-controller="@nameof(ManageStoreController).ShortName()" asp-action="@nameof(ManageStoreController.ManageProducts)" id="@nameof(ManageStoreController.ManageProducts)"  asp-route-pageIndex="1" asp-route-pageSize="10">Manage Products</a></td></tr></table>
+				<table class="nav-tree-item"><tr><td><img class="img_text"></td><td><a asp-controller="@nameof(ManageStoreController).ShortName()" asp-action="@nameof(ManageStoreController.ManageDepartments)" id="@nameof(ManageStoreController.ManageDepartments)">Manage Departments</a></td></tr></table>
+				<table class="nav-tree-item"><tr><td><img class="img_text"></td><td><a asp-controller="@nameof(ManageStoreController).ShortName()" asp-action="@nameof(ManageStoreController.ManageOrders)" id="@nameof(ManageStoreController.ManageOrders)" asp-route-pageIndex="1" asp-route-pageSize="10">Manage Orders</a></td></tr></table>
+				<table class="nav-tree-item"><tr><td><img class="img_text"></td><td><a asp-controller="@nameof(ManageStoreController).ShortName()" asp-action="@nameof(ManageStoreController.ManageOrderStatuses)" id="@nameof(ManageStoreController.ManageOrderStatuses)">Manage Order Statuses</a></td></tr></table>
+				<table class="nav-tree-item"><tr><td><img class="img_text"></td><td><a asp-controller="@nameof(ManageStoreController).ShortName()" asp-action="@nameof(ManageStoreController.ManageShippingMethods)" id="@nameof(ManageStoreController.ManageShippingMethods)">Manage Shipping Methods</a></td></tr></table>
+				<table class="nav-tree-item"><tr><td><img class="img_text"></td><td><a asp-controller="@nameof(ManageStoreController).ShortName()" asp-action="@nameof(ManageStoreController.AddProduct)" id="@nameof(ManageStoreController.AddProduct)">Add Product</a></td></tr></table>
+				<table class="nav-tree-item"><tr><td><img class="img_text"></td><td><a asp-controller="@nameof(ManageStoreController).ShortName()" asp-action="@nameof(ManageStoreController.AddDepartment)" id="@nameof(ManageStoreController.AddDepartment)">Add Department</a></td></tr></table>
+				<table class="nav-tree-item"><tr><td><img class="img_text"></td><td><a asp-controller="@nameof(ManageStoreController).ShortName()" asp-action="@nameof(ManageStoreController.AddOrderStatus)" id="@nameof(ManageStoreController.AddOrderStatus)">Add Order Status</a></td></tr></table>
+				<table class="nav-tree-item"><tr><td><img class="img_text"></td><td><a asp-controller="@nameof(ManageStoreController).ShortName()" asp-action="@nameof(ManageStoreController.AddShippingMethod)" id="@nameof(ManageStoreController.AddShippingMethod)">Add Shipping Method</a></td></tr></table>
+			</div>
+
+			<table id="@Html.Raw("x"+nameof(ManageUsersController))" onclick="toggle('@nameof(ManageUsersController)')" class="nav-tree-item"><tr><td><img class="img_folder"></td><td><b>Users</b></td></tr></table>
+			<div id="@nameof(ManageUsersController)" class="breadcrumbs" style="display:none;">
+				<table class="nav-tree-item"><tr><td><img class="img_text"></td><td><a asp-controller="@nameof(ManageUsersController).ShortName()" asp-action="@nameof(ManageUsersController.ManageUsers)" id="@nameof(ManageUsersController.ManageUsers)"  asp-route-pageIndex="1" asp-route-pageSize="10">Manage Users</a></td></tr></table>
+				<table class="nav-tree-item"><tr><td><img class="img_text"></td><td><a asp-controller="@nameof(ManageUsersController).ShortName()" asp-action="@nameof(ManageUsersController.CreateUser)" id="@nameof(ManageUsersController.CreateUser)">Create User</a></td></tr></table>
+			</div>
+
+		</td>
+	</tr>
+</table>
+
+<script>
+	var controller = '@Html.Raw(ViewContext.RouteData.Values["controller"] + "Controller")';
+	var action = '@Html.Raw(ViewContext.RouteData.Values["action"])';
+
+	var Dict = {};
+	Dict["@nameof(ManageArticlesController)"] = "Articles";
+	Dict["@nameof(ManageNewslettersController)"] = "Newsletters";
+	Dict["@nameof(ManagePollsController)"] = "Polls";
+	Dict["@nameof(ManageForumController)"] = "Forum";
+	Dict["@nameof(ManageStoreController)"] = "Store";
+	Dict["@nameof(ManageUsersController)"] = "Users";
+
+	function toggle(controller) {
+		obj = document.getElementById(controller);
+		visible = (obj.style.display != "none")
+		key = document.getElementById("x" + controller);
+		if (visible) {
+			obj.style.display = "none";
+			key.innerHTML = "<table class='nav-tree-item'><tr><td><img class='img_folder'></td><td><b>" + Dict[controller] + "</b></td></tr></table>";
+		} else {
+			obj.style.display = "block";
+			key.innerHTML = "<table class='nav-tree-item'><tr><td><img class='img_textfolder'></td><td><b>" + Dict[controller] + "</b></td></tr></table>";
+		}
+	}
+	function setActive(action) {
+		document.getElementById(action).style.color = "red";
+	}
+
+	//debugger;
+	toggle(controller);
+	setActive(action);
+
+
+
+</script>

@@ -1,0 +1,56 @@
+﻿@using MShop.Presentation.MPA.Public.Infrastructure.Extensions;
+@using MShop.Presentation.MPA.Public.Controllers;
+@model IEnumerable<MShop.Presentation.MPA.Public.Models.Forums.ForumItemViewModel>
+
+<h3>Forums</h3>
+
+<div style="font-size:13px;">
+	Click on the title of the forum for which you want to browse the threads:
+</div>
+
+<br />
+
+
+<style>
+	#categories {
+		margin-top: 20px;
+	}
+
+	td {
+		padding: 5px;
+	}
+
+	.category-item {
+		padding: 15px;
+		display: inline-block;
+		border: 3px solid #5aaeb1;
+		width: 300px;
+		height: 120px;
+		vertical-align: top;
+		margin-bottom: 4px;
+		border-radius: 10px;
+	}
+</style>
+@if (Model.Any())
+{
+	<div>
+		@foreach (var item in Model)
+		{
+			<div class="category-item">
+				<a asp-controller="@nameof(ForumController).ShortName()"
+				   asp-action="@nameof(ForumController.BrowseThreads)"
+				   asp-route-forumId="@item.Id"
+				   asp-route-pageIndex="1"
+				   asp-route-pageSize="10">
+					@item.Title
+				</a>
+				<br />
+				<p>@item.Description</p>
+			</div>
+		}
+	</div>
+}
+else
+{
+	<b>No categories to show</b>
+}

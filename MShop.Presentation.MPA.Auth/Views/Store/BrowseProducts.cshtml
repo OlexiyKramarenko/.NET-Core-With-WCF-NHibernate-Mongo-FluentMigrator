@@ -1,0 +1,7 @@
+﻿@using MShop.ViewComponents.Components.Store;
+
+@model Guid
+
+<h3>Product Catalog</h3>
+
+@(await Component.InvokeAsync<ProductListingViewComponent>(new { departmentId = Model, pageIndex = 1, pageSize = 10 }))

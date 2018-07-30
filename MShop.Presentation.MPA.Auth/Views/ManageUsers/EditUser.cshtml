@@ -1,0 +1,23 @@
+﻿@using MShop.Presentation.MPA.Admin.Controllers;
+@using MShop.Presentation.MPA.Admin.Infrastructure.Extensions;
+@model MShop.Presentation.MPA.Admin.Models.Users.EditUserViewModel
+
+
+<form asp-action="@nameof(ManageUsersController.EditUser)"
+	  asp-controller="@nameof(ManageUsersController).ShortName()">
+	<div asp-validation-summary="All" class="text-danger"></div>
+	<div class="form-group">
+		<input type="hidden" asp-for="Id" />
+	</div>
+	<div class="form-group">
+		<label asp-for="Email" class="control-label">Email</label>
+		<input type="text" asp-for="Email" class="form-control" />
+	</div>
+	<div class="form-group">
+		<label asp-for="BirthDate" class="control-label">Год рождения</label>
+		<input type="text" asp-for="BirthDate" class="datepicker form-control" />
+	</div>
+	<div class="form-group">
+		<input type="submit" value="Сохранить" class="btn btn-default" />
+	</div>
+</form>

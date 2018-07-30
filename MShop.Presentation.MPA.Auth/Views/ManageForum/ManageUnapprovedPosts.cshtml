@@ -1,0 +1,37 @@
+﻿@using MShop.Presentation.MPA.Admin.Controllers;
+@using MShop.Presentation.MPA.Admin.Infrastructure.Extensions;
+
+@model IEnumerable<MShop.Presentation.MPA.Admin.Models.Forums.UnapprovedPostItemViewModel>
+
+<style>
+	.cell-item{
+		display:block;
+		margin-top:6px;
+	}
+</style>
+@if (Model.Any())
+{
+	<table class="list">
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td>
+					<h3>@item.Title</h3>
+					<span class="cell-item"><b>Author: </b>@item.AddedBy</span>
+					<span class="cell-item"><b>Date: </b>@item.LastPostDate</span>
+					<span class="cell-item"><b>Title: </b>@item.ForumTitle</span>
+					<span class="cell-item"><b>Post: </b>@item.Body</span> 
+				</td>
+				<td>
+					<a asp-controller="@nameof(ManageForumController).ShortName()"
+					   asp-action="@nameof(ManageForumController.DeletePost)"
+					   asp-route-id="@item.Id">Delete</a>
+				</td>
+			</tr>
+		}
+	</table>
+}
+else
+{
+	<span class="empty-list">No posts to show</span>
+}

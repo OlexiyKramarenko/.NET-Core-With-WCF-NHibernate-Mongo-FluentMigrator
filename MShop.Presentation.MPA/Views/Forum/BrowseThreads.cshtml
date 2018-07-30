@@ -1,0 +1,134 @@
+﻿@using MShop.Presentation.MPA.Public.Infrastructure.Extensions;
+@using MShop.Presentation.MPA.Public.Controllers;
+@model MShop.Presentation.MPA.Public.Models.Forums.BrowseThreadsViewModel
+@*<div>
+		Threads from forum:
+		<select onchange="location.href=this.value">
+			@foreach (var item in Model.Forums)
+			{
+				<option value="@Url.Action("BrowseThreads", "Forum", new { id = item.Value, pageIndex = 1, pageSize = 10 })">
+					@item.Text
+				</option>
+			}
+		</select>
+	</div>
+	<br />
+	<a asp-action="@nameof(ForumController.AddPost)"
+	   asp-controller="@nameof(ForumController).ShortName()"
+	   asp-route-forumId="@Model.ForumId">
+		Create new thread
+	</a>
+
+	<br />
+
+	@if (Model.ThreadItems.Any())
+	{
+		<table>
+			<tr>
+				<td>
+					AddedBy
+				</td>
+				<td>
+					Last Post
+				</td>
+				<td>
+					Replies
+				</td>
+				<td>
+					Views
+				</td>
+				<td></td>
+			</tr>
+			@foreach (var item in Model.ThreadItems)
+			{
+				<tr>
+					<td>
+						<a asp-action="@nameof(ForumController.ShowThread)"
+						   asp-controller="@nameof(ForumController).ShortName()"
+						   asp-route-id="@item.Id">@item.Title</a>
+						<br />
+						<small>
+							by @item.AddedBy
+						</small>
+					</td>
+					<td>
+						<small>
+							@item.LastPostDate
+							<br />
+							by @item.LastPostBy
+						</small>
+					</td>
+					<td>
+						@item.ReplyCount
+					</td>
+					<td>
+						@item.ViewCount
+					</td>
+					<td>
+						<a asp-action="@nameof(ForumController.DeletePost)"
+						   asp-controller="@nameof(ForumController).ShortName()"
+						   asp-route-id="@item.Id">Delete</a>
+					</td>
+				</tr>
+			}
+		</table>
+	}
+	else
+	{
+		<b>No threads to show</b>
+	}*@
+
+
+
+
+
+
+<style>
+	.listing-link {
+		text-decoration: none;
+	}
+
+	.edit_delete_links {
+		position: absolute;
+		top: 5px;
+		right: 5px;
+	}
+
+	.listing-item {
+		padding: 0px 10px 10px 10px;
+		border: 1px solid black;
+		margin: 10px 0 0 0;
+		position: relative;
+	}
+
+		.listing-item:hover {
+			border: 2px solid black;
+		}
+</style>
+
+@foreach (var item in Model.ThreadItems)
+{
+	<div class="listing-item">
+		<div class="edit_delete_links">
+			<a asp-action="@nameof(ForumController.DeletePost)"
+			   asp-controller="@nameof(ForumController).ShortName()"
+			   asp-route-id="@item.Id">Delete</a>
+		</div>
+
+		<a asp-action="@nameof(ForumController.ShowThread)"
+		   asp-controller="@nameof(ForumController).ShortName()"
+		   asp-route-threadId="@item.Id"
+		   asp-route-forumId="@item.ForumId">@item.Title</a>
+		<br />
+		<small>
+			by @item.AddedBy <br />
+			<b>Last post:</b>
+			by @item.LastPostBy
+			@item.LastPostDate
+			<br />
+			<b>Reply count:</b>&nbsp;@item.ReplyCount <br />
+			<b>View count:</b>&nbsp;@item.ViewCount
+		</small>
+
+	</div>
+}

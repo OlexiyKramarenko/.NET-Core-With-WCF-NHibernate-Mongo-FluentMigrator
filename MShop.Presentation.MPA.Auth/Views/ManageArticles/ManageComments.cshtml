@@ -1,0 +1,57 @@
+﻿@using MShop.Presentation.MPA.Admin.Controllers;
+@using MShop.Presentation.MPA.Admin.Infrastructure.Extensions;
+@using MShop.ViewComponents.Components;
+@using MShop.ViewComponents.Models;
+@model MShop.Presentation.MPA.Admin.Models.Articles.ManageCommentsViewModel
+
+
+@(await Component.InvokeAsync<PageSizeViewComponent>(new PageSizeViewModel
+{
+	TextAbove = "Comments per page:",
+	Action = Model.Pager.Action,
+	PageSize = Model.Pager.PageSize
+}))
+
+@(await Component.InvokeAsync<PagerViewComponent>(new { Model.Pager }))
+
+@if (Model.CommentItems.Any())
+{
+	<table class="list">
+		@foreach (var item in Model.CommentItems)
+		{
+			<tr>
+				<td>
+					Комментарий создан <label>@item.AddedBy</label>
+					<br />
+					Email: @item.AddedByEmail  в @item.AddedDate
+					<br />
+					Статья:
+					<a asp-controller="@nameof(ManageArticlesController).ShortName()"
+					   asp-action="@nameof(ManageArticlesController.EditArticle)"
+					   asp-route-id="@item.ArticleId">@item.ArticleTitle</a>
+					<br />
+					@item.Body
+				</td>
+				<td>
+					<a asp-controller="@nameof(ManageArticlesController).ShortName()"
+					   asp-action="@nameof(ManageArticlesController.EditComment)"
+					   asp-route-id="@item.Id">Edit</a>
+				</td>
+				<td>
+					<a asp-controller="@nameof(ManageArticlesController).ShortName()"
+					   asp-action="@nameof(ManageArticlesController.DeleteComment)"
+					   asp-route-id="@item.Id"
+					   asp-route-pageIndex="@Model.Pager.PageIndex"
+					   asp-route-pageSize="@Model.Pager.PageSize">Delete</a>
+				</td>
+			</tr>
+		}
+	</table>
+}
+else
+{
+	<span class="empty-list">No comments to show</span>
+}
+@(await Component.InvokeAsync<PagerViewComponent>(new { Model.Pager }))
+
+

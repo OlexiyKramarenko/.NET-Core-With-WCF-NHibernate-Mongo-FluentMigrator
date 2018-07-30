@@ -226,7 +226,6 @@ G:\MShop\MShop.DataLayer.NHibernate\bin\Debug\Remotion.Linq.dll
 G:\MShop\MShop.DataLayer.NHibernate\bin\Debug\Remotion.Linq.EagerFetching.dll
 G:\MShop\MShop.DataLayer.NHibernate\bin\Debug\MShop.DataLayer.pdb
 G:\MShop\MShop.DataLayer.NHibernate\bin\Debug\Antlr3.Runtime.xml
-G:\MShop\MShop.DataLayer.NHibernate\bin\Debug\FluentNHibernate.pdb
 G:\MShop\MShop.DataLayer.NHibernate\bin\Debug\FluentNHibernate.xml
 G:\MShop\MShop.DataLayer.NHibernate\bin\Debug\Iesi.Collections.xml
 G:\MShop\MShop.DataLayer.NHibernate\bin\Debug\NHibernate.xml

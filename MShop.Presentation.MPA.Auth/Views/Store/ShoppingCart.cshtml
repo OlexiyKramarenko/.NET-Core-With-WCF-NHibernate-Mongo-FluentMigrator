@@ -1,0 +1,86 @@
+﻿@using MShop.Presentation.MPA.Public.Infrastructure.Extensions;
+@using MShop.Presentation.MPA.Public.Controllers;
+@using MShop.Presentation.MPA.Public.Models.Store;
+@model List<ShoppingCartItemViewModel>
+
+<h3>Shopping Cart</h3>
+
+<p>Review and update the quantity of the products added to the cart before proceeding to checkout, or continue shopping.</p>
+
+<style>
+	#shoping-cart {
+		width: 600px;
+		border: 1px solid brown;
+		margin-bottom: 30px;
+	}
+
+		#shoping-cart tr {
+			border: 1px solid brown;
+		}
+
+			#shoping-cart tr td {
+				padding: 6px;
+			}
+
+			#shoping-cart tr:first-child {
+				background-color: black;
+				color: orange;
+			}
+
+			#shoping-cart tr td:nth-child(1) {
+			}
+
+			#shoping-cart tr td:nth-child(2) {
+				width: 10%;
+			}
+
+			#shoping-cart tr td:nth-child(3) {
+				width: 5%;
+			}
+
+				#shoping-cart tr td:nth-child(3) input {
+					width: 100%;
+					text-align: center;
+				}
+
+			#shoping-cart tr td:nth-child(4) {
+				width: 10%;
+			}
+</style>
+
+
+
+<div style="width:600px;">
+	<form asp-controller="@nameof(StoreController).ShortName()"
+		  asp-action="@nameof(StoreController.ShoppingCart)">
+		<table id="shoping-cart">
+			<tr>
+				<td>Product</td>
+				<td>Price</td>
+				<td>Quantity</td>
+				<td></td>
+			</tr>
+			@for (int i = 0; i < Model.Count; i++)
+			{
+				var item = Model[i];
+
+				<tr>
+					<td><input type="hidden" asp-for="@item.Id" />@item.Title</td>
+					<td>@item.UnitPrice</td>
+					<td><input type="text" asp-for="@item.Quantity" /></td>
+					<td>
+						<a asp-controller="@nameof(StoreController).ShortName()"
+						   asp-action="@nameof(StoreController.RemoveFromShoppingCart)"
+						   asp-route-id="@item.Id">Delete</a>
+					</td>
+				</tr>
+			}
+		</table>
+		<input type="submit" value="Update" />
+	</form>
+
+	<a asp-controller="@nameof(StoreController).ShortName()"
+	   asp-action="@nameof(StoreController.Checkout)">Checkout</a>
+
+</div>
+

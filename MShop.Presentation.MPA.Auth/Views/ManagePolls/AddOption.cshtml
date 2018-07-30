@@ -1,0 +1,32 @@
+﻿@using MShop.Presentation.MPA.Admin.Controllers;
+@using MShop.Presentation.MPA.Admin.Infrastructure.Extensions;
+@model MShop.Presentation.MPA.Admin.Models.Polls.AddOptionViewModel
+
+<form asp-action="@nameof(ManagePollsController.AddOption)" 
+	  asp-controller="@nameof(ManagePollsController).ShortName()">
+	<div asp-validation-summary="All" class="text-danger"></div>
+	<div class="form-group">
+		<label asp-for="AddedBy" class="control-label">AddedBy</label>
+		<input type="text" asp-for="AddedBy" class="form-control" />
+	</div>
+	<div class="form-group">
+		<label asp-for="AddedDate" class="control-label">AddedDate</label>
+		<input type="text" asp-for="AddedDate" class="form-control" />
+	</div>
+	<div class="form-group">
+		<label asp-for="Percentage" class="control-label">Percentage</label>
+		<input type="text" asp-for="Percentage" class="form-control" />
+	</div>
+	<div class="form-group">
+		<label asp-for="Votes" class="control-label">Votes</label>
+		<input type="text" asp-for="Votes" class="form-control" />
+	</div>
+	<div class="form-group">
+		<label asp-for="OptionText" class="control-label">OptionText</label>
+		<input type="text" asp-for="OptionText" class="form-control" />
+	</div>
+	<div class="form-group">
+		<input type="submit" value="Update" class="btn btn-default" />
+	</div>
+</form>
+

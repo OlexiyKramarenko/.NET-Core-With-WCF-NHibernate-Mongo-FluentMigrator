@@ -1,0 +1,48 @@
+﻿@using MShop.Presentation.MPA.Admin.Controllers;
+@using MShop.Presentation.MPA.Admin.Infrastructure.Extensions;
+@using MShop.ViewComponents.Components;
+@using MShop.ViewComponents.Models;
+@using MShop.Presentation.MPA.Admin.Models.Users;
+
+@model ManageUsersViewModel
+
+
+@(await Component.InvokeAsync<PageSizeViewComponent>(new PageSizeViewModel
+	{
+		TextAbove = "Users per page:",
+		Action = Model.Pager.Action,
+		PageSize = Model.Pager.PageSize
+	}))
+
+@(await Component.InvokeAsync<PagerViewComponent>(new { Pager = Model.Pager }))
+
+@if (Model.Users.Any())
+{
+	<table class="list">
+		@foreach (var user in Model.Users)
+		{
+			<tr>
+				<td>@user.Email</td>
+				<td style="width:130px;">
+					<a asp-controller="@nameof(ManageUsersController).ShortName()"
+					   asp-action="@nameof(ManageUsersController.ChangePassword)"
+					   asp-route-id="@user.Id">change password</a>
+					<br />
+					<a asp-controller="@nameof(ManageUsersController).ShortName()"
+					   asp-action="@nameof(ManageUsersController.EditUser)"
+					   asp-route-id="@user.Id">edit</a>
+					<br />
+					<a asp-controller="@nameof(ManageUsersController).ShortName()"
+					   asp-action="@nameof(ManageUsersController.Delete)"
+					   asp-route-id="@user.Id">delete</a>
+				</td>
+			</tr>
+		}
+	</table>
+}
+else
+{
+	<span class="empty-list">No users to show</span>
+}
+
+@(await Component.InvokeAsync<PagerViewComponent>(new { Pager = Model.Pager }))

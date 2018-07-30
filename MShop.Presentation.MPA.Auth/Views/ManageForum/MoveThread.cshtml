@@ -1,0 +1,19 @@
+﻿@using MShop.Presentation.MPA.Admin.Controllers;
+@using MShop.Presentation.MPA.Admin.Infrastructure.Extensions;
+@model MShop.Presentation.MPA.Admin.Models.Forums.MoveThreadViewModel
+
+Move Forum Thread
+
+<br />
+Move thread  <b>@Model.ThreadTitle</b>
+
+<br />
+from forum <b>@Model.ForumTitle</b> to forum
+
+<form asp-controller="@nameof(ManageForumController).ShortName()"
+	  asp-action="@nameof(ManageForumController.MoveThread)">
+	<select asp-for="ForumTitleId"
+			asp-items="@Model.Forums"></select>
+
+	<button type="submit">OK</button>
+</form>

@@ -1,0 +1,28 @@
+﻿@model MShop.Presentation.MPA.Public.Models.Polls.PollResultViewModel
+
+<style>
+	.bar {
+		border: 1px solid black;
+		height: 10px;
+		width: 500px;
+		background-color: yellow;
+		margin-bottom:30px;
+	}
+
+	.inner-bar {
+		height: 8px;
+		background-color: green;
+	}
+</style>
+
+<h3>@Model.QuestionText</h3>
+
+@foreach (var item in Model.Items)
+{
+	<div>@item.AnswerText (@item.Votes vote(s) - @Math.Round(item.Percentage, 1) %)</div>
+	<div class="bar">
+		@Html.Raw("<div class='inner-bar' style='width:" + Math.Ceiling(item.Percentage) + "%'></div>")
+	</div>
+}
+<br />
+TotalVotes: @Model.TotalVotes

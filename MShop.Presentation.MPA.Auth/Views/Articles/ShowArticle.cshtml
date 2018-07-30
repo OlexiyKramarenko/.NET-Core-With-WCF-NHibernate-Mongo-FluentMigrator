@@ -1,0 +1,49 @@
+﻿@using MShop.Presentation.MPA.Public.Controllers;
+@using MShop.Presentation.MPA.Public.Infrastructure.Extensions;
+@model MShop.Presentation.MPA.Public.Models.Articles.ShowArticleViewModel
+
+<h3>@Model.Title</h3>
+
+@Model.Text
+
+<hr />
+
+<h3>User feedback</h3>
+
+<ul style="list-style-type: none;">
+	@foreach (var comment in Model.Comments)
+	{
+		<li>
+			<b>Comment posted by @comment.AddedBy on @comment.AddedDate</b>
+
+			<p>@comment.Body</p>
+
+			@*@comment.AddedByEmail
+				@comment.Id*@
+		</li>
+	}
+</ul>
+
+<br/>
+
+<h3>Post your comment</h3>
+<form asp-action="@nameof(ArticlesController.LeaveComment)"
+	  asp-controller="@nameof(ArticlesController).ShortName()">
+	<div asp-validation-summary="All" class="text-danger"></div>
+
+	<div class="form-group">
+		<label asp-for="PostComment.AddedBy" class="control-label">Name:</label>
+		<input type="text" asp-for="PostComment.AddedBy" class="form-control" />
+	</div>
+	<div class="form-group">
+		<label asp-for="PostComment.AddedByEmail" class="control-label">Email:</label>
+		<input type="text" asp-for="PostComment.AddedByEmail" class="form-control" />
+	</div>
+	<div class="form-group">
+		<label asp-for="PostComment.Body" class="control-label">Body:</label>
+		<input type="number" asp-for="PostComment.Body" class="form-control" />
+	</div>
+	<div class="form-group">
+		<input type="submit" value="Create" class="btn btn-default" />
+	</div>
+</form>

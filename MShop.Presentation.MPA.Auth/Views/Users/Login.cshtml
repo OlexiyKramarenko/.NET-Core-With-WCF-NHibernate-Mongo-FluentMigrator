@@ -1,25 +1,29 @@
-﻿
+﻿@using MShop.Presentation.MPA.Public.Infrastructure.Extensions;
+@using MShop.Presentation.MPA.Auth.Controllers;
 @model MShop.Presentation.MPA.Auth.Models.LoginViewModel
- 
+
 <h2>Вход в приложение</h2>
-<form method="post" asp-controller="Account" asp-action="Login"
-	  asp-route-returnUrl="@Model.ReturnUrl">
-	<div asp-validation-summary="ModelOnly"></div>
-	<div>
-		<label asp-for="Email"></label><br />
-		<input asp-for="Email" />
-		<span asp-validation-for="Email"></span>
-	</div>
-	<div>
-		<label asp-for="Password"></label><br />
-		<input asp-for="Password" />
-		<span asp-validation-for="Password"></span>
-	</div>
-	<div>
-		<label asp-for="RememberMe"></label>
-		@Html.CheckBoxFor(a => a.RememberMe)
-	</div>
-	<div>
-		<input type="submit" value="Войти" />
-	</div>
+
+<form method="post"
+      asp-controller="@nameof(UsersController).ShortName()"
+      asp-action="@nameof(UsersController.Login)"
+      asp-route-returnUrl="@Model.ReturnUrl">
+    <div asp-validation-summary="ModelOnly"></div>
+    <div>
+        <label asp-for="Email"></label><br />
+        <input asp-for="Email" />
+        <span asp-validation-for="Email"></span>
+    </div>
+    <div>
+        <label asp-for="Password"></label><br />
+        <input asp-for="Password" />
+        <span asp-validation-for="Password"></span>
+    </div>
+    <div>
+        <label asp-for="RememberMe"></label>
+        @Html.CheckBoxFor(a => a.RememberMe)
+    </div>
+    <div>
+        <input type="submit" value="Войти" />
+    </div>
 </form>

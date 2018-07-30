@@ -1,0 +1,66 @@
+﻿@using MShop.Presentation.MPA.Admin.Controllers;
+@using MShop.Presentation.MPA.Admin.Infrastructure.Extensions;
+@using MShop.ViewComponents.Components;
+@using MShop.ViewComponents.Models;
+@model MShop.Presentation.MPA.Admin.Models.Polls.ManagePollsViewModel
+
+
+
+@(await Component.InvokeAsync<PageSizeViewComponent>(new PageSizeViewModel
+	{
+		TextAbove = "Polls per page:",
+		Action = Model.Pager.Action,
+		PageSize = Model.Pager.PageSize
+	}))
+
+@(await Component.InvokeAsync<PagerViewComponent>(new { Pager = Model.Pager }))
+
+
+@if (Model.PollItems.Any())
+{
+	<table class="list">
+		<tr>
+			<td>Question Text</td>
+			<td>Votes</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		@foreach (var item in Model.PollItems)
+		{
+			<tr>
+				<td>@item.QuestionText</td>
+				<td>@item.Votes</td>
+				<td>
+					@if (item.IsCurrent)
+					{
+						<span>Is current</span>
+					}
+				</td>
+				<td>
+					<a asp-controller="@nameof(ManagePollsController).ShortName()"
+					   asp-action="@nameof(ManagePollsController.ManageOptions)"
+					   asp-route-id="@item.Id">Edit Options</a>
+				</td>
+				<td>
+					<a asp-controller="@nameof(ManagePollsController).ShortName()"
+					   asp-action="@nameof(ManagePollsController.EditPoll)"
+					   asp-route-id="@item.Id">Edit Poll</a>
+				</td>
+				<td>
+					<a asp-controller="@nameof(ManagePollsController).ShortName()"
+					   asp-action="@nameof(ManagePollsController.DeletePoll)"
+					   asp-route-id="@item.Id">Delete</a>
+				</td>
+			</tr>
+		}
+	</table>
+}
+else
+{
+	<span class="empty-list">No polls to show</span>
+}
+
+
+@(await Component.InvokeAsync<PagerViewComponent>(new { Pager = Model.Pager }))

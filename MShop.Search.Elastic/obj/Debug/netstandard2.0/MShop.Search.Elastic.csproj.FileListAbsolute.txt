@@ -9,15 +9,3 @@ F:\MShop\MShop.Search.Elastic\obj\Debug\netstandard2.0\MShop.Search.Elastic.Asse
 F:\MShop\MShop.Search.Elastic\obj\Debug\netstandard2.0\MShop.Search.Elastic.AssemblyInfo.cs
 F:\MShop\MShop.Search.Elastic\obj\Debug\netstandard2.0\MShop.Search.Elastic.dll
 F:\MShop\MShop.Search.Elastic\obj\Debug\netstandard2.0\MShop.Search.Elastic.pdb
-G:\MShop\MShop.Search.Elastic\bin\Debug\netstandard2.0\MShop.Search.Elastic.deps.json
-G:\MShop\MShop.Search.Elastic\bin\Debug\netstandard2.0\MShop.Search.Elastic.dll
-G:\MShop\MShop.Search.Elastic\bin\Debug\netstandard2.0\MShop.Search.Elastic.pdb
-G:\MShop\MShop.Search.Elastic\bin\Debug\netstandard2.0\MShop.Search.dll
-G:\MShop\MShop.Search.Elastic\bin\Debug\netstandard2.0\MShop.Search.pdb
-G:\MShop\MShop.Search.Elastic\obj\Debug\netstandard2.0\MShop.Search.Elastic.csprojResolveAssemblyReference.cache
-G:\MShop\MShop.Search.Elastic\obj\Debug\netstandard2.0\MShop.Search.Elastic.csproj.CoreCompileInputs.cache
-G:\MShop\MShop.Search.Elastic\obj\Debug\netstandard2.0\MShop.Search.Elastic.AssemblyInfoInputs.cache
-G:\MShop\MShop.Search.Elastic\obj\Debug\netstandard2.0\MShop.Search.Elastic.AssemblyInfo.cs
-G:\MShop\MShop.Search.Elastic\obj\Debug\netstandard2.0\MShop.Search.Elastic.csproj.CopyComplete
-G:\MShop\MShop.Search.Elastic\obj\Debug\netstandard2.0\MShop.Search.Elastic.dll
-G:\MShop\MShop.Search.Elastic\obj\Debug\netstandard2.0\MShop.Search.Elastic.pdb

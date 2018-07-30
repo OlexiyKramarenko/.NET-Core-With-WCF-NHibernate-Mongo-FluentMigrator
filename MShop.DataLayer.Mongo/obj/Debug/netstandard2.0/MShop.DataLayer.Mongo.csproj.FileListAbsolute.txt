@@ -1,0 +1,4 @@
+G:\MShop\MShop.DataLayer.Mongo\obj\Debug\netstandard2.0\MShop.DataLayer.Mongo.csprojResolveAssemblyReference.cache
+G:\MShop\MShop.DataLayer.Mongo\obj\Debug\netstandard2.0\MShop.DataLayer.Mongo.csproj.CoreCompileInputs.cache
+G:\MShop\MShop.DataLayer.Mongo\obj\Debug\netstandard2.0\MShop.DataLayer.Mongo.AssemblyInfoInputs.cache
+G:\MShop\MShop.DataLayer.Mongo\obj\Debug\netstandard2.0\MShop.DataLayer.Mongo.AssemblyInfo.cs

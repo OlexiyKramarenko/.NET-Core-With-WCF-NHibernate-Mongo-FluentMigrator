@@ -1,0 +1,59 @@
+﻿@using MShop.Presentation.MPA.Admin.Controllers;
+@using MShop.Presentation.MPA.Admin.Infrastructure.Extensions;
+@using MShop.ViewComponents.Components;
+@using MShop.ViewComponents.Models;
+@model MShop.Presentation.MPA.Admin.Models.Store.ManageOrdersViewModel
+
+
+@(await Component.InvokeAsync<PageSizeViewComponent>(new PageSizeViewModel
+	{
+		TextAbove = "Orders per page:",
+		Action = Model.Pager.Action,
+		PageSize = Model.Pager.PageSize
+	}))
+
+@(await Component.InvokeAsync<PagerViewComponent>(new { Pager = Model.Pager }))
+
+@if (Model.OrderItems.Any())
+{
+	<table class="list">
+		@foreach (var item in Model.OrderItems)
+		{
+			<tr>
+				<td>
+					<label asp-for="@item.AddedDate"></label>
+				</td>
+				<td><label asp-for="@item.ShippingLastName"></label></td>
+				<td>
+					@foreach (var orderItem in item.OrderItems)
+					{
+						@orderItem.SKU
+						<a asp-controller="Store"
+						   asp-action="ShowProduct"
+						   asp-route-id="@orderItem.ProductId">@orderItem.Title</a>
+						@orderItem.Quantity
+						<br />
+					}
+				</td>
+				<td><label asp-for="@item.Subtotal"></label></td>
+				<td><label asp-for="@item.Shipping"></label></td>
+				<td>
+					<a asp-controller="@nameof(ManageStoreController).ShortName()"
+					   asp-action="@nameof(ManageStoreController.OrderDetails)"
+					   asp-route-id="@item.Id">Details</a>
+				</td>
+				<td>
+					<a asp-controller="@nameof(ManageStoreController).ShortName()"
+					   asp-action="@nameof(ManageStoreController.DeleteOrder)"
+					   asp-route-id="@item.Id">Delete</a>
+				</td>
+			</tr>
+		}
+	</table>
+}
+else
+{
+	<span class="empty-list">No orders to show</span>
+}
+
+@(await Component.InvokeAsync<PagerViewComponent>(new { Pager = Model.Pager }))

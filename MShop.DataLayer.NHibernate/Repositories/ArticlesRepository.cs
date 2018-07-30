@@ -269,6 +269,7 @@ namespace MShop.DataLayer.NHibernate.Repositories
 		{
 			_unitOfWork.Session.Save(article);
 		}
+
 		public void RateArticle(Guid articleId, int rating)
 		{
 			Article article = this.GetArticleById(articleId);
@@ -279,6 +280,7 @@ namespace MShop.DataLayer.NHibernate.Repositories
 			}
 			_unitOfWork.Session.Flush();
 		}
+
 		public void UpdateArticle(Article article)
 		{
 			_unitOfWork.Session.Update(article);

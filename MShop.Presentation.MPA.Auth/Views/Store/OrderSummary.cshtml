@@ -1,0 +1,24 @@
+﻿@model MShop.Presentation.MPA.Public.Models.Store.OrderSummaryViewModel
+
+<h3>Order Summary</h3>
+
+<h4>Order Details</h4>
+
+@foreach (var item in Model.ShoppingCartItems)
+{
+	<div style="background-color:whitesmoke;min-width:350px;padding:5px;">
+		> @item.Title - @item.UnitPrice (Quantity = @item.Quantity)
+	</div>
+}
+<br />
+
+<div><i>Subtotal</i> = @Model.Subtotal</div><br />
+<div><i>Shipping Method</i> = @Model.ShippingMethod</div><br />
+<div><i>Total</i> = @Model.Total</div><br />
+
+<h4>Shipping Details</h4>
+
+<div>@Model.ShippingDetails</div>
+<br />
+
+<button class="btn btn-default">Sumbit Order</button>

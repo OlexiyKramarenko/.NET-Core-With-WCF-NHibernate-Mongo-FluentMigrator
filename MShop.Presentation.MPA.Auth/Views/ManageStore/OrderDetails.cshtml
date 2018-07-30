@@ -1,0 +1,48 @@
+﻿@using MShop.Presentation.MPA.Admin.Controllers;
+@using MShop.Presentation.MPA.Admin.Infrastructure.Extensions;
+@model MShop.Presentation.MPA.Admin.Models.Store.EditOrderViewModel
+
+<div class="form-group">
+	<label asp-for="AddedDate" class="control-label">Added Date:</label>
+	@Model.AddedDate
+</div>
+
+<div class="form-group">
+	<label asp-for="AddedBy" class="control-label">Added By:</label>
+	@Model.AddedBy
+</div>
+
+<div class="form-group">
+	<label asp-for="CustomerEmail" class="control-label">Customer Email:</label>
+	@Model.CustomerEmail
+</div>
+
+<div class="form-group">
+	<label asp-for="CustomerPhone" class="control-label">Customer Phone:</label>
+	@Model.CustomerPhone
+</div>
+
+<div class="form-group">
+	<label asp-for="Items" class="control-label">Ordered Products:</label>
+	@foreach (var item in Model.Items)
+	{
+		@item.Title
+	}
+</div>
+
+<div class="form-group">
+	<label asp-for="CustomerPhone" class="control-label">Customer Phone:</label>
+	@Model.CustomerPhone
+</div>
+
+<form asp-controller="@nameof(ManageStoreController).ShortName()"
+	  asp-action="@nameof(ManageStoreController.UpdateOrderStatusId)">
+	<div class="form-group">
+		<input type="hidden" asp-for="Id" />
+	</div>
+	<div class="form-group">
+		<label asp-for="OrderStatuses" class="control-label">Order Statuses:</label>
+		<select asp-for="StatusId" asp-items="@Model.OrderStatuses"></select>
+	</div>
+	<input type="submit" value="Update order status" />
+</form>

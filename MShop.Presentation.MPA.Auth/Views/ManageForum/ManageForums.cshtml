@@ -1,0 +1,56 @@
+﻿@using MShop.Presentation.MPA.Admin.Controllers;
+@using MShop.Presentation.MPA.Admin.Infrastructure.Extensions;
+
+@model IEnumerable<MShop.Presentation.MPA.Admin.Models.Forums.ManageForumItemViewModel>
+
+<style>
+	.forum-link {
+		text-decoration: none;
+	}
+
+	.forum-item {
+		width: 600px;
+		padding: 0px 10px 10px 10px;
+		border: 1px solid black;
+		margin: 10px auto;
+		position: relative;
+	}
+
+	.edit_delete_link {
+		position: absolute;
+		top: 5px;
+		right: 5px;
+	}
+
+	.forum-item:hover {
+		border: 2px solid black;
+	}
+</style>
+@if (Model.Any())
+{
+	@foreach (var item in Model)
+	{
+		<div class="forum-item">
+			<div class="edit_delete_link">
+				<a asp-controller="@nameof(ManageForumController).ShortName()"
+				   asp-action="@nameof(ManageForumController.EditForum)"
+				   asp-route-id="@item.Id">edit</a>&nbsp;&nbsp;
+
+				<a asp-controller="@nameof(ManageForumController).ShortName()"
+				   asp-action="@nameof(ManageForumController.DeleteForum)"
+				   asp-route-id="@item.Id">delete</a>
+			</div>
+
+			<h4>@item.Title</h4>
+			@if (item.Moderated)
+			{
+				<label>moderated</label>
+			}
+			@item.Description
+		</div>
+	}
+}
+else
+{
+	<span class="empty-list">No forums to show</span>
+}

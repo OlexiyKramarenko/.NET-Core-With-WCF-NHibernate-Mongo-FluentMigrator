@@ -57,10 +57,6 @@ namespace MShop.DataLayer.EF
 
 			modelBuilder.Entity<OrderItem>().HasKey(a => a.Id);
 			modelBuilder.Entity<OrderItem>().HasOne(a => (Product)a.Product);
-
-			
-			//	modelBuilder.Entity<ShippingMethod>().HasKey(a => a.Id);
-			//modelBuilder.Entity<ShippingMethod>().HasMany(a => (List<Order>)a.Orders).WithOne(a=>a.ShippingMethod);
 		}
 	}
 }

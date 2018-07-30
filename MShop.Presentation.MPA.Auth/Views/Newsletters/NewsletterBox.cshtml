@@ -1,0 +1,19 @@
+﻿@using MShop.Presentation.MPA.Public.Infrastructure.Extensions;
+@using MShop.Presentation.MPA.Public.Controllers;
+
+<h3>Newsletter</h3>
+
+Register to the site for free, and subscribe to the newsletter.
+Every month you will receive new articles and special content
+not available elsewhere on the site,
+right into your e-mail box!
+<br /><br />
+<input type="text" value="E-mail here" />
+<a asp-controller="User" asp-action="Register">OK</a>
+<br /><br />
+
+<a asp-controller="@nameof(NewslettersController).ShortName()"
+   asp-action="@nameof(NewslettersController.ArchivedNewsletters)"
+   asp-route-toDate="@DateTime.Now">
+	Archived Newsletters
+</a>

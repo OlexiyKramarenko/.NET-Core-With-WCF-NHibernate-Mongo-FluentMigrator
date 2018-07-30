@@ -1,0 +1,17 @@
+﻿@using MShop.Presentation.MPA.Public.Infrastructure.Extensions;
+@using MShop.Presentation.MPA.Public.Controllers;
+@model MShop.Presentation.MPA.Public.Models.Store.ShowProductViewModel
+
+<form asp-controller="@nameof(StoreController).ShortName()"
+	  asp-action="@nameof(StoreController.AddToShoppingCart)">
+	<input type="hidden" asp-for="Id" />
+	<input type="hidden" asp-for="Title" />
+	<input type="hidden" asp-for="UnitPrice" />
+	<h3>@Model.Title</h3>
+	<h3>Price: @Model.UnitPrice USD</h3>
+	<p><b>Description: </b>@Model.Description</p>
+	<input type="submit" value="Add to Shopping Cart" />
+</form>
+
+
+
